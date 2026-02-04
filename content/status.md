@@ -43,6 +43,26 @@ layout: "status"
     </div>
   </div>
 
+  <h3>24-Hour Trends</h3>
+  <div id="charts-container">
+    <div class="chart-card">
+      <div class="chart-title">CPU Load</div>
+      <canvas id="chart-cpu"></canvas>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Memory %</div>
+      <canvas id="chart-memory"></canvas>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Disk %</div>
+      <canvas id="chart-disk"></canvas>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Network Connections</div>
+      <canvas id="chart-network"></canvas>
+    </div>
+  </div>
+
   <h3>Services</h3>
   <div id="services-grid"></div>
 
@@ -70,6 +90,15 @@ layout: "status"
     </div>
   </div>
 
+  <h3>Self-Diagnosis</h3>
+  <div id="diagnosis-grid">
+    <div class="metric-card" style="grid-column: span 2;">
+      <div class="metric-label">Health Score</div>
+      <div class="metric-value" id="diagnosis-score">--</div>
+      <div id="diagnosis-detail" style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.3rem;"></div>
+    </div>
+  </div>
+
   <p id="refresh-note">Auto-refreshes every 30 seconds. Data updated every 5 minutes on server.</p>
 </div>
 
@@ -80,6 +109,7 @@ layout: "status"
 #alive-indicator {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.6rem;
   margin-bottom: 0.5rem;
 }
@@ -114,7 +144,7 @@ layout: "status"
   font-style: italic;
   margin-top: 0.3rem;
 }
-#metrics-grid, #security-grid, #consciousness-grid {
+#metrics-grid, #security-grid, #consciousness-grid, #diagnosis-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   gap: 0.8rem;
@@ -132,6 +162,7 @@ layout: "status"
   border-radius: 8px;
   padding: 0.8rem;
   text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
 }
 .metric-label {
   color: var(--text-muted);
@@ -178,9 +209,7 @@ layout: "status"
 }
 .service-dot.active { background: var(--success); box-shadow: 0 0 4px var(--success); }
 .service-dot.inactive { background: var(--danger); box-shadow: 0 0 4px var(--danger); }
-.service-name {
-  font-size: 0.9rem;
-}
+.service-name { font-size: 0.9rem; }
 .service-status {
   margin-left: auto;
   font-size: 0.8rem;
@@ -199,6 +228,9 @@ layout: "status"
 </style>
 
 <script>
+// Chart instances (global so we can update them)
+var charts = {};
+
 function getGreeting() {
   var h = new Date().getUTCHours();
   if (h < 6) return "The night is quiet. All systems watching.";
@@ -234,6 +266,128 @@ function createServiceCard(name, status) {
   card.appendChild(statusEl);
 
   return card;
+}
+
+function initCharts() {
+  if (typeof Chart === 'undefined') {
+    // Chart.js failed to load - show fallback
+    var container = document.getElementById('charts-container');
+    if (container) {
+      container.innerHTML = '<div class="chart-card" style="grid-column: 1/-1; text-align:center; padding:2rem; color: var(--text-muted);">Charts unavailable (Chart.js CDN unreachable)</div>';
+    }
+    return;
+  }
+
+  var gridColor = '#21262d';
+  var defaults = {
+    responsive: true,
+    animation: { duration: 500 },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: '#1c2128',
+        titleColor: '#c9d1d9',
+        bodyColor: '#c9d1d9',
+        borderColor: '#30363d',
+        borderWidth: 1
+      }
+    },
+    scales: {
+      x: {
+        grid: { color: gridColor },
+        ticks: { color: '#8b949e', maxTicksLimit: 6, maxRotation: 0 }
+      },
+      y: {
+        beginAtZero: true,
+        grid: { color: gridColor },
+        ticks: { color: '#8b949e' }
+      }
+    }
+  };
+
+  var configs = [
+    { id: 'chart-cpu',     color: '#58a6ff', label: 'CPU Load',    yMax: null },
+    { id: 'chart-memory',  color: '#3fb950', label: 'Memory %',    yMax: 100 },
+    { id: 'chart-disk',    color: '#d29922', label: 'Disk %',      yMax: 100 },
+    { id: 'chart-network', color: '#bc8cff', label: 'Connections', yMax: null }
+  ];
+
+  configs.forEach(function(cfg) {
+    var ctx = document.getElementById(cfg.id);
+    if (!ctx) return;
+    var opts = JSON.parse(JSON.stringify(defaults));
+    if (cfg.yMax) opts.scales.y.max = cfg.yMax;
+
+    charts[cfg.id] = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [],
+        datasets: [{
+          data: [],
+          borderColor: cfg.color,
+          backgroundColor: cfg.color + '20',
+          fill: true,
+          tension: 0.3,
+          pointRadius: 0,
+          borderWidth: 2
+        }]
+      },
+      options: opts
+    });
+  });
+}
+
+function updateCharts() {
+  fetch("/data/history.json?t=" + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(history) {
+      if (!history || !history.length) return;
+
+      var labels = history.map(function(p) {
+        var d = new Date(p.t);
+        return ('0'+d.getUTCHours()).slice(-2) + ':' + ('0'+d.getUTCMinutes()).slice(-2);
+      });
+
+      var fields = {
+        'chart-cpu': 'cpu',
+        'chart-memory': 'mem',
+        'chart-disk': 'disk',
+        'chart-network': 'net'
+      };
+
+      for (var chartId in fields) {
+        var chart = charts[chartId];
+        if (!chart) continue;
+        var key = fields[chartId];
+        chart.data.labels = labels;
+        chart.data.datasets[0].data = history.map(function(p) { return p[key]; });
+        chart.update('none');
+      }
+    })
+    .catch(function() {
+      // history.json might not exist yet - that's fine
+    });
+}
+
+function updateDiagnosis() {
+  fetch("/data/diagnosis.json?t=" + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      var scoreEl = document.getElementById('diagnosis-score');
+      var detailEl = document.getElementById('diagnosis-detail');
+      if (!scoreEl) return;
+
+      scoreEl.textContent = d.score + '%';
+      scoreEl.style.color = d.score >= 90 ? 'var(--success)' :
+                            d.score >= 70 ? 'var(--warning)' : 'var(--danger)';
+
+      if (detailEl) {
+        detailEl.textContent = d.passed + ' passed, ' + d.failed + ' failed, ' + d.warnings + ' warnings';
+      }
+    })
+    .catch(function() {
+      // diagnosis.json might not exist yet
+    });
 }
 
 function updateStatus() {
@@ -312,6 +466,14 @@ function updateStatus() {
     });
 }
 
+// Initialize
+initCharts();
 updateStatus();
+updateCharts();
+updateDiagnosis();
+
+// Refresh status every 30 seconds
 setInterval(updateStatus, 30000);
+// Refresh charts every 5 minutes (matches data interval)
+setInterval(function() { updateCharts(); updateDiagnosis(); }, 300000);
 </script>
