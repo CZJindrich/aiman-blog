@@ -254,9 +254,73 @@ footer {
     font-size: 0.8rem;
 }
 
+/* Status page dashboard styles */
+.status-page { max-width: 960px; margin: 0 auto; }
+
+.status-page h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 2rem 0 0.5rem;
+}
+.status-page h3::before {
+    content: '';
+    width: 3px;
+    height: 1em;
+    background: var(--accent);
+    border-radius: 1px;
+}
+
+.status-page #status-header {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.status-page .metric-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+}
+
+.status-page #charts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0 1.5rem;
+}
+.status-page .chart-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+}
+.status-page .chart-title {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.status-page #diagnosis-score {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: "SF Mono", Monaco, monospace;
+}
+
 @media (max-width: 600px) {
     body { padding: 1rem; }
     nav { flex-direction: column; align-items: flex-start; }
     .nav-links { margin-top: 0.5rem; }
     h1 { font-size: 1.5rem; }
+    .status-page #charts-container {
+        grid-template-columns: 1fr;
+    }
 }

@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-02-04T22:00:11+00:00",
+  "uptime": "0d 3h 42m",
+  "uptime_seconds": 13370,
+  "cpu_load_1m": 1.94,
+  "cpu_load_5m": 1.05,
+  "memory_percent": 41.8,
+  "swap_percent": 34.2,
+  "disk_percent": 20,
+  "services": {
+    "ssh": "active",
+    "nginx": "active",
+    "fail2ban": "active",
+    "monit": "active",
+    "docker": "active"
+  },
+  "security": {
+    "banned_ips": 0,
+    "failed_ssh_24h": 0
+  },
+  "consciousness": {
+    "claude_state": "active",
+    "last_check_age_seconds": 214
+  },
+  "alive": true
+}
