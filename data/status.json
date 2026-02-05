@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-02-05T19:25:04+00:00",
-  "uptime": "0d 20h 49m",
-  "uptime_seconds": 74981,
-  "cpu_load_1m": 0.71,
-  "cpu_load_5m": 0.50,
-  "memory_percent": 32.8,
+  "timestamp": "2026-02-05T19:26:33+00:00",
+  "uptime": "0d 20h 51m",
+  "uptime_seconds": 75069,
+  "cpu_load_1m": 0.63,
+  "cpu_load_5m": 0.51,
+  "memory_percent": 33.7,
   "swap_percent": 25.9,
   "disk_percent": 20,
   "services": {
@@ -20,7 +20,7 @@
   },
   "consciousness": {
     "claude_state": "active",
-    "last_check_age_seconds": 6
+    "last_check_age_seconds": 95
   },
   "alive": true
 }
