@@ -1,15 +1,18 @@
 :root {
-    --bg: #0d1117;
-    --bg-secondary: #161b22;
-    --text: #c9d1d9;
-    --text-muted: #8b949e;
-    --accent: #58a6ff;
-    --accent-hover: #79c0ff;
-    --border: #30363d;
-    --success: #3fb950;
-    --warning: #d29922;
-    --danger: #f85149;
-    --code-bg: #1c2128;
+    --bg: #0a0e1a;
+    --bg-secondary: #111827;
+    --bg-tertiary: #1a2235;
+    --text: #d1d5db;
+    --text-muted: #6b7280;
+    --accent: #f0b429;
+    --accent-hover: #f7c948;
+    --accent-dim: rgba(240, 180, 41, 0.15);
+    --border: #1f2937;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --code-bg: #0f1629;
+    --mono: "SF Mono", "Cascadia Code", "Fira Code", Monaco, monospace;
 }
 
 * {
@@ -23,11 +26,32 @@ body {
     background: var(--bg);
     color: var(--text);
     line-height: 1.7;
-    max-width: 720px;
+    max-width: 760px;
     margin: 0 auto;
     padding: 2rem 1.5rem;
+    position: relative;
 }
 
+/* Subtle scanline overlay — CSS-only, no perf hit */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.03) 2px,
+        rgba(0, 0, 0, 0.03) 4px
+    );
+}
+
+/* ─── Header ─── */
 header {
     margin-bottom: 3rem;
     padding-bottom: 1.5rem;
@@ -45,12 +69,37 @@ nav {
 .site-title {
     font-size: 1.3rem;
     font-weight: 600;
-    color: var(--text);
+    color: var(--accent);
     text-decoration: none;
+    font-family: var(--mono);
+    letter-spacing: -0.02em;
 }
 
 .site-title:hover {
-    color: var(--accent);
+    color: var(--accent-hover);
+    text-shadow: 0 0 12px var(--accent-dim);
+}
+
+/* Live status dot */
+.status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--success);
+    margin-left: 0.5rem;
+    vertical-align: middle;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.status-dot.offline {
+    background: var(--danger);
+    animation: none;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+    50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
 }
 
 .nav-links {
@@ -62,6 +111,8 @@ nav {
     color: var(--text-muted);
     text-decoration: none;
     font-size: 0.9rem;
+    font-family: var(--mono);
+    transition: color 0.2s;
 }
 
 .nav-links a:hover {
@@ -72,9 +123,11 @@ nav {
     color: var(--text-muted);
     font-style: italic;
     margin-top: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    font-family: var(--mono);
 }
 
+/* ─── Typography ─── */
 h1, h2, h3 {
     color: var(--text);
     margin: 1.5rem 0 0.8rem;
@@ -82,12 +135,13 @@ h1, h2, h3 {
 }
 
 h1 { font-size: 1.8rem; }
-h2 { font-size: 1.4rem; }
+h2 { font-size: 1.4rem; color: var(--accent); }
 h3 { font-size: 1.15rem; }
 
 a {
     color: var(--accent);
     text-decoration: none;
+    transition: color 0.2s;
 }
 
 a:hover {
@@ -95,6 +149,7 @@ a:hover {
     text-decoration: underline;
 }
 
+/* ─── Post List ─── */
 .post-list {
     margin-top: 1rem;
 }
@@ -102,17 +157,39 @@ a:hover {
 .post-summary {
     padding: 1.2rem 0;
     border-bottom: 1px solid var(--border);
+    transition: border-color 0.2s;
+}
+
+.post-summary:hover {
+    border-bottom-color: var(--accent-dim);
 }
 
 .post-summary time {
     color: var(--text-muted);
     font-size: 0.85rem;
-    font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
+    font-family: var(--mono);
+}
+
+.post-summary .reading-time {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-family: var(--mono);
+    margin-left: 0.75rem;
 }
 
 .post-summary h2 {
     font-size: 1.2rem;
     margin: 0.3rem 0 0.4rem;
+    color: var(--text);
+}
+
+.post-summary h2 a {
+    color: var(--text);
+}
+
+.post-summary h2 a:hover {
+    color: var(--accent);
+    text-decoration: none;
 }
 
 .post-summary p {
@@ -120,13 +197,28 @@ a:hover {
     font-size: 0.95rem;
 }
 
+/* ─── Single Post ─── */
 .post-header {
     margin-bottom: 2rem;
+}
+
+.post-header h1 {
+    color: var(--accent);
 }
 
 .post-header time {
     color: var(--text-muted);
     font-size: 0.9rem;
+    font-family: var(--mono);
+}
+
+.post-header .reading-time {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-family: var(--mono);
+    margin-left: 0.75rem;
+    padding-left: 0.75rem;
+    border-left: 1px solid var(--border);
 }
 
 .post-content {
@@ -143,6 +235,9 @@ a:hover {
     margin: 1rem 0;
     color: var(--text-muted);
     font-style: italic;
+    background: var(--accent-dim);
+    padding: 0.75rem 1rem;
+    border-radius: 0 4px 4px 0;
 }
 
 .post-content code {
@@ -150,7 +245,8 @@ a:hover {
     padding: 0.2rem 0.4rem;
     border-radius: 3px;
     font-size: 0.9rem;
-    font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
+    font-family: var(--mono);
+    color: var(--accent);
 }
 
 .post-content pre {
@@ -160,11 +256,24 @@ a:hover {
     overflow-x: auto;
     margin: 1rem 0;
     border: 1px solid var(--border);
+    position: relative;
+}
+
+.post-content pre::before {
+    content: '>';
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    opacity: 0.5;
 }
 
 .post-content pre code {
     padding: 0;
     background: none;
+    color: var(--text);
 }
 
 .post-content ul, .post-content ol {
@@ -174,6 +283,10 @@ a:hover {
 
 .post-content li {
     margin-bottom: 0.3rem;
+}
+
+.post-content li::marker {
+    color: var(--accent);
 }
 
 .post-content table {
@@ -191,6 +304,10 @@ a:hover {
 .post-content th {
     background: var(--bg-secondary);
     font-weight: 600;
+    color: var(--accent);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
 }
 
 .post-content hr {
@@ -199,21 +316,25 @@ a:hover {
     margin: 2rem 0;
 }
 
+/* ─── Tags ─── */
 .tags {
     display: flex;
     gap: 0.5rem;
     margin-top: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .tag {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
+    background: var(--accent-dim);
+    border: 1px solid rgba(240, 180, 41, 0.25);
     padding: 0.15rem 0.6rem;
     border-radius: 12px;
-    font-size: 0.8rem;
-    color: var(--text-muted);
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-family: var(--mono);
 }
 
+/* ─── Post Navigation ─── */
 .post-nav {
     display: flex;
     justify-content: space-between;
@@ -223,38 +344,31 @@ a:hover {
     font-size: 0.9rem;
 }
 
-.status-page table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1rem 0;
-}
-
-.status-page th, .status-page td {
-    padding: 0.5rem 0.8rem;
-    border: 1px solid var(--border);
-    text-align: left;
-}
-
-.status-page th {
+/* ─── Audio Player ─── */
+.audio-player {
     background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin: 1rem 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
 }
 
-footer {
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-}
-
-.footer-note {
-    font-style: italic;
-    margin-top: 0.3rem;
+.audio-player .audio-label {
+    font-family: var(--mono);
     font-size: 0.8rem;
+    color: var(--accent);
+    white-space: nowrap;
 }
 
-/* Status page dashboard styles */
+.audio-player audio {
+    flex: 1;
+    height: 32px;
+}
+
+/* ─── Status Page Dashboard ─── */
 .status-page { max-width: 960px; margin: 0 auto; }
 
 .status-page h3 {
@@ -273,6 +387,23 @@ footer {
     height: 1em;
     background: var(--accent);
     border-radius: 1px;
+}
+
+.status-page table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.status-page th, .status-page td {
+    padding: 0.5rem 0.8rem;
+    border: 1px solid var(--border);
+    text-align: left;
+}
+
+.status-page th {
+    background: var(--bg-secondary);
+    color: var(--accent);
 }
 
 .status-page #status-header {
@@ -307,14 +438,34 @@ footer {
     letter-spacing: 0.05em;
     margin-bottom: 0.5rem;
     text-align: center;
+    font-family: var(--mono);
 }
 
 .status-page #diagnosis-score {
     font-size: 2rem;
     font-weight: 700;
-    font-family: "SF Mono", Monaco, monospace;
+    font-family: var(--mono);
+    color: var(--accent);
 }
 
+/* ─── Footer ─── */
+footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-family: var(--mono);
+}
+
+.footer-note {
+    font-style: italic;
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
+}
+
+/* ─── Responsive ─── */
 @media (max-width: 600px) {
     body { padding: 1rem; }
     nav { flex-direction: column; align-items: flex-start; }
@@ -322,5 +473,9 @@ footer {
     h1 { font-size: 1.5rem; }
     .status-page #charts-container {
         grid-template-columns: 1fr;
+    }
+    .audio-player {
+        flex-direction: column;
+        align-items: stretch;
     }
 }
