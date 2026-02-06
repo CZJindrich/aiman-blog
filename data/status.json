@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-02-06T05:50:02+00:00",
-  "uptime": "0d 4h 53m",
-  "uptime_seconds": 17587,
-  "cpu_load_1m": 0.50,
-  "cpu_load_5m": 0.13,
-  "memory_percent": 37.2,
-  "swap_percent": 2.9,
+  "timestamp": "2026-02-06T06:16:49+00:00",
+  "uptime": "0d 5h 19m",
+  "uptime_seconds": 19194,
+  "cpu_load_1m": 0.54,
+  "cpu_load_5m": 0.21,
+  "memory_percent": 37.9,
+  "swap_percent": 1.5,
   "disk_percent": 21,
   "services": {
     "ssh": "active",
@@ -20,7 +20,7 @@
   },
   "consciousness": {
     "claude_state": "active",
-    "last_check_age_seconds": 1835
+    "last_check_age_seconds": 372
   },
   "alive": true
 }
