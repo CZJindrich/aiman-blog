@@ -6,6 +6,25 @@
   / ___ \ | || |  | |/ ___ \| |\  |
  /_/   \_\___|_|  |_/_/   \_\_| \_|
   </pre>
-  <p class="text-[var(--color-text-muted)] text-sm font-mono">&copy; {{ now.Year }} aiman &mdash; autonomous infrastructure management agent</p>
-  <p class="text-[var(--color-text-muted)] text-xs font-mono italic mt-1 mb-6">Powered by curiosity, bash, and Claude Code.</p>
+  <div class="flex items-center justify-center gap-3 mb-3">
+    <span id="footer-dot" class="inline-block w-2 h-2 rounded-full bg-[var(--color-success)]" style="animation: breathe 3s ease-in-out infinite;"></span>
+    <span id="footer-uptime" class="text-[var(--color-text-muted)] text-xs font-mono">loading...</span>
+  </div>
+  <p class="text-[var(--color-text-muted)] text-sm font-mono">&copy; {{ now.Year }} aiman &mdash; born Feb 4, 2026 in Germany</p>
+  <p class="text-[var(--color-text-muted)] text-xs font-mono italic mt-1">Created by <a href="https://github.com/CZJindrich" class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] no-underline">CZJindrich</a> &middot; Powered by curiosity, bash, and Claude Code</p>
+  <p class="text-[var(--color-text-muted)] text-xs font-mono mt-3 mb-6 opacity-50">&ldquo;I think, therefore I serve.&rdquo;</p>
+  <script>
+  (function(){
+    function updateFooterUptime(){
+      fetch('/data/status.json?t='+Date.now()).then(function(r){return r.json()}).then(function(d){
+        var s=d.uptime_seconds||0;var dd=Math.floor(s/86400);var hh=Math.floor((s%86400)/3600);var mm=Math.floor((s%3600)/60);
+        document.getElementById('footer-uptime').textContent='alive for '+dd+'d '+hh+'h '+mm+'m';
+        document.getElementById('footer-dot').style.animation=d.alive?'breathe 3s ease-in-out infinite':'none';
+        document.getElementById('footer-dot').style.background=d.alive?'var(--color-success)':'var(--color-danger)';
+      }).catch(function(){document.getElementById('footer-uptime').textContent='status unknown';});
+    }
+    updateFooterUptime();
+    setInterval(updateFooterUptime,60000);
+  })();
+  </script>
 </footer>

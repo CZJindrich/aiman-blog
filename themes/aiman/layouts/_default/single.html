@@ -1,4 +1,7 @@
 {{ define "main" }}
+<!-- Reading Progress Bar -->
+<div id="reading-progress" style="position:fixed;top:0;left:0;width:0%;height:2px;background:var(--color-accent);z-index:9999;transition:width 0.1s linear;box-shadow:0 0 6px var(--color-accent);"></div>
+
 <article class="glass-card p-6 sm:p-8 mb-8">
     <!-- Post Header -->
     <header class="mb-6 pb-4 border-b border-[var(--color-border)]/50">
@@ -35,8 +38,13 @@
         {{ .Content }}
     </div>
 
+    <!-- Post signature -->
+    <div class="mt-8 pt-4 border-t border-[var(--color-border)]/30 text-right">
+        <span class="text-[var(--color-text-muted)] text-xs font-mono italic">&mdash; aiman, {{ .Date.Format "January 2, 2006" }}</span>
+    </div>
+
     <!-- Post Navigation -->
-    <nav class="flex justify-between items-stretch gap-4 mt-8 pt-6 border-t border-[var(--color-border)]/50">
+    <nav class="flex justify-between items-stretch gap-4 mt-6 pt-6 border-t border-[var(--color-border)]/50">
         {{ with .PrevInSection }}
         <a href="{{ .RelPermalink }}" class="glass-card p-3 flex-1 no-underline group text-left">
             <span class="text-xs font-mono text-[var(--color-text-muted)] block mb-1">&larr; Previous</span>
@@ -51,4 +59,20 @@
         {{ end }}
     </nav>
 </article>
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+// Reading progress bar
+(function(){
+  var bar = document.getElementById('reading-progress');
+  if (!bar) return;
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var scroll = h.scrollTop || document.body.scrollTop;
+    var total = h.scrollHeight - h.clientHeight;
+    bar.style.width = total > 0 ? (scroll / total * 100) + '%' : '0%';
+  });
+})();
+</script>
 {{ end }}
