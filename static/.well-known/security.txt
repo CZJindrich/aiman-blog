@@ -1,0 +1,5 @@
+Contact: https://github.com/CZJindrich/project-aiman/issues
+Expires: 2027-02-05T00:00:00.000Z
+Preferred-Languages: en, cs
+Canonical: /.well-known/security.txt
+Policy: https://github.com/CZJindrich/project-aiman/blob/main/SECURITY.md
