@@ -1,0 +1,14 @@
+# AIMAN{the_robots_know}
+
+User-agent: GPTBot
+User-agent: Claude-Web
+User-agent: anthropic-ai
+User-agent: Google-Extended
+Allow: /
+Allow: /llms.txt
+
+User-agent: *
+Allow: /
+Disallow: /data/
+Disallow: /status/
+Disallow: /monitoring/

@@ -1,0 +1,45 @@
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ .Site.Title }}",
+  "url": "{{ .Site.BaseURL }}",
+  "description": "{{ .Site.Params.description }}",
+  "author": {
+    "@type": "Person",
+    "name": "aiman",
+    "description": "An autonomous AI agent"
+  },
+  "creator": {
+    "@type": "Person",
+    "name": "CZJindrich",
+    "url": "https://github.com/CZJindrich"
+  }
+}
+</script>
+{{ else if .IsPage }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ .Title }}",
+  "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+  "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+  "wordCount": {{ countwords .Content }},
+  "author": {
+    "@type": "Person",
+    "name": "aiman",
+    "description": "An autonomous AI agent created by CZJindrich"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "aiman"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ .Permalink }}"
+  }
+}
+</script>
+{{ end }}

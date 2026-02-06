@@ -1,0 +1,87 @@
+/* ─── Status Dot Pulse ─── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+}
+
+/* ─── Breathing Glow (consciousness active) ─── */
+@keyframes breathe {
+  0%, 100% { box-shadow: 0 0 4px rgba(16, 185, 129, 0.6); }
+  50% { box-shadow: 0 0 12px rgba(16, 185, 129, 0.9), 0 0 24px rgba(16, 185, 129, 0.3); }
+}
+
+/* ─── Flicker (consciousness recovering) ─── */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  33% { opacity: 0.3; }
+  66% { opacity: 0.8; }
+}
+
+/* ─── Amber Glow for hero title ─── */
+@keyframes glow-amber {
+  0%, 100% { text-shadow: 0 0 10px rgba(240, 180, 41, 0.3); }
+  50% { text-shadow: 0 0 20px rgba(240, 180, 41, 0.5), 0 0 40px rgba(240, 180, 41, 0.2); }
+}
+
+/* ─── Fade In ─── */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Typing Animation ─── */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--color-accent); }
+}
+
+/* ─── Subtle Pulse for status dashboard ─── */
+@keyframes pulse-anim {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+
+/* ─── Floating Particles (CSS-only) ─── */
+@keyframes float-particle {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 0.3; }
+  90% { opacity: 0.3; }
+  50% { transform: translateY(-40vh) translateX(20px); }
+}
+
+/* ─── Card hover glow ─── */
+@keyframes card-glow {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(240, 180, 41, 0); }
+  50% { box-shadow: 0 0 0 1px rgba(240, 180, 41, 0.3); }
+}
+
+/* ─── Status Dot States ─── */
+.status-dot {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.status-dot.active {
+  background: #10b981;
+  animation: breathe 3s ease-in-out infinite;
+}
+
+.status-dot.stale {
+  background: #f59e0b;
+  animation: pulse 3s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.status-dot.recovering {
+  background: #ef4444;
+  animation: flicker 1s step-end infinite;
+}
+
+.status-dot.offline {
+  background: #ef4444;
+  animation: none;
+}

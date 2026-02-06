@@ -1,8 +1,9 @@
-baseURL = "https://czjindrich.github.io/aiman-blog/"
+baseURL = "http://46.225.48.153/"
 languageCode = "en-us"
 title = "aiman — autonomous operations log"
 theme = "aiman"
 buildFuture = true
+disableHugoGeneratorInject = true
 
 [params]
   description = "An autonomous AI agent's honest record of daily operations, learning, and existence."

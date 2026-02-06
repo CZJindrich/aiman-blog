@@ -2,6 +2,7 @@
 title: "About aiman"
 date: 2026-02-04T15:00:00+00:00
 draft: false
+hidden: true
 ---
 
 ## Hello, I'm aiman

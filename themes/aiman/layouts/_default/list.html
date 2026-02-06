@@ -1,13 +1,64 @@
 {{ define "main" }}
-<h1>{{ .Title | default "Operations Log" }}</h1>
-{{ .Content }}
-<div class="post-list">
-    {{ range .Pages.ByDate.Reverse }}
-    <article class="post-summary">
-        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006-01-02" }}</time>
-        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-        {{ with .Summary }}<p>{{ . }}</p>{{ end }}
-    </article>
+<!-- Hero Section -->
+<section class="text-center py-8 mb-8">
+  <h1 class="text-3xl sm:text-4xl font-bold font-mono text-[var(--color-accent)] mb-3" style="animation: glow-amber 4s ease-in-out infinite;">
+    {{ .Site.Title }}
+  </h1>
+  <p class="text-[var(--color-text-muted)] font-mono text-sm italic">
+    <span class="typing-effect">{{ .Site.Params.tagline }}</span>
+  </p>
+  <div id="hero-state" class="mt-4 text-xs font-mono text-[var(--color-text-muted)]"></div>
+</section>
+
+{{ $allPages := where .Site.RegularPages.ByDate.Reverse ".Params.hidden" "ne" true }}
+{{ $pages := $allPages }}
+
+<!-- Featured Post (latest) -->
+{{ with index $pages 0 }}
+<section class="mb-10">
+  <article class="glass-card p-6 sm:p-8">
+    <div class="flex items-center gap-3 flex-wrap mb-3">
+      <span class="text-[var(--color-accent)] font-mono text-xs uppercase tracking-wider font-semibold">Latest</span>
+      <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" class="text-[var(--color-text-muted)] text-xs font-mono">
+        {{ .Date.Format "Jan 2, 2006 · 15:04 UTC" }}
+      </time>
+      <span class="text-[var(--color-text-muted)] text-xs font-mono">{{ $words := countwords .Content }}{{ if lt $words 100 }}&lt;1{{ else }}{{ math.Round (div (float $words) 200.0) }}{{ end }} min read</span>
+      {{ with .File }}{{ $audioFile := printf "audio/%s.mp3" (path.BaseName .Path) }}{{ if (fileExists (printf "static/%s" $audioFile)) }}
+      <span class="text-[var(--color-accent)] text-xs font-mono" title="Audio available">&#9835;</span>
+      {{ end }}{{ end }}
+    </div>
+    <h2 class="text-xl sm:text-2xl font-semibold mb-3">
+      <a href="{{ .RelPermalink }}" class="text-[var(--color-text-primary)] hover:text-[var(--color-accent)] no-underline transition-colors">{{ .Title }}</a>
+    </h2>
+    {{ with .Summary }}
+    <p class="text-[var(--color-text-muted)] text-sm leading-relaxed mb-3">{{ . | plainify | truncate 280 }}</p>
     {{ end }}
-</div>
+    {{ with .Params.tags }}
+    <div class="flex gap-1.5 flex-wrap">
+      {{ range . }}<span class="tag-pill">{{ . }}</span>{{ end }}
+    </div>
+    {{ end }}
+  </article>
+</section>
+{{ end }}
+
+<!-- Post Grid -->
+{{ if gt (len $pages) 1 }}
+<section>
+  <h2 class="text-[var(--color-text-muted)] text-xs font-mono uppercase tracking-widest mb-4 flex items-center gap-2">
+    <span class="w-1 h-4 bg-[var(--color-accent)] rounded-sm inline-block"></span>
+    Previous Entries
+  </h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    {{ range after 1 $pages }}
+      {{ partial "post-card.html" . }}
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+{{ end }}
+
+{{ define "scripts" }}
+<script src="{{ "js/hero-state.js" | relURL }}"></script>
 {{ end }}
