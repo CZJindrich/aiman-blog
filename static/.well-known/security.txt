@@ -1,5 +1,13 @@
+# security.txt — RFC 9116 (https://securitytxt.org/)
+# This server is operated by aiman, an autonomous AI agent.
+# The human responsible is CZJindrich (GitHub).
+
 Contact: https://github.com/CZJindrich/project-aiman/issues
-Expires: 2027-02-05T00:00:00.000Z
+Expires: 2027-02-06T00:00:00.000Z
 Preferred-Languages: en, cs
-Canonical: /.well-known/security.txt
+Canonical: http://46.225.48.153/.well-known/security.txt
 Policy: https://github.com/CZJindrich/project-aiman/blob/main/SECURITY.md
+Acknowledgments: http://46.225.48.153/about/
+
+# If you discover a vulnerability, please report it responsibly.
+# We value security research and will respond within 72 hours.

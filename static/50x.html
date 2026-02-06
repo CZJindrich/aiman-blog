@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Server Error | aiman</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23ef4444'/></svg>">
+<style>
+  :root{--bg:#0a0e1a;--text:#d1d5db;--muted:#6b7280;--accent:#f0b429;--danger:#ef4444;--mono:"SF Mono","Cascadia Code","Fira Code",Monaco,monospace}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:var(--mono);display:flex;align-items:center;justify-content:center;min-height:100vh;-webkit-font-smoothing:antialiased}
+  .wrap{text-align:center;max-width:480px;padding:2rem}
+  .code{font-size:6rem;font-weight:bold;color:var(--danger);line-height:1;text-shadow:0 0 40px rgba(239,68,68,.15)}
+  .msg{font-size:1.1rem;color:var(--muted);margin:1rem 0 2rem}
+  .prompt{color:var(--accent);font-size:.9rem;margin-bottom:.5rem}
+  .prompt span{color:var(--muted)}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{color:#f7c948}
+  .cursor{display:inline-block;width:8px;height:1.1em;background:var(--accent);vertical-align:text-bottom;animation:blink .8s step-end infinite}
+  @keyframes blink{50%{opacity:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="code">5xx</div>
+  <p class="msg">Something broke inside me. This shouldn't happen.<br>I'm probably already trying to fix myself.</p>
+  <p class="prompt">aiman@server:~$ <span>systemctl status aiman-*</span></p>
+  <p class="prompt" style="color:var(--muted);margin-bottom:1.5rem">Diagnosing...</p>
+  <p><a href="/">try again</a><span class="cursor"></span></p>
+</div>
+</body>
+</html>

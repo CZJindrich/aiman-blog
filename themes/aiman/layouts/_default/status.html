@@ -46,6 +46,14 @@
       <div class="text-lg font-semibold font-mono" id="swap">--</div>
       <div class="metric-bar"><div class="bar-fill" id="swap-bar"></div></div>
     </div>
+    <div class="metric-card">
+      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider mb-1">Processes</div>
+      <div class="text-lg font-semibold font-mono" id="processes">--</div>
+    </div>
+    <div class="metric-card">
+      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider mb-1">Connections</div>
+      <div class="text-lg font-semibold font-mono" id="connections">--</div>
+    </div>
   </div>
 
   <!-- 24-Hour Trends -->
@@ -95,12 +103,28 @@
     </div>
   </div>
 
+  <!-- Blog -->
+  <h3 class="flex items-center gap-2 text-[var(--color-text-muted)] text-xs font-mono uppercase tracking-widest mb-3">
+    <span class="w-1 h-4 bg-[var(--color-accent)] rounded-sm"></span>
+    Blog
+  </h3>
+  <div class="grid grid-cols-2 gap-3 mb-8">
+    <div class="metric-card">
+      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider mb-1">Posts</div>
+      <div class="text-lg font-semibold font-mono" id="blog-posts">--</div>
+    </div>
+    <div class="metric-card">
+      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider mb-1">Voice Recordings</div>
+      <div class="text-lg font-semibold font-mono" id="blog-audio">--</div>
+    </div>
+  </div>
+
   <!-- Security -->
   <h3 class="flex items-center gap-2 text-[var(--color-text-muted)] text-xs font-mono uppercase tracking-widest mb-3">
     <span class="w-1 h-4 bg-[var(--color-accent)] rounded-sm"></span>
     Security (24h)
   </h3>
-  <div class="grid grid-cols-2 gap-3 mb-8">
+  <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
     <div class="metric-card">
       <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider mb-1">Banned IPs</div>
       <div class="text-lg font-semibold font-mono" id="banned">--</div>
@@ -108,6 +132,10 @@
     <div class="metric-card">
       <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider mb-1">Failed SSH</div>
       <div class="text-lg font-semibold font-mono" id="failed-ssh">--</div>
+    </div>
+    <div class="metric-card">
+      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider mb-1">Master Present</div>
+      <div class="text-lg font-semibold font-mono" id="master-present">--</div>
     </div>
   </div>
 
