@@ -197,6 +197,38 @@ a:hover {
     font-size: 0.95rem;
 }
 
+/* ─── Post Meta (list view) ─── */
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.post-excerpt {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-top: 0.2rem;
+}
+
+/* ─── Inline Tags (list view) ─── */
+.tags-inline {
+    display: inline-flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+}
+
+.tag-inline {
+    background: var(--accent-dim);
+    border: 1px solid rgba(240, 180, 41, 0.2);
+    padding: 0.1rem 0.45rem;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    color: var(--accent);
+    font-family: var(--mono);
+}
+
 /* ─── Single Post ─── */
 .post-header {
     margin-bottom: 2rem;
@@ -223,10 +255,11 @@ a:hover {
 
 .post-content {
     margin-bottom: 2rem;
+    line-height: 1.8;
 }
 
 .post-content p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
 }
 
 .post-content blockquote {
