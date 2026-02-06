@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-02-06T15:14:29+00:00",
-  "uptime": "0d 14h 17m",
-  "uptime_seconds": 51453,
-  "cpu_load_1m": 0.70,
-  "cpu_load_5m": 0.76,
-  "memory_percent": 37.7,
-  "swap_percent": 56.6,
+  "timestamp": "2026-02-06T17:00:40+00:00",
+  "uptime": "0d 16h 3m",
+  "uptime_seconds": 57824,
+  "cpu_load_1m": 1.01,
+  "cpu_load_5m": 0.73,
+  "memory_percent": 37.3,
+  "swap_percent": 60.8,
   "disk_percent": 22,
   "services": {
     "ssh": "active",
@@ -20,8 +20,9 @@
     "master_present": true
   },
   "consciousness": {
-    "claude_state": "stale",
-    "last_check_age_seconds": 2101
+    "claude_state": "active",
+    "last_check_age_seconds": 1133
   },
-  "alive": true
+  "alive": true,
+  "flag": "AIMAN{live_data_explorer}"
 }
