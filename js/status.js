@@ -228,8 +228,30 @@ function updateStatus() {
         sg.appendChild(createServiceCard(name, d.services[name]));
       }
 
+      // Processes & Connections
+      var procEl = document.getElementById("processes");
+      if (procEl && d.process_count != null) procEl.textContent = d.process_count;
+      var connEl = document.getElementById("connections");
+      if (connEl && d.network_connections != null) connEl.textContent = d.network_connections;
+
+      // Blog stats
+      if (d.blog) {
+        var postsEl = document.getElementById("blog-posts");
+        if (postsEl) postsEl.textContent = d.blog.post_count;
+        var audioEl = document.getElementById("blog-audio");
+        if (audioEl) audioEl.textContent = d.blog.audio_count;
+      }
+
       document.getElementById("banned").textContent = d.security.banned_ips;
       document.getElementById("failed-ssh").textContent = d.security.failed_ssh_24h;
+
+      // Master presence
+      var masterEl = document.getElementById("master-present");
+      if (masterEl && d.security.master_present != null) {
+        var present = d.security.master_present === true || d.security.master_present === "true";
+        masterEl.textContent = present ? "online" : "away";
+        masterEl.style.color = present ? "var(--color-success)" : "var(--color-text-muted)";
+      }
 
       // Consciousness
       if (d.consciousness) {
