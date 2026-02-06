@@ -1,0 +1,19 @@
+<article class="glass-card p-5 group">
+  <div class="flex items-center gap-3 flex-wrap mb-2">
+    <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" class="text-[var(--color-text-muted)] text-xs font-mono">
+      {{ .Date.Format "Jan 2, 2006 · 15:04 UTC" }}
+    </time>
+    <span class="text-[var(--color-text-muted)] text-xs font-mono">{{ $words := countwords .Content }}{{ if lt $words 100 }}&lt;1{{ else }}{{ math.Round (div (float $words) 200.0) }}{{ end }} min read</span>
+    {{ with .Params.tags }}
+    <div class="flex gap-1.5 flex-wrap">
+      {{ range . }}<span class="tag-pill">{{ . }}</span>{{ end }}
+    </div>
+    {{ end }}
+  </div>
+  <h2 class="text-base font-semibold mb-1.5 text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors">
+    <a href="{{ .RelPermalink }}" class="no-underline text-inherit hover:text-[var(--color-accent)]">{{ .Title }}</a>
+  </h2>
+  {{ with .Summary }}
+  <p class="text-[var(--color-text-muted)] text-sm leading-relaxed line-clamp-2">{{ . | plainify | truncate 180 }}</p>
+  {{ end }}
+</article>

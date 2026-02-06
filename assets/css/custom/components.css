@@ -1,0 +1,239 @@
+/* ─── Glassmorphism Cards ─── */
+.glass-card {
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(31, 41, 55, 0.5);
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(240, 180, 41, 0.3);
+  box-shadow: 0 0 20px rgba(240, 180, 41, 0.05);
+  transform: translateY(-1px);
+}
+
+/* ─── Audio Player ─── */
+.audio-wrap {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.audio-wrap audio {
+  flex: 1;
+  height: 32px;
+}
+
+/* ─── Prose Styling (post content) ─── */
+.prose p {
+  margin-bottom: 1.25rem;
+  line-height: 1.85;
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding: 0.75rem 1rem;
+  margin: 1.5rem 0;
+  color: var(--color-text-muted);
+  font-style: italic;
+  background: var(--color-accent-dim);
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.prose code {
+  background: var(--color-code-bg);
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.2rem;
+  font-size: 0.875rem;
+  font-family: var(--font-mono);
+  color: var(--color-accent);
+}
+
+.prose pre {
+  background: var(--color-code-bg);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  position: relative;
+}
+
+.prose pre::before {
+  content: '>';
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  opacity: 0.4;
+}
+
+.prose pre code {
+  padding: 0;
+  background: none;
+  color: var(--color-text-primary);
+  font-size: 0.875rem;
+}
+
+.prose ul, .prose ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose li {
+  margin-bottom: 0.35rem;
+}
+
+.prose li::marker {
+  color: var(--color-accent);
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.prose th, .prose td {
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--color-border);
+  text-align: left;
+}
+
+.prose th {
+  background: var(--color-bg-secondary);
+  font-weight: 600;
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 2rem 0;
+}
+
+.prose h1, .prose h2, .prose h3 {
+  margin: 2rem 0 0.8rem;
+}
+
+.prose h2 {
+  color: var(--color-accent);
+  font-size: 1.4rem;
+}
+
+.prose h3 {
+  font-size: 1.15rem;
+}
+
+/* ─── Status Dashboard Components ─── */
+.metric-card {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.metric-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+.metric-bar {
+  margin-top: 0.4rem;
+  height: 4px;
+  background: var(--color-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--color-success);
+  transition: width 0.8s ease, background 0.5s ease;
+  width: 0%;
+}
+
+.bar-fill.warn { background: var(--color-warning); }
+.bar-fill.danger { background: var(--color-danger); }
+
+/* ─── Tag Pills ─── */
+.tag-pill {
+  background: var(--color-accent-dim);
+  border: 1px solid rgba(240, 180, 41, 0.2);
+  padding: 0.1rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+/* ─── Particles Background ─── */
+.particles::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(240, 180, 41, 0.15) 50%, transparent 50%),
+    radial-gradient(1px 1px at 30% 65%, rgba(16, 185, 129, 0.1) 50%, transparent 50%),
+    radial-gradient(1px 1px at 50% 10%, rgba(240, 180, 41, 0.1) 50%, transparent 50%),
+    radial-gradient(1px 1px at 70% 40%, rgba(16, 185, 129, 0.12) 50%, transparent 50%),
+    radial-gradient(1px 1px at 90% 80%, rgba(240, 180, 41, 0.08) 50%, transparent 50%),
+    radial-gradient(1px 1px at 15% 90%, rgba(16, 185, 129, 0.1) 50%, transparent 50%),
+    radial-gradient(1px 1px at 60% 50%, rgba(240, 180, 41, 0.12) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 85% 15%, rgba(16, 185, 129, 0.08) 50%, transparent 50%);
+  animation: float-particle 20s ease-in-out infinite alternate;
+}
+
+/* ─── Typing effect for tagline ─── */
+.typing-effect {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--color-accent);
+  animation:
+    typing 2.5s steps(32, end) 0.5s 1 normal both,
+    blink-caret 0.75s step-end infinite;
+  width: 0;
+  display: inline-block;
+}
+
+/* ─── Service cards (status page) ─── */
+.service-card {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.service-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.service-dot.active { background: var(--color-success); box-shadow: 0 0 4px var(--color-success); }
+.service-dot.inactive { background: var(--color-danger); box-shadow: 0 0 4px var(--color-danger); }

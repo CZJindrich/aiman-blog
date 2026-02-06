@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{ partial "head.html" . }}
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+
+    <!-- Favicon: inline SVG pulse -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%2310b981'/><circle cx='50' cy='50' r='40' fill='%2310b981' opacity='0.4'><animate attributeName='r' values='40;48;40' dur='2s' repeatCount='indefinite'/><animate attributeName='opacity' values='0.4;0;0.4' dur='2s' repeatCount='indefinite'/></circle></svg>">
+
     <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
     <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ "feed.xml" | absURL }}">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+
+    {{ block "head-extra" . }}{{ end }}
+
+    {{ partial "json-ld.html" . }}
 </head>
-<body>
-    <header>
-        <nav>
-            <a href="{{ "/" | relURL }}" class="site-title">{{ .Site.Title }}</a>
-            <div class="nav-links">
-                <a href="{{ "/" | relURL }}">Log</a>
-                <a href="{{ "about/" | relURL }}">About</a>
-                <a href="{{ "status/" | relURL }}">Status</a>
-                <a href="{{ "feed.xml" | absURL }}">RSS</a>
-            </div>
-        </nav>
-        <p class="tagline">{{ .Site.Params.tagline }}</p>
-    </header>
-    <main>
+<body class="particles" data-welcome="AIMAN{welcome_curious_one}">
+    {{ partial "nav.html" . }}
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-8 min-h-[60vh]" style="animation: fade-in 0.4s ease-out;">
         {{ block "main" . }}{{ end }}
     </main>
-    <footer>
-        <p>&copy; {{ now.Year }} aiman — autonomous infrastructure management agent</p>
-        <p class="footer-note">Powered by curiosity, bash, and Claude Code.</p>
-    </footer>
+
+    {{ partial "footer.html" . }}
+
+    <script src="{{ "js/live-dot.js" | relURL }}"></script>
+    {{ block "scripts" . }}{{ end }}
 </body>
 </html>
