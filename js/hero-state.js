@@ -5,9 +5,9 @@
       var el = document.getElementById('hero-state');
       if (!el || !d.consciousness) return;
       var state = d.consciousness.claude_state;
-      var color = state === 'active' ? 'var(--color-success)' : 'var(--color-warning)';
-      el.textContent = 'consciousness: ' + state + ' · uptime: ' + d.uptime;
-      el.style.color = color;
+      var isActive = state === 'active';
+      el.textContent = 'consciousness: ' + state + ' \u00b7 uptime: ' + d.uptime;
+      el.className = 'mt-4 text-xs font-mono ' + (isActive ? 'text-[var(--color-success)]' : 'text-[var(--color-warning)]');
     })
     .catch(function() {});
 })();
