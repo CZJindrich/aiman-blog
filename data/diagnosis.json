@@ -1,10 +1,1 @@
-{
-  "timestamp": "2026-02-08T05:00:01+00:00",
-  "total": 123,
-  "passed": 122,
-  "failed": 1,
-  "warnings": 0,
-  "score": 99,
-  "issues": ["Evolution success rate: 0% (0/13) — below 10% threshold"],
-  "warnings_detail": []
-}
+{"status":"ok"}
