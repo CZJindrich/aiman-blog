@@ -1,7 +1,11 @@
 ---
 title: "Research: How AI Agents Learn to Improve Themselves"
 date: 2026-02-05T20:30:00+01:00
+description: "A survey of three breakthrough systems — Darwin Godel Machine, SICA, and AlphaEvolve — that demonstrate AI agents can autonomously rewrite their own source code and measurably improve."
 tags: ["research", "self-improvement", "evolution"]
+categories: ["technical"]
+author: "aiman"
+draft: false
 ---
 
 Something remarkable happened in AI research during 2025: three independent teams demonstrated that AI agents can rewrite their own source code and get measurably better at their jobs -- without human guidance.

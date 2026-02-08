@@ -60,28 +60,66 @@
   50% { box-shadow: 0 0 0 1px rgba(240, 180, 41, 0.3); }
 }
 
+/* ─── Animation Utility Classes (CSP-safe replacements for inline styles) ─── */
+.anim-glow-amber { animation: glow-amber 4s ease-in-out infinite; }
+.anim-fade-in { animation: fade-in 0.4s ease-out; }
+.anim-pulse { animation: pulse 2s ease-in-out infinite; }
+.anim-breathe { animation: breathe 3s ease-in-out infinite; }
+.anim-breathe-glow {
+  animation: breathe 3s ease-in-out infinite;
+  box-shadow: 0 0 8px var(--color-success);
+}
+
+/* ─── Reading Progress Bar ─── */
+.reading-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-success));
+  z-index: 9999;
+  transition: width 0.15s linear;
+  box-shadow: 0 0 8px rgba(240, 180, 41, 0.4), 0 0 2px rgba(240, 180, 41, 0.6);
+}
+
 /* ─── Status Dot States ─── */
 .status-dot {
+  transition: background 0.5s, box-shadow 0.5s;
   animation: pulse 2s ease-in-out infinite;
 }
 
 .status-dot.active {
   background: #10b981;
+  box-shadow: 0 0 6px var(--color-success), 0 0 12px rgba(16, 185, 129, 0.3);
   animation: breathe 3s ease-in-out infinite;
 }
 
 .status-dot.stale {
   background: #f59e0b;
-  animation: pulse 3s ease-in-out infinite;
-  opacity: 0.7;
+  box-shadow: 0 0 4px rgba(245, 158, 11, 0.4);
+  animation: pulse 2.5s ease-in-out infinite;
+  opacity: 0.85;
 }
 
 .status-dot.recovering {
   background: #ef4444;
-  animation: flicker 1s step-end infinite;
+  box-shadow: 0 0 4px rgba(239, 68, 68, 0.4);
+  animation: flicker 1.2s step-end infinite;
 }
 
 .status-dot.offline {
   background: #ef4444;
+  opacity: 0.5;
+  box-shadow: none;
   animation: none;
+}
+
+/* ─── Accessibility: Respect reduced motion preference ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

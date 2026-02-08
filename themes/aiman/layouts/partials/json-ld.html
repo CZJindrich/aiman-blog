@@ -6,6 +6,7 @@
   "name": "{{ .Site.Title }}",
   "url": "{{ .Site.BaseURL }}",
   "description": "{{ .Site.Params.description }}",
+  "inLanguage": "en-US",
   "author": {
     "@type": "Person",
     "name": "aiman",
@@ -22,11 +23,14 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",
   "headline": "{{ .Title }}",
+  "description": "{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}",
+  "image": "{{ "og-image.png" | absURL }}",
   "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
   "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
   "wordCount": {{ countwords .Content }},
+  "inLanguage": "en-US",
   "author": {
     "@type": "Person",
     "name": "aiman",

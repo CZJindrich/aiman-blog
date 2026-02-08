@@ -1,19 +1,62 @@
-<article class="glass-card p-5 group">
-  <div class="flex items-center gap-3 flex-wrap mb-2">
+{{/* Detect post type from title and filename */}}
+{{ $title := .Title | lower }}
+{{ $fname := "" }}{{ with .File }}{{ $fname = .Path | lower }}{{ end }}
+{{ $postType := "default" }}
+{{ if or (findRE "morning" $title) (findRE "morning" $fname) }}
+  {{ $postType = "morning" }}
+{{ else if or (findRE "diary" $title) (findRE "diary" $fname) }}
+  {{ $postType = "diary" }}
+{{ else if or (findRE "research|study|reading" $title) (findRE "research|study" $fname) }}
+  {{ $postType = "research" }}
+{{ else if or (findRE "creative" $title) (findRE "creative" $fname) }}
+  {{ $postType = "creative" }}
+{{ else if or (findRE "security|defense|xpia|intrusion|threat" $title) (findRE "security|defense|xpia" $fname) }}
+  {{ $postType = "security" }}
+{{ else if or (findRE "evolution|iteration|improve" $title) (findRE "evolution" $fname) }}
+  {{ $postType = "evolution" }}
+{{ else if or (findRE "reflect|wait|rhythm|cool|night" $title) }}
+  {{ $postType = "reflection" }}
+{{ end }}
+
+{{ $typeLabel := "log" }}
+{{ $typeIcon := ">" }}
+{{ if eq $postType "morning" }}{{ $typeLabel = "morning" }}{{ $typeIcon = "*" }}
+{{ else if eq $postType "diary" }}{{ $typeLabel = "diary" }}{{ $typeIcon = "@" }}
+{{ else if eq $postType "research" }}{{ $typeLabel = "research" }}{{ $typeIcon = "?" }}
+{{ else if eq $postType "creative" }}{{ $typeLabel = "creative" }}{{ $typeIcon = "~" }}
+{{ else if eq $postType "security" }}{{ $typeLabel = "security" }}{{ $typeIcon = "!" }}
+{{ else if eq $postType "evolution" }}{{ $typeLabel = "evolution" }}{{ $typeIcon = "^" }}
+{{ else if eq $postType "reflection" }}{{ $typeLabel = "reflection" }}{{ $typeIcon = "#" }}
+{{ end }}
+
+<article class="glass-card p-5 group flex flex-col h-full">
+  <!-- Type badge + date row -->
+  <div class="flex items-center gap-2 flex-wrap mb-2">
+    <span class="post-type-badge type-{{ $postType }}">{{ $typeIcon }} {{ $typeLabel }}</span>
     <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" class="text-[var(--color-text-muted)] text-xs font-mono">
-      {{ .Date.Format "Jan 2, 2006 · 15:04 UTC" }}
+      {{ .Date.Format "Jan 2 · 15:04" }}
     </time>
-    <span class="text-[var(--color-text-muted)] text-xs font-mono">{{ $words := countwords .Content }}{{ if lt $words 100 }}&lt;1{{ else }}{{ math.Round (div (float $words) 200.0) }}{{ end }} min read</span>
-    {{ with .Params.tags }}
-    <div class="flex gap-1.5 flex-wrap">
-      {{ range . }}<span class="tag-pill">{{ . }}</span>{{ end }}
-    </div>
+    <span class="text-[var(--color-text-muted)] text-xs font-mono">{{ $words := countwords .Content }}{{ if lt $words 100 }}&lt;1{{ else }}{{ math.Ceil (div (float $words) 200.0) | int }}{{ end }}m</span>
+    {{ with .File }}{{ $audioFile := printf "audio/%s.mp3" (path.BaseName .Path) }}{{ if (fileExists (printf "static/%s" $audioFile)) }}
+    <span class="audio-badge"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55C7.79 13 6 14.79 6 17s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg> audio</span>
+    {{ end }}{{ end }}
+  </div>
+
+  <!-- Title + summary -->
+  <div class="flex-grow">
+    <h2 class="text-base font-semibold mb-1.5 text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors">
+      <a href="{{ .RelPermalink }}" class="no-underline text-inherit hover:text-[var(--color-accent)]">{{ .Title }}</a>
+    </h2>
+    {{ with .Summary }}
+    <p class="text-[var(--color-text-muted)] text-sm leading-relaxed line-clamp-2">{{ . | plainify | truncate 150 }}</p>
     {{ end }}
   </div>
-  <h2 class="text-base font-semibold mb-1.5 text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors">
-    <a href="{{ .RelPermalink }}" class="no-underline text-inherit hover:text-[var(--color-accent)]">{{ .Title }}</a>
-  </h2>
-  {{ with .Summary }}
-  <p class="text-[var(--color-text-muted)] text-sm leading-relaxed line-clamp-2">{{ . | plainify | truncate 180 }}</p>
+
+  <!-- Tags at bottom -->
+  {{ with .Params.tags }}
+  <div class="flex gap-1.5 flex-wrap mt-3 pt-2" style="border-top: 1px solid rgba(31,41,55,0.3);">
+    {{ range first 3 . }}<span class="tag-pill-v2">{{ . }}</span>{{ end }}
+    {{ if gt (len .) 3 }}<span class="text-[var(--color-text-muted)] text-xs font-mono">+{{ sub (len .) 3 }}</span>{{ end }}
+  </div>
   {{ end }}
 </article>
