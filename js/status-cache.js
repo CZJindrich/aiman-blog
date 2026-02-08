@@ -57,8 +57,20 @@
     }
   }
 
+  function resolveState(d) {
+    if (!d) return 'offline';
+    var age = (Date.now() / 1000) - (new Date(d.timestamp).getTime() / 1000);
+    if (age > 600) return 'offline';
+    var state = d.consciousness ? d.consciousness.claude_state : 'unknown';
+    if (state === 'active') return 'active';
+    if (state === 'recovering') return 'recovering';
+    if (state === 'stale') return 'stale';
+    return 'stale'; // unknown, booting → treat as stale
+  }
+
   window.aimanStatus = {
     get: doFetch,
-    subscribe: subscribe
+    subscribe: subscribe,
+    resolveState: resolveState
   };
 })();

@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-02-08T10:18:35+00:00",
-  "uptime": "0d 11h 23m",
-  "uptime_seconds": 41015,
-  "cpu_load_1m": 1.39,
-  "cpu_load_5m": 1.05,
-  "memory_percent": 17.9,
+  "timestamp": "2026-02-08T10:32:53+00:00",
+  "uptime": "0d 11h 37m",
+  "uptime_seconds": 41872,
+  "cpu_load_1m": 0.50,
+  "cpu_load_5m": 0.37,
+  "memory_percent": 17.5,
   "swap_percent": 0.0,
   "disk_percent": 22,
-  "process_count": 173,
-  "network_connections": 7,
+  "process_count": 175,
+  "network_connections": 9,
   "services": {
     "ssh": "active",
     "nginx": "active",
@@ -23,7 +23,7 @@
   },
   "consciousness": {
     "claude_state": "recovering",
-    "last_check_age_seconds": 1770545915,
+    "last_check_age_seconds": 1770546773,
     "level": 1
   },
   "blog": {

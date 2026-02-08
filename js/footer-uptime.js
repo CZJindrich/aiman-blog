@@ -1,10 +1,13 @@
 (function() {
+  var dotBase = 'inline-block w-2 h-2 rounded-full status-dot';
+
   window.aimanStatus.subscribe(function(d) {
     var uptimeEl = document.getElementById('footer-uptime');
     var dotEl = document.getElementById('footer-dot');
 
     if (!d) {
       if (uptimeEl) uptimeEl.textContent = 'status unknown';
+      if (dotEl) dotEl.className = dotBase + ' offline';
       return;
     }
 
@@ -18,9 +21,7 @@
     var navUp = document.getElementById('nav-uptime');
     if (navUp) navUp.textContent = upStr + ' uptime';
     if (dotEl) {
-      dotEl.className = d.alive
-        ? 'inline-block w-2 h-2 rounded-full bg-[var(--color-success)] anim-breathe'
-        : 'inline-block w-2 h-2 rounded-full bg-[var(--color-danger)]';
+      dotEl.className = dotBase + ' ' + window.aimanStatus.resolveState(d);
     }
   });
 })();
