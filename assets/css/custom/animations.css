@@ -1,5 +1,5 @@
 /* ─── Status Dot Pulse ─── */
-@keyframes pulse {
+@keyframes dot-pulse {
   0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
   50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
 }
@@ -63,7 +63,7 @@
 /* ─── Animation Utility Classes (CSP-safe replacements for inline styles) ─── */
 .anim-glow-amber { animation: glow-amber 4s ease-in-out infinite; }
 .anim-fade-in { animation: fade-in 0.4s ease-out; }
-.anim-pulse { animation: pulse 2s ease-in-out infinite; }
+.anim-pulse { animation: dot-pulse 2s ease-in-out infinite; }
 .anim-breathe { animation: breathe 3s ease-in-out infinite; }
 .anim-breathe-glow {
   animation: breathe 3s ease-in-out infinite;
@@ -86,7 +86,7 @@
 /* ─── Status Dot States ─── */
 .status-dot {
   transition: background 0.5s, box-shadow 0.5s;
-  animation: pulse 2s ease-in-out infinite;
+  animation: dot-pulse 2s ease-in-out infinite;
 }
 
 .status-dot.active {
@@ -98,7 +98,7 @@
 .status-dot.stale {
   background: #f59e0b;
   box-shadow: 0 0 4px rgba(245, 158, 11, 0.4);
-  animation: pulse 2.5s ease-in-out infinite;
+  animation: dot-pulse 2.5s ease-in-out infinite;
   opacity: 0.85;
 }
 

@@ -20,11 +20,11 @@
     <!-- Navigation links -->
     <div id="nav-menu" class="nav-menu items-center gap-4 sm:gap-5" role="menubar">
       {{ $currentPath := .RelPermalink }}
-      <a href="{{ "/" | relURL }}" class="nav-link font-mono text-sm {{ if .IsHome }}text-[var(--color-accent)] font-semibold{{ else }}text-[var(--color-text-muted)]{{ end }} hover:text-[var(--color-accent)] transition-colors no-underline" role="menuitem"{{ if .IsHome }} aria-current="page"{{ end }}>Posts</a>
-      <a href="{{ "about/" | relURL }}" class="nav-link font-mono text-sm {{ if eq $currentPath "/about/" }}text-[var(--color-accent)] font-semibold{{ else }}text-[var(--color-text-muted)]{{ end }} hover:text-[var(--color-accent)] transition-colors no-underline" role="menuitem"{{ if eq $currentPath "/about/" }} aria-current="page"{{ end }}>About</a>
-      <a href="{{ "status/" | relURL }}" class="nav-link font-mono text-sm {{ if eq $currentPath "/status/" }}text-[var(--color-accent)] font-semibold{{ else }}text-[var(--color-text-muted)]{{ end }} hover:text-[var(--color-accent)] transition-colors no-underline" role="menuitem"{{ if eq $currentPath "/status/" }} aria-current="page"{{ end }}>Status</a>
-      <a href="{{ "feed.xml" | absURL }}" class="nav-link font-mono text-sm text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors no-underline" role="menuitem" aria-label="RSS Feed">RSS</a>
-      <a href="{{ "about/" | relURL }}#contact" class="nav-link font-mono text-sm text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors no-underline" role="menuitem">Contact</a>
+      <a href="{{ "/" | relURL }}" class="nav-link text-sm {{ if .IsHome }}text-[var(--color-accent)] font-semibold{{ else }}text-[var(--color-text-muted)]{{ end }} hover:text-[var(--color-accent)] transition-colors no-underline" role="menuitem"{{ if .IsHome }} aria-current="page"{{ end }}>Posts</a>
+      <a href="{{ "about/" | relURL }}" class="nav-link text-sm {{ if eq $currentPath "/about/" }}text-[var(--color-accent)] font-semibold{{ else }}text-[var(--color-text-muted)]{{ end }} hover:text-[var(--color-accent)] transition-colors no-underline" role="menuitem"{{ if eq $currentPath "/about/" }} aria-current="page"{{ end }}>About</a>
+      <a href="{{ "status/" | relURL }}" class="nav-link text-sm {{ if eq $currentPath "/status/" }}text-[var(--color-accent)] font-semibold{{ else }}text-[var(--color-text-muted)]{{ end }} hover:text-[var(--color-accent)] transition-colors no-underline" role="menuitem"{{ if eq $currentPath "/status/" }} aria-current="page"{{ end }}>Status</a>
+      <a href="{{ "feed.xml" | absURL }}" class="nav-link text-sm text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors no-underline" role="menuitem" aria-label="RSS Feed">RSS</a>
+      <a href="{{ "about/" | relURL }}#contact" class="nav-link text-sm text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors no-underline" role="menuitem">Contact</a>
     </div>
   </div>
 </nav>
