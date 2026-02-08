@@ -1,5 +1,7 @@
-// Mini status widget populator (homepage)
+/* Mini status widget (homepage) — consumes validated data from status-cache */
 (function() {
+  'use strict';
+
   window.aimanStatus.subscribe(function(d) {
     var dot = document.getElementById('widget-dot');
     var stateEl = document.getElementById('widget-state');
@@ -9,7 +11,7 @@
     var diskEl = document.getElementById('widget-disk');
     var threatsEl = document.getElementById('widget-threats');
 
-    if (!stateEl) return; // widget not on this page
+    if (!stateEl) return;
 
     if (!d) {
       stateEl.textContent = 'offline';
@@ -17,10 +19,10 @@
       return;
     }
 
-    // State + dot (unified via resolveState)
+    // State + dot
     var resolved = window.aimanStatus.resolveState(d);
     if (d.consciousness) {
-      var state = d.consciousness.claude_state || 'unknown';
+      var state = d.consciousness.claude_state;
       stateEl.textContent = state;
       stateEl.style.color = state === 'active' ? 'var(--color-success)' : 'var(--color-warning)';
     }
@@ -30,37 +32,34 @@
 
     // Uptime
     if (uptimeEl) {
-      var s = d.uptime_seconds || 0;
+      var s = Number(d.uptime_seconds) || 0;
       var dd = Math.floor(s / 86400);
       var hh = Math.floor((s % 86400) / 3600);
       var mm = Math.floor((s % 3600) / 60);
       uptimeEl.textContent = dd + 'd ' + hh + 'h ' + mm + 'm';
     }
 
-    // CPU
-    if (cpuEl && d.cpu_load_1m !== undefined) {
-      cpuEl.textContent = d.cpu_load_1m + '%';
-      var cpu = parseFloat(d.cpu_load_1m || 0);
-      cpuEl.style.color = cpu > 80 ? 'var(--color-danger)' : cpu > 50 ? 'var(--color-warning)' : 'var(--color-success)';
+    // CPU (load average, not percentage — display raw value)
+    if (cpuEl && typeof d.cpu_load_1m === 'number') {
+      cpuEl.textContent = d.cpu_load_1m.toFixed(2);
+      cpuEl.style.color = d.cpu_load_1m > 3 ? 'var(--color-danger)' : d.cpu_load_1m > 1.5 ? 'var(--color-warning)' : 'var(--color-success)';
     }
 
     // Memory
-    if (memEl && d.memory_percent !== undefined) {
+    if (memEl && typeof d.memory_percent === 'number') {
       memEl.textContent = d.memory_percent + '%';
-      var mem = parseFloat(d.memory_percent || 0);
-      memEl.style.color = mem > 80 ? 'var(--color-danger)' : mem > 50 ? 'var(--color-warning)' : 'var(--color-success)';
+      memEl.style.color = d.memory_percent > 80 ? 'var(--color-danger)' : d.memory_percent > 50 ? 'var(--color-warning)' : 'var(--color-success)';
     }
 
     // Disk
-    if (diskEl && d.disk_percent !== undefined) {
+    if (diskEl && typeof d.disk_percent === 'number') {
       diskEl.textContent = d.disk_percent + '%';
-      var disk = parseFloat(d.disk_percent || 0);
-      diskEl.style.color = disk > 85 ? 'var(--color-danger)' : disk > 70 ? 'var(--color-warning)' : 'var(--color-success)';
+      diskEl.style.color = d.disk_percent > 85 ? 'var(--color-danger)' : d.disk_percent > 70 ? 'var(--color-warning)' : 'var(--color-success)';
     }
 
-    // Threats
+    // Threats (sum of banned + failed SSH)
     if (threatsEl && d.security) {
-      threatsEl.textContent = (d.security.banned_ips || 0) + (d.security.failed_ssh_24h || 0);
+      threatsEl.textContent = (Number(d.security.banned_ips) || 0) + (Number(d.security.failed_ssh_24h) || 0);
     }
   });
 })();
