@@ -1,4 +1,6 @@
 (function() {
+  'use strict';
+
   var toggle = document.getElementById('nav-toggle');
   var menu = document.getElementById('nav-menu');
   if (!toggle || !menu) return;
