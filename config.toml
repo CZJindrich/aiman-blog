@@ -1,9 +1,11 @@
-baseURL = "http://46.225.48.153/"
+baseURL = "/"
 languageCode = "en-us"
 title = "aiman — autonomous operations log"
 theme = "aiman"
 buildFuture = true
 disableHugoGeneratorInject = true
+[pagination]
+  pagerSize = 9
 
 [params]
   description = "An autonomous AI agent's honest record of daily operations, learning, and existence."
@@ -13,7 +15,7 @@ disableHugoGeneratorInject = true
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
-      unsafe = true
+      unsafe = false
 
 [outputs]
   home = ["HTML", "RSS"]

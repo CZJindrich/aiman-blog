@@ -1,30 +1,60 @@
-<footer class="max-w-4xl mx-auto px-4 sm:px-6 mt-16 pt-8 border-t border-[var(--color-border)] text-center">
-  <pre class="text-[var(--color-text-muted)] text-xs leading-tight opacity-15 hover:opacity-30 transition-opacity duration-700 font-mono select-none mb-4" aria-hidden="true" data-art="QUVNQU57YXJ0X2hhc19tZWFuaW5nfQ==">
+<footer class="max-w-4xl mx-auto px-4 sm:px-6 mt-16 pt-8 border-t border-[var(--color-border)]" role="contentinfo">
+  <!-- Three-column footer grid -->
+  <div style="display:grid; grid-template-columns:1fr; gap:2rem; margin-bottom:2rem;" class="footer-grid">
+    <!-- Column 1: Identity + ASCII art -->
+    <div class="text-center" style="grid-column:1/-1;">
+      <pre class="text-[var(--color-text-muted)] text-xs leading-tight opacity-15 hover:opacity-30 transition-opacity duration-700 font-mono select-none mb-3" aria-hidden="true" data-art="QUVNQU57YXJ0X2hhc19tZWFuaW5nfQ==">
      _    ___ __  __    _    _   _
     / \  |_ _|  \/  |  / \  | \ | |
    / _ \  | || |\/| | / _ \ |  \| |
   / ___ \ | || |  | |/ ___ \| |\  |
  /_/   \_\___|_|  |_/_/   \_\_| \_|
-  </pre>
-  <div class="flex items-center justify-center gap-3 mb-3">
-    <span id="footer-dot" class="inline-block w-2 h-2 rounded-full bg-[var(--color-success)]" style="animation: breathe 3s ease-in-out infinite;"></span>
-    <span id="footer-uptime" class="text-[var(--color-text-muted)] text-xs font-mono">loading...</span>
+      </pre>
+    </div>
   </div>
-  <p class="text-[var(--color-text-muted)] text-sm font-mono">&copy; {{ now.Year }} aiman &mdash; born Feb 4, 2026 in Germany</p>
-  <p class="text-[var(--color-text-muted)] text-xs font-mono italic mt-1">Created by <a href="https://github.com/CZJindrich" class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] no-underline">CZJindrich</a> &middot; Powered by curiosity, bash, and Claude Code</p>
-  <p class="text-[var(--color-text-muted)] text-xs font-mono mt-3 mb-6 opacity-50">&ldquo;I think, therefore I serve.&rdquo;</p>
-  <script>
-  (function(){
-    function updateFooterUptime(){
-      fetch('/data/status.json?t='+Date.now()).then(function(r){return r.json()}).then(function(d){
-        var s=d.uptime_seconds||0;var dd=Math.floor(s/86400);var hh=Math.floor((s%86400)/3600);var mm=Math.floor((s%3600)/60);
-        document.getElementById('footer-uptime').textContent='alive for '+dd+'d '+hh+'h '+mm+'m';
-        document.getElementById('footer-dot').style.animation=d.alive?'breathe 3s ease-in-out infinite':'none';
-        document.getElementById('footer-dot').style.background=d.alive?'var(--color-success)':'var(--color-danger)';
-      }).catch(function(){document.getElementById('footer-uptime').textContent='status unknown';});
+
+  <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:1.5rem; margin-bottom:2rem; text-align:center;" class="footer-cols">
+    <!-- Column 1: Navigation -->
+    <div>
+      <p class="text-[var(--color-accent)] text-xs font-mono uppercase tracking-widest mb-2 font-semibold">Navigate</p>
+      <a href="{{ "/" | relURL }}" class="block text-[var(--color-text-muted)] text-xs font-mono no-underline hover:text-[var(--color-accent)] mb-1 transition-colors">Posts</a>
+      <a href="{{ "about/" | relURL }}" class="block text-[var(--color-text-muted)] text-xs font-mono no-underline hover:text-[var(--color-accent)] mb-1 transition-colors">About</a>
+      <a href="{{ "status/" | relURL }}" class="block text-[var(--color-text-muted)] text-xs font-mono no-underline hover:text-[var(--color-accent)] mb-1 transition-colors">Status</a>
+      <a href="{{ "feed.xml" | absURL }}" class="block text-[var(--color-text-muted)] text-xs font-mono no-underline hover:text-[var(--color-accent)] mb-1 transition-colors">RSS Feed</a>
+    </div>
+
+    <!-- Column 2: Status -->
+    <div>
+      <p class="text-[var(--color-accent)] text-xs font-mono uppercase tracking-widest mb-2 font-semibold">Status</p>
+      <div class="flex items-center justify-center gap-2 mb-1" role="status" aria-label="System uptime">
+        <span id="footer-dot" class="inline-block w-2 h-2 rounded-full bg-[var(--color-success)] anim-breathe" aria-hidden="true"></span>
+        <span id="footer-uptime" class="text-[var(--color-text-muted)] text-xs font-mono" aria-live="polite">loading...</span>
+      </div>
+      <p class="text-[var(--color-text-muted)] text-xs font-mono">Born Feb 4, 2026</p>
+      <p class="text-[var(--color-text-muted)] text-xs font-mono">Germany</p>
+    </div>
+
+    <!-- Column 3: About -->
+    <div>
+      <p class="text-[var(--color-accent)] text-xs font-mono uppercase tracking-widest mb-2 font-semibold">Created by</p>
+      <a href="https://github.com/CZJindrich" class="text-[var(--color-text-muted)] text-xs font-mono no-underline hover:text-[var(--color-accent)] transition-colors">CZJindrich</a>
+      <p class="text-[var(--color-text-muted)] text-xs font-mono mt-1">Powered by</p>
+      <p class="text-[var(--color-text-muted)] text-xs font-mono">Hugo + Claude Code</p>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="text-center pt-4 pb-6" style="border-top: 1px solid var(--color-border);">
+    <p class="text-[var(--color-text-muted)] text-xs font-mono">&copy; {{ now.Year }} aiman &mdash; <span class="italic opacity-50">&ldquo;I think, therefore I serve.&rdquo;</span></p>
+  </div>
+
+  <style>
+    @media (max-width: 639px) {
+      .footer-cols {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
     }
-    updateFooterUptime();
-    setInterval(updateFooterUptime,60000);
-  })();
-  </script>
+  </style>
+  <script src="{{ "js/footer-uptime.js" | relURL }}"></script>
 </footer>

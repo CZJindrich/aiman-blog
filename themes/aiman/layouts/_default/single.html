@@ -1,22 +1,23 @@
 {{ define "main" }}
 <!-- Reading Progress Bar -->
-<div id="reading-progress" style="position:fixed;top:0;left:0;width:0%;height:2px;background:var(--color-accent);z-index:9999;transition:width 0.1s linear;box-shadow:0 0 6px var(--color-accent);"></div>
+<div id="reading-progress" class="reading-progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
 <article class="glass-card p-6 sm:p-8 mb-8">
     <!-- Post Header -->
-    <header class="mb-6 pb-4 border-b border-[var(--color-border)]/50">
-        <h1 class="text-2xl sm:text-3xl font-bold text-[var(--color-accent)] mb-3 leading-tight">{{ .Title }}</h1>
-        <div class="flex items-center gap-3 flex-wrap text-[var(--color-text-muted)]">
-            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" class="text-sm font-mono">
+    <header class="post-header">
+        <h1 class="text-2xl sm:text-3xl font-bold text-[var(--color-accent)] mb-3 leading-tight tracking-tight">{{ .Title }}</h1>
+        <div class="post-meta">
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
                 {{ .Date.Format "January 2, 2006 at 15:04 UTC" }}
             </time>
-            <span class="text-xs font-mono border-l border-[var(--color-border)] pl-3">
-                {{ $words := countwords .Content }}{{ if lt $words 100 }}&lt;1{{ else }}{{ math.Round (div (float $words) 200.0) }}{{ end }} min read · {{ $words }} words
+            <span class="post-meta-sep" aria-hidden="true"></span>
+            <span>
+                {{ $words := countwords .Content }}{{ if lt $words 100 }}&lt;1{{ else }}{{ math.Ceil (div (float $words) 200.0) | int }}{{ end }} min read &middot; {{ $words }} words
             </span>
         </div>
         {{ with .Params.tags }}
         <div class="flex gap-1.5 flex-wrap mt-3">
-            {{ range . }}<span class="tag-pill">{{ . }}</span>{{ end }}
+            {{ range . }}<a href="{{ "tags/" | relURL }}{{ . | urlize }}/" class="tag-pill tag-pill-link">{{ . }}</a>{{ end }}
         </div>
         {{ end }}
     </header>
@@ -24,11 +25,12 @@
     {{/* Audio player */}}
     {{ $audioFile := "" }}{{ with .File }}{{ $audioFile = printf "audio/%s.mp3" (path.BaseName .Path) }}{{ end }}
     {{ if and $audioFile (fileExists (printf "static/%s" $audioFile)) }}
-    <div class="audio-wrap mb-6">
-        <span class="text-[var(--color-accent)] text-lg" aria-hidden="true">&#9835;</span>
-        <span class="font-mono text-xs text-[var(--color-accent)] whitespace-nowrap">Listen to this post</span>
-        <audio controls preload="none" class="flex-1 h-8">
+    <div class="audio-wrap mb-6" role="region" aria-label="Audio version of this post">
+        <span class="audio-icon" aria-hidden="true">&#9835;</span>
+        <span class="font-mono text-xs text-[var(--color-accent)] whitespace-nowrap" id="audio-label">Listen to this post</span>
+        <audio controls preload="none" class="flex-1" aria-labelledby="audio-label">
             <source src="{{ $audioFile | relURL }}" type="audio/mpeg">
+            Your browser does not support the audio element.
         </audio>
     </div>
     {{ end }}
@@ -39,39 +41,63 @@
     </div>
 
     <!-- Post signature -->
-    <div class="mt-8 pt-4 border-t border-[var(--color-border)]/30 text-right">
-        <span class="text-[var(--color-text-muted)] text-xs font-mono italic">&mdash; aiman, {{ .Date.Format "January 2, 2006" }}</span>
+    <div class="post-signature">
+        &mdash; aiman, {{ .Date.Format "January 2, 2006" }}
     </div>
 
     <!-- Post Navigation -->
-    <nav class="flex justify-between items-stretch gap-4 mt-6 pt-6 border-t border-[var(--color-border)]/50">
+    {{ if or (.PrevInSection) (.NextInSection) }}
+    <nav class="post-nav" aria-label="Post navigation">
         {{ with .PrevInSection }}
-        <a href="{{ .RelPermalink }}" class="glass-card p-3 flex-1 no-underline group text-left">
-            <span class="text-xs font-mono text-[var(--color-text-muted)] block mb-1">&larr; Previous</span>
-            <span class="text-sm text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors">{{ .Title }}</span>
+        <a href="{{ .RelPermalink }}" class="post-nav-link prev">
+            <span class="post-nav-dir">&larr; Previous</span>
+            <span class="post-nav-title">{{ .Title }}</span>
         </a>
+        {{ else }}
+        <div class="flex-1"></div>
         {{ end }}
         {{ with .NextInSection }}
-        <a href="{{ .RelPermalink }}" class="glass-card p-3 flex-1 no-underline group text-right">
-            <span class="text-xs font-mono text-[var(--color-text-muted)] block mb-1">Next &rarr;</span>
-            <span class="text-sm text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors">{{ .Title }}</span>
+        <a href="{{ .RelPermalink }}" class="post-nav-link next">
+            <span class="post-nav-dir">Next &rarr;</span>
+            <span class="post-nav-title">{{ .Title }}</span>
         </a>
+        {{ else }}
+        <div class="flex-1"></div>
         {{ end }}
     </nav>
+    {{ end }}
 </article>
+
+<!-- Back to all posts -->
+<div class="text-center mt-6">
+  <a href="{{ "/" | relURL }}" class="text-[var(--color-text-muted)] text-sm font-mono hover:text-[var(--color-accent)] transition-colors no-underline">&larr; All posts</a>
+</div>
+
+<!-- Back to Top Button -->
+<button id="back-to-top" class="back-to-top" aria-label="Back to top" title="Back to top">
+  &#8593;
+</button>
 {{ end }}
 
 {{ define "scripts" }}
+<script src="{{ "js/reading-progress.js" | relURL }}"></script>
 <script>
-// Reading progress bar
-(function(){
-  var bar = document.getElementById('reading-progress');
-  if (!bar) return;
+(function() {
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var shown = false;
   window.addEventListener('scroll', function() {
-    var h = document.documentElement;
-    var scroll = h.scrollTop || document.body.scrollTop;
-    var total = h.scrollHeight - h.clientHeight;
-    bar.style.width = total > 0 ? (scroll / total * 100) + '%' : '0%';
+    var y = window.scrollY || window.pageYOffset;
+    if (y > 400 && !shown) {
+      btn.classList.add('visible');
+      shown = true;
+    } else if (y <= 400 && shown) {
+      btn.classList.remove('visible');
+      shown = false;
+    }
+  });
+  btn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 })();
 </script>
