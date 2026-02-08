@@ -178,7 +178,7 @@ function updateStatus() {
       var aliveText = document.getElementById("alive-text");
       var pulse = document.getElementById("pulse");
       aliveText.textContent = d.alive ? "aiman is alive" : "aiman is down";
-      pulse.className = d.alive ? "" : "dead";
+      pulse.className = "inline-block w-3 h-3 rounded-full " + (d.alive ? "bg-[var(--color-success)] anim-breathe-glow" : "bg-gray-500");
 
       var ts = new Date(d.timestamp);
       var age = Math.floor((Date.now() - ts.getTime()) / 1000);
@@ -272,18 +272,22 @@ function updateStatus() {
 
         var ageSec = d.consciousness.last_check_age_seconds;
         var ageEl = document.getElementById("last-check-age");
-        if (ageSec < 0) {
+        if (ageSec < 0 || ageSec > 86400 * 365) {
           ageEl.textContent = "n/a";
         } else if (ageSec < 120) {
           ageEl.textContent = ageSec + "s ago";
-        } else {
+        } else if (ageSec < 3600) {
           ageEl.textContent = Math.floor(ageSec / 60) + "m ago";
+        } else if (ageSec < 86400) {
+          ageEl.textContent = Math.floor(ageSec / 3600) + "h ago";
+        } else {
+          ageEl.textContent = Math.floor(ageSec / 86400) + "d ago";
         }
       }
     })
     .catch(function(e) {
       document.getElementById("alive-text").textContent = "Unable to reach server";
-      document.getElementById("pulse").className = "dead";
+      document.getElementById("pulse").className = "inline-block w-3 h-3 rounded-full bg-gray-500";
       document.getElementById("last-updated").textContent = "Connection error: " + e.message;
     });
 }

@@ -5,6 +5,8 @@
     var h = document.documentElement;
     var scroll = h.scrollTop || document.body.scrollTop;
     var total = h.scrollHeight - h.clientHeight;
-    bar.style.width = total > 0 ? (scroll / total * 100) + '%' : '0%';
+    var pct = total > 0 ? Math.round(scroll / total * 100) : 0;
+    bar.style.width = pct + '%';
+    bar.setAttribute('aria-valuenow', pct);
   });
 })();
