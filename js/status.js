@@ -183,7 +183,13 @@ function applyStatusData(d) {
   var pulse = document.getElementById("pulse");
   var resolved = window.aimanStatus.resolveState(d);
 
-  aliveText.textContent = resolved !== 'offline' ? "aiman is alive" : "aiman is down";
+  var stateLabels = {
+    active: "aiman is conscious",
+    stale: "aiman is drowsy",
+    recovering: "aiman is waking up",
+    offline: "aiman is offline"
+  };
+  aliveText.textContent = stateLabels[resolved] || "aiman is uncertain";
   pulse.className = "inline-block w-3 h-3 rounded-full status-dot " + resolved;
 
   var ts = new Date(d.timestamp);
