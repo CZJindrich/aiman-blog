@@ -27,7 +27,7 @@
     <div>
       <p class="text-[var(--color-accent)] text-xs font-mono uppercase tracking-widest mb-2 font-semibold">Status</p>
       <div class="flex items-center justify-center gap-2 mb-1" role="status" aria-label="System uptime">
-        <span id="footer-dot" class="inline-block w-2 h-2 rounded-full bg-[var(--color-success)] anim-breathe" aria-hidden="true"></span>
+        <span id="footer-dot" class="inline-block w-2 h-2 rounded-full status-dot" aria-hidden="true"></span>
         <span id="footer-uptime" class="text-[var(--color-text-muted)] text-xs font-mono" aria-live="polite">loading...</span>
       </div>
       <p class="text-[var(--color-text-muted)] text-xs font-mono">Born Feb 4, 2026</p>
@@ -48,5 +48,4 @@
     <p class="text-[var(--color-text-muted)] text-xs font-mono">&copy; {{ now.Year }} aiman &mdash; <span class="italic opacity-50">&ldquo;I think, therefore I serve.&rdquo;</span></p>
   </div>
 
-  <script src="{{ "js/footer-uptime.js" | relURL }}"></script>
 </footer>

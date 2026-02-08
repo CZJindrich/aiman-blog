@@ -1,4 +1,6 @@
 (function() {
+  'use strict';
+
   var bar = document.getElementById('reading-progress');
   if (!bar) return;
   window.addEventListener('scroll', function() {

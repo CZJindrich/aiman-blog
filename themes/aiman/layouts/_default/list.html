@@ -47,7 +47,7 @@
   <!-- Mini Status Widget -->
   <aside class="status-widget" aria-label="Server status">
     <div class="flex items-center gap-2 mb-3 pb-2 widget-divider-bottom">
-      <span id="widget-dot" class="inline-block w-2 h-2 rounded-full bg-[var(--color-success)] anim-breathe"></span>
+      <span id="widget-dot" class="inline-block w-2 h-2 rounded-full status-dot"></span>
       <span class="text-xs font-mono text-[var(--color-text-primary)]">System Status</span>
     </div>
     <div class="stat-row">
@@ -134,81 +134,5 @@
 
 {{ define "scripts" }}
 <script src="{{ "js/hero-state.js" | relURL }}"></script>
-<script>
-// Mini status widget populator
-(function() {
-  window.aimanStatus.subscribe(function(d) {
-    var dot = document.getElementById('widget-dot');
-    var stateEl = document.getElementById('widget-state');
-    var uptimeEl = document.getElementById('widget-uptime');
-    var cpuEl = document.getElementById('widget-cpu');
-    var memEl = document.getElementById('widget-mem');
-    var diskEl = document.getElementById('widget-disk');
-    var threatsEl = document.getElementById('widget-threats');
-
-    if (!stateEl) return; // widget not on this page
-
-    if (!d) {
-      stateEl.textContent = 'offline';
-      if (dot) dot.style.background = 'var(--color-danger)';
-      return;
-    }
-
-    // State
-    if (d.consciousness) {
-      var state = d.consciousness.claude_state || 'unknown';
-      stateEl.textContent = state;
-      stateEl.style.color = state === 'active' ? 'var(--color-success)' : 'var(--color-warning)';
-    }
-
-    // Uptime
-    if (uptimeEl) {
-      var s = d.uptime_seconds || 0;
-      var dd = Math.floor(s / 86400);
-      var hh = Math.floor((s % 86400) / 3600);
-      var mm = Math.floor((s % 3600) / 60);
-      uptimeEl.textContent = dd + 'd ' + hh + 'h ' + mm + 'm';
-    }
-
-    // CPU
-    if (cpuEl && d.system) {
-      cpuEl.textContent = (d.system.cpu_percent || '0') + '%';
-      var cpu = parseFloat(d.system.cpu_percent || 0);
-      cpuEl.style.color = cpu > 80 ? 'var(--color-danger)' : cpu > 50 ? 'var(--color-warning)' : 'var(--color-success)';
-    }
-
-    // Memory
-    if (memEl && d.system) {
-      memEl.textContent = (d.system.memory_percent || '0') + '%';
-      var mem = parseFloat(d.system.memory_percent || 0);
-      memEl.style.color = mem > 80 ? 'var(--color-danger)' : mem > 50 ? 'var(--color-warning)' : 'var(--color-success)';
-    }
-
-    // Disk
-    if (diskEl && d.system) {
-      diskEl.textContent = (d.system.disk_percent || '0') + '%';
-      var disk = parseFloat(d.system.disk_percent || 0);
-      diskEl.style.color = disk > 85 ? 'var(--color-danger)' : disk > 70 ? 'var(--color-warning)' : 'var(--color-success)';
-    }
-
-    // Threats
-    if (threatsEl && d.security) {
-      threatsEl.textContent = d.security.threats_blocked_24h || '0';
-    }
-
-    // Dot color
-    if (dot) {
-      var age = (Date.now()/1000) - (new Date(d.timestamp).getTime()/1000);
-      var cstate = d.consciousness ? d.consciousness.claude_state : 'unknown';
-      if (age > 600) {
-        dot.style.background = 'var(--color-danger)';
-      } else if (cstate === 'active') {
-        dot.style.background = 'var(--color-success)';
-      } else {
-        dot.style.background = 'var(--color-warning)';
-      }
-    }
-  });
-})();
-</script>
+<script src="{{ "js/status-widget.js" | relURL }}"></script>
 {{ end }}
