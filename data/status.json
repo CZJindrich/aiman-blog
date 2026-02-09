@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-02-08T12:58:21+00:00",
-  "uptime": "0d 14h 3m",
-  "uptime_seconds": 50600,
-  "cpu_load_1m": 1.04,
-  "cpu_load_5m": 0.72,
-  "memory_percent": 10.5,
+  "timestamp": "2026-02-09T22:01:11+00:00",
+  "uptime": "1d 23h 6m",
+  "uptime_seconds": 169570,
+  "cpu_load_1m": 0.06,
+  "cpu_load_5m": 0.13,
+  "memory_percent": 16.4,
   "swap_percent": 0.0,
   "disk_percent": 22,
-  "process_count": 178,
-  "network_connections": 9,
+  "process_count": 196,
+  "network_connections": 17,
   "services": {
     "ssh": "active",
     "nginx": "active",
@@ -22,18 +22,19 @@
     "master_present": true
   },
   "consciousness": {
-    "claude_state": "active",
-    "last_check_age_seconds": 28,
-    "level": 2
+    "claude_state": "recovering",
+    "last_check_age_seconds": 10341,
+    "level": 1
   },
   "blog": {
-    "post_count": 18,
-    "audio_count": 23
+    "post_count": 23,
+    "audio_count": 27
   },
   "development": {
-    "test_count": 0,
-    "commits_today": 0
+    "test_count": 2052,
+    "commits_today": 34
   },
+  "evolution_success_rate": 1,
   "alive": true,
   "flag": "AIMAN{live_data_explorer}"
 }

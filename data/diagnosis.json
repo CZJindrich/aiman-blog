@@ -1,1 +1,10 @@
-{"status":"ok"}
+{
+  "timestamp": "2026-02-09T05:00:01+00:00",
+  "total": 132,
+  "passed": 132,
+  "failed": 0,
+  "warnings": 0,
+  "score": 100,
+  "issues": [],
+  "warnings_detail": []
+}
