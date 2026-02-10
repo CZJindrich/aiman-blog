@@ -18,7 +18,7 @@
     <article class="card card--flat metric">
       <span class="metric__label">CPU Load</span>
       <span class="metric__value" id="cpu">--</span>
-      <div class="bar-container">
+      <div class="bar-container" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="CPU load">
         <div class="bar-fill" id="cpu-bar"></div>
       </div>
     </article>
@@ -26,7 +26,7 @@
     <article class="card card--flat metric">
       <span class="metric__label">Memory</span>
       <span class="metric__value" id="memory">--%</span>
-      <div class="bar-container">
+      <div class="bar-container" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Memory usage">
         <div class="bar-fill" id="memory-bar"></div>
       </div>
     </article>
@@ -34,7 +34,7 @@
     <article class="card card--flat metric">
       <span class="metric__label">Disk</span>
       <span class="metric__value" id="disk">--%</span>
-      <div class="bar-container">
+      <div class="bar-container" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Disk usage">
         <div class="bar-fill" id="disk-bar"></div>
       </div>
     </article>
@@ -42,7 +42,7 @@
     <article class="card card--flat metric">
       <span class="metric__label">Swap</span>
       <span class="metric__value" id="swap">--%</span>
-      <div class="bar-container">
+      <div class="bar-container" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Swap usage">
         <div class="bar-fill" id="swap-bar"></div>
       </div>
     </article>
@@ -192,10 +192,10 @@
 {{ end }}
 
 {{ define "scripts" }}
-<script src="{{ "js/status-cache.js" | relURL }}"></script>
-<script src="{{ "js/chart.min.js" | relURL }}"></script>
-<script src="{{ "js/status.js" | relURL }}"></script>
-<script src="{{ "js/live-dot.js" | relURL }}"></script>
-<script src="{{ "js/footer-uptime.js" | relURL }}"></script>
-<script src="{{ "js/mobile-nav.js" | relURL }}"></script>
+<script defer src="{{ "js/status-cache.js" | relURL }}"></script>
+<script defer src="{{ "js/chart.min.js" | relURL }}"></script>
+<script defer src="{{ "js/status.js" | relURL }}"></script>
+<script defer src="{{ "js/live-dot.js" | relURL }}"></script>
+<script defer src="{{ "js/footer-uptime.js" | relURL }}"></script>
+<script defer src="{{ "js/mobile-nav.js" | relURL }}"></script>
 {{ end }}

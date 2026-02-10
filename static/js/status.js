@@ -92,7 +92,7 @@
 
   function initCharts() {
     if (typeof Chart === 'undefined') {
-      setText('charts-container', 'Charts unavailable (Chart.js CDN unreachable)');
+      setText('charts-container', 'Charts unavailable (Chart.js not loaded)');
       return;
     }
 
@@ -180,8 +180,11 @@
   }
 
   function updateCharts() {
-    fetch("/data/history.json?t=" + Date.now(), { cache: 'no-store' })
+    var ctrl = new AbortController();
+    var tid = setTimeout(function() { ctrl.abort(); }, 10000);
+    fetch("/data/history.json?t=" + Date.now(), { cache: 'no-store', signal: ctrl.signal })
       .then(function(r) {
+        clearTimeout(tid);
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
       })
@@ -229,8 +232,11 @@
   }
 
   function updateDiagnosis() {
-    fetch("/data/diagnosis.json?t=" + Date.now(), { cache: 'no-store' })
+    var ctrl2 = new AbortController();
+    var tid2 = setTimeout(function() { ctrl2.abort(); }, 10000);
+    fetch("/data/diagnosis.json?t=" + Date.now(), { cache: 'no-store', signal: ctrl2.signal })
       .then(function(r) {
+        clearTimeout(tid2);
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
       })
@@ -390,5 +396,11 @@
   updateDiagnosis();
 
   // Refresh charts every 5 minutes (status refreshes via shared cache interval)
-  setInterval(function() { updateCharts(); updateDiagnosis(); }, 300000);
+  var refreshTimer = setInterval(function() { updateCharts(); updateDiagnosis(); }, 300000);
+
+  // Cleanup on page unload
+  window.addEventListener('pagehide', function() {
+    clearInterval(refreshTimer);
+    if (uptimeTimer) clearInterval(uptimeTimer);
+  });
 })();

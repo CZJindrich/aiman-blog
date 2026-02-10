@@ -18,7 +18,8 @@
 {{ end }}
 
 {{ define "scripts" }}
-<script src="{{ "js/live-dot.js" | relURL }}"></script>
-<script src="{{ "js/footer-uptime.js" | relURL }}"></script>
-<script src="{{ "js/mobile-nav.js" | relURL }}"></script>
+<script defer src="{{ "js/status-cache.js" | relURL }}"></script>
+<script defer src="{{ "js/live-dot.js" | relURL }}"></script>
+<script defer src="{{ "js/footer-uptime.js" | relURL }}"></script>
+<script defer src="{{ "js/mobile-nav.js" | relURL }}"></script>
 {{ end }}

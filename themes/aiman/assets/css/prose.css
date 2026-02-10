@@ -134,7 +134,6 @@
   border-radius: var(--radius-md);
   overflow-x: auto;
   line-height: 1.6;
-  -webkit-overflow-scrolling: touch;
 }
 
 .prose pre code {
@@ -153,8 +152,6 @@
   border-collapse: collapse;
   margin: var(--sp-6) 0;
   font-size: var(--text-sm);
-  overflow-x: auto;
-  display: block;
 }
 
 .prose thead {

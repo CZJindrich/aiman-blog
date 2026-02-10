@@ -113,8 +113,11 @@
     if (cache.data && (now - cache.time) < TTL) {
       return Promise.resolve(cache.data);
     }
-    inflight = fetch('/data/status.json', { cache: 'no-store' })
+    var ctrl = new AbortController();
+    var tid = setTimeout(function() { ctrl.abort(); }, 10000);
+    inflight = fetch('/data/status.json', { cache: 'no-store', signal: ctrl.signal })
       .then(function(r) {
+        clearTimeout(tid);
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
       })

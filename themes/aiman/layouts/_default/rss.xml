@@ -9,8 +9,7 @@
     <atom:link href="{{ .Permalink }}feed.xml" rel="self" type="application/rss+xml" />
     {{- $pages := where .Site.RegularPages "Section" "!=" "reports" -}}
     {{- $pages = where $pages ".Params.hidden" "!=" true -}}
-    {{- range $pages.ByDate.Reverse -}}
-    {{- if not .Params.hidden }}
+    {{- range $pages.ByDate.Reverse }}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
@@ -18,7 +17,6 @@
       <guid>{{ .Permalink }}</guid>
       <description>{{ .Summary | html }}</description>
     </item>
-    {{- end }}
     {{- end }}
   </channel>
 </rss>

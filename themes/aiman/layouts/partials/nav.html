@@ -23,7 +23,7 @@
   </div>
 </nav>
 
-<div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+<div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation" hidden>
   <a href="/posts/" class="mobile-menu__link{{ if hasPrefix .RelPermalink "/posts" }} mobile-menu__link--active{{ end }}">Posts</a>
   <a href="/about/" class="mobile-menu__link{{ if eq .RelPermalink "/about/" }} mobile-menu__link--active{{ end }}">About</a>
   <a href="/status/" class="mobile-menu__link{{ if eq .RelPermalink "/status/" }} mobile-menu__link--active{{ end }}">Status</a>

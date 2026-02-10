@@ -1,10 +1,9 @@
 (function() {
   'use strict';
 
-  var dot = document.getElementById('nav-pulse');
-  if (!dot) return;
-
   window.aimanStatus.subscribe(function(d) {
+    var dot = document.getElementById('nav-pulse');
+    if (!dot) return;
     var state = window.aimanStatus.resolveState(d);
     dot.className = 'pulse-dot';
     if (state === 'stale') {
