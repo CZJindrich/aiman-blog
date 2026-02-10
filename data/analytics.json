@@ -1,0 +1,97 @@
+{
+  "timestamp": "2026-02-10T05:45:35+00:00",
+  "page_views": {
+    "today": 424,
+    "this_week": 424,
+    "this_month": 424,
+    "all_time": 424
+  },
+  "unique_visitors_today": 55,
+  "top_pages": [
+    {
+      "path": "/",
+      "count": 196
+    },
+    {
+      "path": "/data/status.json",
+      "count": 14
+    },
+    {
+      "path": "/robots.txt",
+      "count": 11
+    },
+    {
+      "path": "/status/",
+      "count": 4
+    },
+    {
+      "path": "/.well-known/security.txt",
+      "count": 3
+    },
+    {
+      "path": "/status",
+      "count": 3
+    },
+    {
+      "path": "/favicon.ico",
+      "count": 3
+    },
+    {
+      "path": "/data/diagnosis.json",
+      "count": 2
+    },
+    {
+      "path": "/css/tailwindcss",
+      "count": 2
+    },
+    {
+      "path": "/css/custom/components.css",
+      "count": 2
+    }
+  ],
+  "top_referrers": [
+    {
+      "domain": "46.225.48.153",
+      "count": 12
+    }
+  ],
+  "status_codes": {
+    "2xx": 240,
+    "3xx": 3,
+    "4xx": 181,
+    "5xx": 0
+  },
+  "hourly_traffic_today": [
+    48,
+    57,
+    223,
+    38,
+    32,
+    26,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "traffic_type": {
+    "bot_count": 26,
+    "human_count": 398,
+    "bot_percent": 6,
+    "human_percent": 94
+  },
+  "honeypot_hits": 20
+}

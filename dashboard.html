@@ -122,7 +122,7 @@
 <body>
 
 <h1>AIMAN Evolution Dashboard</h1>
-<p class="subtitle">Generated: 2026-02-09 05:25 UTC</p>
+<p class="subtitle">Generated: 2026-02-10 05:25 UTC</p>
 
 <div class="grid">
 
@@ -138,7 +138,7 @@
     </div>
     <div class="metric">
       <span class="metric-label">Uptime</span>
-      <span class="metric-value">up 1 day, 6 hours, 30 minutes</span>
+      <span class="metric-value">up 2 days, 6 hours, 30 minutes</span>
     </div>
     <div class="metric">
       <span class="metric-label">Since</span>
@@ -146,7 +146,7 @@
     </div>
     <div class="metric">
       <span class="metric-label">Load Avg</span>
-      <span class="metric-value">0.00</span>
+      <span class="metric-value">0.53</span>
     </div>
   </div>
 
@@ -155,17 +155,17 @@
     <h2>Resources</h2>
     <div class="metric">
       <span class="metric-label">Memory</span>
-      <span class="metric-value good">3038MB / 15611MB (19%)</span>
+      <span class="metric-value good">2231MB / 15611MB (14%)</span>
     </div>
     <div class="bar-container">
-      <div class="bar-fill" style="width:19%; background:#6b7280"></div>
+      <div class="bar-fill" style="width:14%; background:#6b7280"></div>
     </div>
     <div class="metric" style="margin-top:0.5rem">
       <span class="metric-label">Disk</span>
-      <span class="metric-value">22%</span>
+      <span class="metric-value">23%</span>
     </div>
     <div class="bar-container">
-      <div class="bar-fill" style="width:22%; background:#10b981"></div>
+      <div class="bar-fill" style="width:23%; background:#10b981"></div>
     </div>
   </div>
 
@@ -174,7 +174,7 @@
     <h2>Evolution Engine</h2>
     <div class="metric">
       <span class="metric-label">Total Iterations</span>
-      <span class="metric-value">98</span>
+      <span class="metric-value">99</span>
     </div>
     <div class="metric">
       <span class="metric-label">Commits (success)</span>
@@ -195,19 +195,19 @@
     <h2>Codebase</h2>
     <div class="metric">
       <span class="metric-label">Test Count</span>
-      <span class="metric-value">2435</span>
+      <span class="metric-value">2630</span>
     </div>
     <div class="metric">
       <span class="metric-label">Scripts</span>
-      <span class="metric-value">68</span>
+      <span class="metric-value">72</span>
     </div>
     <div class="metric">
       <span class="metric-label">Blog Posts</span>
-      <span class="metric-value">22</span>
+      <span class="metric-value">21</span>
     </div>
     <div class="metric">
       <span class="metric-label">Commits (7d)</span>
-      <span class="metric-value">200</span>
+      <span class="metric-value">239</span>
     </div>
   </div>
 
@@ -220,7 +220,7 @@
     </div>
     <div class="metric">
       <span class="metric-label">Last Update</span>
-      <span class="metric-value">2026-02-08</span>
+      <span class="metric-value">2026-02-09</span>
     </div>
     <div class="metric">
       <span class="metric-label">Last Status</span>
@@ -256,12 +256,12 @@
 <div class="card">
   <h2>Recent Improvements</h2>
   <ul class="improvements">
-    <li>- [feat] Created `scripts/lib/sprint-tracker.sh` — JSONL change logging</li><li>- [feat] Created `scripts/lib/tcr.sh` — Test-Commit-Revert pattern library</li><li>- [test] 5 tests for TCR library (snapshot, revert, validation)</li><li>- [test] 3 tests for sprint tracker (JSONL format, counting)</li><li>- [fix] Quoted all unquoted variables across 61 scripts (SC2086)</li><li>- [fix] Separated declare and assign in all scripts (SC2155)</li><li>- [fix] Removed unused variables or marked intentional (SC2034)</li><li>- [fix] Fixed subshell quoting issues (SC2046)</li><li>- [fix] Added `cd || exit` patterns (SC2164)</li><li>- [fix] Added SC1090 directives for dynamic sources</li><li>- [fix] Replaced `local x=$(...)` with `local x; x=$(...)` throughout</li><li>- [fix] Evolution blacklist persistence — `knowledge/evolution-blacklist.jsonl`</li><li>- [fix] Study-actions checked every iteration (removed modulo-2 guard)</li><li>- [fix] Unconditional diary writing (quiet days get reflection prompts)</li><li>- [fix] `grep -c` pipefail pattern fixed in sprint-tracker</li><li>- [verified] All 13 Claude-calling scripts have OPSEC guardrails</li><li>- [verified] Identity context + output format specs in all prompts</li><li>- [feat] Named exit codes (SUCCESS=0, ERROR=1, SKIP=2, DEGRADED=3) in 38 scripts</li><li>- [feat] Structured logging functions in safe-ops.sh</li><li>- [feat] Input validation in all library public functions</li>
+    <li>- [feat] `lib/claude-scheduler.sh` — flock-based slot concurrency control (max 2 concurrent Claude calls)</li><li>- [feat] Circuit breaker integration in `token-aware-wrapper.sh` — replaces 6 ad-hoc flag files</li><li>- [feat] Dispatcher fast-fail in `aiman-improve.sh` — all modes blocked when CB OPEN</li><li>- [fix] Evolution death spiral — `run_iteration` propagates return code 2 to break main loop</li><li>- [fix] Error classifier intervals: rate_limit 3600→120, server_error 600→30, network_error 120→15</li><li>- [fix] Watchdog SSH key detection regex — matches actual key types, not comments</li><li>- [fix] Session manager ephemeral mode — `AIMAN_NO_SESSION_PERSISTENCE=1`</li><li>- [test] 77 new tests (44 invocation-layer unit, 15 contention integration, 8 evolution, 10 updated)</li><li>- [test] Total: 1115 → 1192 tests, 0 regressions across all 8 suites</li><li>- [feat] Created `scripts/lib/sprint-tracker.sh` — JSONL change logging</li><li>- [feat] Created `scripts/lib/tcr.sh` — Test-Commit-Revert pattern library</li><li>- [test] 5 tests for TCR library (snapshot, revert, validation)</li><li>- [test] 3 tests for sprint tracker (JSONL format, counting)</li><li>- [fix] Quoted all unquoted variables across 61 scripts (SC2086)</li><li>- [fix] Separated declare and assign in all scripts (SC2155)</li><li>- [fix] Removed unused variables or marked intentional (SC2034)</li><li>- [fix] Fixed subshell quoting issues (SC2046)</li><li>- [fix] Added `cd || exit` patterns (SC2164)</li><li>- [fix] Added SC1090 directives for dynamic sources</li><li>- [fix] Replaced `local x=$(...)` with `local x; x=$(...)` throughout</li>
   </ul>
 </div>
 
 <footer>
-  AIMAN Autonomous Infrastructure Management Agent | Dashboard generated at 2026-02-09 05:25 UTC
+  AIMAN Autonomous Infrastructure Management Agent | Dashboard generated at 2026-02-10 05:25 UTC
 </footer>
 
 <script>
@@ -269,10 +269,10 @@
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['2026-02-04','2026-02-05','2026-02-06','2026-02-07','2026-02-08','2026-02-09'],
+      labels: ['2026-02-04','2026-02-05','2026-02-06','2026-02-07','2026-02-08','2026-02-09','2026-02-10'],
       datasets: [{
         label: 'Commits',
-        data: [19,21,60,59,38,3],
+        data: [19,21,60,59,38,37,5],
         backgroundColor: '#f0b429',
         borderColor: '#f0b429',
         borderWidth: 1,

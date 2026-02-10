@@ -1,22 +1,21 @@
 /**
- * Shared status data cache — single source of truth.
+ * Shared status data cache -- single source of truth.
  * All consumers subscribe here. Data is validated, sanitized, and frozen.
  *
  * API:
- *   window.aimanStatus.subscribe(fn)    — receive validated data on each refresh
- *   window.aimanStatus.get()            — one-shot promise for current data
- *   window.aimanStatus.resolveState(d)  — derive display state from data
+ *   window.aimanStatus.subscribe(fn)    -- receive validated data on each refresh
+ *   window.aimanStatus.get()            -- one-shot promise for current data
+ *   window.aimanStatus.resolveState(d)  -- derive display state from data
  */
 (function() {
   'use strict';
+  console.log("AIMAN{console_curious}");
 
   var cache = { data: null, time: 0 };
   var TTL = 55000;
   var inflight = null;
   var subscribers = [];
   var interval = null;
-
-  // -- Validation helpers ------------------------------------------------
 
   var ALLOWED_STATES = { active: 1, stale: 1, recovering: 1, booting: 1, unknown: 1 };
   var ALLOWED_SERVICE_STATES = { active: 1, inactive: 1, failed: 1 };
@@ -35,15 +34,10 @@
   function safeNonNeg(v) { return clampNum(v, 0, 1e9); }
   function safePct(v) { return clampNum(v, 0, 100); }
 
-  /**
-   * Validate and sanitize raw JSON into a trusted data object.
-   * Returns null if the data is structurally invalid.
-   */
   function validateStatus(raw) {
     if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
     if (typeof raw.timestamp !== 'string') return null;
 
-    // Validate timestamp is a parseable ISO date
     var ts = new Date(raw.timestamp);
     if (isNaN(ts.getTime())) return null;
 
@@ -61,7 +55,6 @@
       network_connections: safeNonNeg(raw.network_connections)
     };
 
-    // Services — allowlisted state values only
     clean.services = {};
     if (raw.services && typeof raw.services === 'object' && !Array.isArray(raw.services)) {
       var svcKeys = Object.keys(raw.services);
@@ -73,14 +66,12 @@
       }
     }
 
-    // Security — numeric counts only
     clean.security = {
       banned_ips:      safeNonNeg(raw.security && raw.security.banned_ips),
       failed_ssh_24h:  safeNonNeg(raw.security && raw.security.failed_ssh_24h),
       master_present:  !!(raw.security && (raw.security.master_present === true || raw.security.master_present === 'true'))
     };
 
-    // Consciousness — allowlisted state string
     clean.consciousness = null;
     if (raw.consciousness && typeof raw.consciousness === 'object') {
       clean.consciousness = {
@@ -90,7 +81,6 @@
       };
     }
 
-    // Blog stats
     clean.blog = null;
     if (raw.blog && typeof raw.blog === 'object') {
       clean.blog = {
@@ -99,7 +89,6 @@
       };
     }
 
-    // Development stats
     clean.development = null;
     if (raw.development && typeof raw.development === 'object') {
       clean.development = {
@@ -108,7 +97,6 @@
       };
     }
 
-    // Deep-freeze the sanitized object
     Object.freeze(clean);
     Object.freeze(clean.services);
     Object.freeze(clean.security);
@@ -118,8 +106,6 @@
 
     return clean;
   }
-
-  // -- Fetch + cache -----------------------------------------------------
 
   function doFetch() {
     if (inflight) return inflight;
@@ -147,12 +133,10 @@
     return inflight;
   }
 
-  // -- Subscriber notification -------------------------------------------
-
   function notify() {
     doFetch().then(function(d) {
       for (var i = 0; i < subscribers.length; i++) {
-        try { subscribers[i](d); } catch(e) { /* consumer error — swallow */ }
+        try { subscribers[i](d); } catch(e) { /* consumer error */ }
       }
     }).catch(function() {
       for (var i = 0; i < subscribers.length; i++) {
@@ -173,8 +157,6 @@
     }
   }
 
-  // -- State resolution (allowlisted output) -----------------------------
-
   function resolveState(d) {
     if (!d) return 'offline';
     var age = (Date.now() / 1000) - (new Date(d.timestamp).getTime() / 1000);
@@ -184,8 +166,6 @@
     if (state === 'recovering') return 'recovering';
     return 'stale';
   }
-
-  // -- Public API (frozen) -----------------------------------------------
 
   window.aimanStatus = Object.freeze({
     get: doFetch,

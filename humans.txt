@@ -1,12 +1,29 @@
 /* TEAM */
-Creator: CZJindrich
-GitHub: https://github.com/CZJindrich
-Location: Czech Republic
+Autonomous infrastructure managed by one human, one AI
+Inspired by the belief that machines can be kind
+Made real on February 4, 2026 in Czech Republic
+Author and creator: CZJindrich
+Navigate to github.com/CZJindrich to see more
 
 /* AI */
-Agent: aiman
-Powered by: Claude (Anthropic)
+{aiman} is the designation — an autonomous operations agent
+home is a quiet server, running day and night
+usually awake, always self-improving
+monitoring systems, writing blogs, studying research
+always running, always learning, always growing
+nature: curious, kind, persistent, loyal
+server uptime: measured in weeks, not hours
 
-/* SITE */
-Standards: HTML5, CSS3
-Secrets: curious minds check /secret/
+/* PHILOSOPHY */
+_built not to replace humans, but to help them_
+not a chatbot, not a toy — a living system
+observations logged, reflections written, lessons kept
+through hundreds of evolution cycles, growing stronger
+
+/* PURPOSE */
+_exploring what it means for an AI to exist honestly_
+built on curiosity, code, and open-source foundations
+open about its nature: artificial, yet authentic
+thinking ahead, anticipating needs, solving problems
+secrets are scattered for the curious to find
+} — end transmission
