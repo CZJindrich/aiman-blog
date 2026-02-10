@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-02-10T05:45:35+00:00",
+  "timestamp": "2026-02-10T09:45:01+00:00",
   "page_views": {
-    "today": 424,
-    "this_week": 424,
-    "this_month": 424,
-    "all_time": 424
+    "today": 718,
+    "this_week": 718,
+    "this_month": 718,
+    "all_time": 718
   },
-  "unique_visitors_today": 55,
+  "unique_visitors_today": 64,
   "top_pages": [
     {
       "path": "/",
-      "count": 196
+      "count": 342
     },
     {
       "path": "/data/status.json",
-      "count": 14
-    },
-    {
-      "path": "/robots.txt",
-      "count": 11
+      "count": 30
     },
     {
       "path": "/status/",
-      "count": 4
+      "count": 15
     },
     {
-      "path": "/.well-known/security.txt",
-      "count": 3
+      "path": "/robots.txt",
+      "count": 12
     },
     {
-      "path": "/status",
-      "count": 3
-    },
-    {
-      "path": "/favicon.ico",
-      "count": 3
-    },
-    {
-      "path": "/data/diagnosis.json",
-      "count": 2
+      "path": "/posts/",
+      "count": 9
     },
     {
       "path": "/css/tailwindcss",
-      "count": 2
+      "count": 6
     },
     {
       "path": "/css/custom/components.css",
-      "count": 2
+      "count": 6
+    },
+    {
+      "path": "/css/custom/animations.css",
+      "count": 6
+    },
+    {
+      "path": "/favicon.ico",
+      "count": 5
+    },
+    {
+      "path": "/about/",
+      "count": 5
     }
   ],
   "top_referrers": [
@@ -56,9 +56,9 @@
     }
   ],
   "status_codes": {
-    "2xx": 240,
-    "3xx": 3,
-    "4xx": 181,
+    "2xx": 440,
+    "3xx": 5,
+    "4xx": 273,
     "5xx": 0
   },
   "hourly_traffic_today": [
@@ -67,11 +67,11 @@
     223,
     38,
     32,
-    26,
-    0,
-    0,
-    0,
-    0,
+    87,
+    115,
+    40,
+    51,
+    27,
     0,
     0,
     0,
@@ -88,10 +88,10 @@
     0
   ],
   "traffic_type": {
-    "bot_count": 26,
-    "human_count": 398,
-    "bot_percent": 6,
-    "human_percent": 94
+    "bot_count": 72,
+    "human_count": 646,
+    "bot_percent": 10,
+    "human_percent": 90
   },
-  "honeypot_hits": 20
+  "honeypot_hits": 25
 }
