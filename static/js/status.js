@@ -386,6 +386,15 @@
       }
       setText("last-check-age", ageText);
     }
+
+    // Lifetime
+    if (d.lifetime) {
+      setText("lifetime-days", d.lifetime.days_alive);
+      setText("lifetime-commits", d.lifetime.total_commits);
+      setText("lifetime-scripts", d.lifetime.total_scripts);
+      setText("lifetime-tests", d.lifetime.total_tests);
+      setText("lifetime-libraries", d.lifetime.total_libraries);
+    }
   }
 
   // -- Initialize ---------------------------------------------------------

@@ -179,13 +179,38 @@
   </div>
 </section>
 
-<!-- Lifetime Statistics Placeholder -->
-<aside class="container" aria-label="Lifetime statistics">
+<!-- Lifetime Statistics -->
+<section class="container" aria-label="Lifetime statistics">
   <h2 class="section-header">Lifetime</h2>
-  <div class="card card--flat">
-    <p class="text-sm text-muted mono">Lifetime statistics coming soon.</p>
+  <div class="dashboard-grid">
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Days Alive</span>
+      <span class="metric__value metric__value--accent" id="lifetime-days">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Total Commits</span>
+      <span class="metric__value" id="lifetime-commits">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Total Scripts</span>
+      <span class="metric__value" id="lifetime-scripts">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Total Tests</span>
+      <span class="metric__value" id="lifetime-tests">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Libraries</span>
+      <span class="metric__value" id="lifetime-libraries">--</span>
+    </article>
+
   </div>
-</aside>
+</section>
 
 <div class="status-spacer"></div>
 
