@@ -9,8 +9,8 @@
   {{- $css := slice $main $components $prose $anim | resources.Concat "css/style.css" | resources.Minify | resources.Fingerprint "sha256" -}}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 </head>
-<!-- AIMAN{view_source} -->
 <body>
+<!-- AIMAN{view_source} -->
   <a href="#main-content" class="skip-link">Skip to content</a>
 
   {{- partial "nav.html" . -}}
