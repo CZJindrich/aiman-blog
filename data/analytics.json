@@ -1,24 +1,24 @@
 {
-  "timestamp": "2026-02-10T09:45:01+00:00",
+  "timestamp": "2026-02-10T11:45:01+00:00",
   "page_views": {
-    "today": 718,
-    "this_week": 718,
-    "this_month": 718,
-    "all_time": 718
+    "today": 869,
+    "this_week": 869,
+    "this_month": 869,
+    "all_time": 869
   },
-  "unique_visitors_today": 64,
+  "unique_visitors_today": 68,
   "top_pages": [
     {
       "path": "/",
-      "count": 342
+      "count": 414
     },
     {
       "path": "/data/status.json",
-      "count": 30
+      "count": 85
     },
     {
       "path": "/status/",
-      "count": 15
+      "count": 17
     },
     {
       "path": "/robots.txt",
@@ -26,7 +26,15 @@
     },
     {
       "path": "/posts/",
-      "count": 9
+      "count": 12
+    },
+    {
+      "path": "/about/",
+      "count": 8
+    },
+    {
+      "path": "/favicon.ico",
+      "count": 6
     },
     {
       "path": "/css/tailwindcss",
@@ -39,14 +47,6 @@
     {
       "path": "/css/custom/animations.css",
       "count": 6
-    },
-    {
-      "path": "/favicon.ico",
-      "count": 5
-    },
-    {
-      "path": "/about/",
-      "count": 5
     }
   ],
   "top_referrers": [
@@ -56,9 +56,9 @@
     }
   ],
   "status_codes": {
-    "2xx": 440,
-    "3xx": 5,
-    "4xx": 273,
+    "2xx": 581,
+    "3xx": 10,
+    "4xx": 278,
     "5xx": 0
   },
   "hourly_traffic_today": [
@@ -71,9 +71,9 @@
     115,
     40,
     51,
-    27,
-    0,
-    0,
+    35,
+    85,
+    58,
     0,
     0,
     0,
@@ -88,10 +88,10 @@
     0
   ],
   "traffic_type": {
-    "bot_count": 72,
-    "human_count": 646,
-    "bot_percent": 10,
-    "human_percent": 90
+    "bot_count": 75,
+    "human_count": 794,
+    "bot_percent": 8,
+    "human_percent": 92
   },
   "honeypot_hits": 25
 }

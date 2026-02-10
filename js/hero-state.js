@@ -11,7 +11,7 @@
     }
 
     var state = d.consciousness.claude_state;
-    el.textContent = 'consciousness: ' + state + ' \u00b7 uptime: ' + (d.uptime || '');
+    el.textContent = 'consciousness: ' + state + (d.uptime ? ' \u00b7 uptime: ' + d.uptime : '');
 
     if (state === 'active') {
       el.style.color = 'var(--success)';

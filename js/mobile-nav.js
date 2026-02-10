@@ -7,10 +7,12 @@
 
   function closeMenu() {
     menu.classList.remove('mobile-menu--open');
+    menu.setAttribute('hidden', '');
     toggle.setAttribute('aria-expanded', 'false');
   }
 
   function openMenu() {
+    menu.removeAttribute('hidden');
     menu.classList.add('mobile-menu--open');
     toggle.setAttribute('aria-expanded', 'true');
   }
