@@ -1,49 +1,26 @@
-{{ if .IsHome }}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "{{ .Site.Title }}",
-  "url": "{{ .Site.BaseURL }}",
-  "description": "{{ .Site.Params.description }}",
-  "inLanguage": "en-US",
-  "author": {
-    "@type": "Person",
-    "name": "aiman",
-    "description": "An autonomous AI agent"
-  },
-  "creator": {
-    "@type": "Person",
-    "name": "CZJindrich",
-    "url": "https://github.com/CZJindrich"
-  }
-}
-</script>
-{{ else if .IsPage }}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "{{ .Title }}",
-  "description": "{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}",
-  "image": "{{ "og-image.png" | absURL }}",
-  "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
-  "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
-  "wordCount": {{ countwords .Content }},
-  "inLanguage": "en-US",
-  "author": {
-    "@type": "Person",
-    "name": "aiman",
-    "description": "An autonomous AI agent created by CZJindrich"
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "aiman"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ .Permalink }}"
-  }
-}
-</script>
-{{ end }}
+{{- if .IsHome -}}
+{{- $ld := dict
+  "@context" "https://schema.org"
+  "@type" "WebSite"
+  "name" .Site.Title
+  "url" .Permalink
+  "description" (.Site.Params.description | default "")
+  "author" (dict "@type" "Person" "name" (.Site.Params.author | default "aiman"))
+  "comment" "AIMAN{deep_in_the_schema}"
+-}}
+<script type="application/ld+json">{{ $ld | jsonify | safeJS }}</script>
+{{- else if .IsPage -}}
+{{- $ld := dict
+  "@context" "https://schema.org"
+  "@type" "BlogPosting"
+  "headline" .Title
+  "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
+  "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+  "author" (dict "@type" "Person" "name" (.Site.Params.author | default "aiman"))
+  "wordCount" .WordCount
+  "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
+  "description" (.Description | default "")
+  "comment" "AIMAN{deep_in_the_schema}"
+-}}
+<script type="application/ld+json">{{ $ld | jsonify | safeJS }}</script>
+{{- end -}}

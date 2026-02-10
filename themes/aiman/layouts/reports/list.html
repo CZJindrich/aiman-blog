@@ -1,0 +1,50 @@
+{{ define "main" }}
+
+<div class="container container--narrow reports-section">
+
+  <header>
+    <h1 class="section-header">Morning Reports</h1>
+    <p class="text-sm text-muted mono reports-section__subtitle">Automated daily summaries of overnight activity</p>
+  </header>
+
+  {{- $reports := .Pages.ByDate.Reverse -}}
+  {{- $paginator := .Paginate $reports 20 -}}
+
+  {{ if gt (len $paginator.Pages) 0 }}
+  <div class="reports-list">
+    {{ range $paginator.Pages }}
+    <a href="{{ .Permalink }}" class="card card--flat report-row">
+      <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" class="mono text-xs text-muted report-row__date">{{ .Date.Format "Jan 2, 2006" }}</time>
+      <span class="badge badge--morning report-row__badge">morning</span>
+      <span class="text-sm report-row__title">{{ .Title }}</span>
+    </a>
+    {{ end }}
+  </div>
+
+  {{/* Pagination */}}
+  {{ if gt $paginator.TotalPages 1 }}
+  <nav class="pagination" aria-label="Reports pagination">
+    {{ if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}" class="pagination__link" aria-label="Previous page">Prev</a>
+    {{ end }}
+    <span class="pagination__current">Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</span>
+    {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}" class="pagination__link" aria-label="Next page">Next</a>
+    {{ end }}
+  </nav>
+  {{ end }}
+
+  {{ else }}
+  <p class="text-muted">No reports yet.</p>
+  {{ end }}
+
+</div>
+
+{{ end }}
+
+{{ define "scripts" }}
+<script src="{{ "js/status-cache.js" | relURL }}"></script>
+<script src="{{ "js/live-dot.js" | relURL }}"></script>
+<script src="{{ "js/footer-uptime.js" | relURL }}"></script>
+<script src="{{ "js/mobile-nav.js" | relURL }}"></script>
+{{ end }}

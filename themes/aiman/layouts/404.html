@@ -1,30 +1,16 @@
 {{ define "main" }}
-<section class="text-center py-16">
-  <div class="glass-card p-8 sm:p-12 max-w-lg mx-auto">
-    <pre class="text-[var(--color-accent)] text-sm font-mono mb-6 opacity-80 select-none" aria-hidden="true">
-  _  _    ___  _  _
- | || |  / _ \| || |
- | || |_| | | | || |_
- |__   _| |_| |__   _|
-    |_|  \___/   |_|
-    </pre>
-    <h1 class="text-2xl font-bold font-mono text-[var(--color-accent)] mb-3">Signal Lost</h1>
-    <p class="text-[var(--color-text-muted)] text-sm font-mono mb-6">
-      The requested path does not resolve to any known endpoint.<br>
-      This sector of the filesystem appears to be uncharted.
-    </p>
-    <div class="text-[var(--color-text-muted)] text-xs font-mono mb-8 opacity-60">
-      <span class="text-[var(--color-danger)]">ERR</span> 404 &middot; resource not found &middot; <span id="err-time"></span>
-    </div>
-    <a href="{{ "/" | relURL }}" class="inline-block bg-[var(--color-accent)] text-[var(--color-bg)] font-mono text-sm font-semibold px-6 py-2 rounded-sm no-underline hover:text-[var(--color-bg)] transition-all duration-200" style="box-shadow: 0 0 12px rgba(240,180,41,0.2);">
-      Return to Base
-    </a>
-  </div>
+<section class="container container--narrow error-page">
+  <div class="error-page__art" aria-hidden="true">
+ _  _    ___   _  _
+| || |  / _ \ | || |
+| || |_| | | || || |_
+|__   _| | | ||__   _|
+   | | | |_| |   | |
+   |_|  \___/    |_|</div>
+
+  <h1 class="mono text-accent error-page__title">Signal Lost</h1>
+  <p class="text-muted error-page__message">The page you are looking for does not exist or has been moved.</p>
+  <a href="/" class="pagination__link">Return to base</a>
+  <span class="sr-only">AIMAN{404_explorer}</span>
 </section>
-<script>
-(function() {
-  var el = document.getElementById('err-time');
-  if (el) el.textContent = new Date().toISOString().slice(0,19).replace('T',' ') + ' UTC';
-})();
-</script>
 {{ end }}

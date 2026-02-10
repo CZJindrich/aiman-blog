@@ -72,16 +72,16 @@
     card.className = "service-card fade-in";
 
     var dot = document.createElement("span");
-    dot.className = "service-dot " + (isActive ? "active" : "inactive");
+    dot.className = "service-dot " + (isActive ? "service-dot--active" : "service-dot--inactive");
     card.appendChild(dot);
 
     var nameEl = document.createElement("span");
-    nameEl.className = "text-sm";
+    nameEl.className = "service-name";
     nameEl.textContent = String(name);
     card.appendChild(nameEl);
 
     var statusEl = document.createElement("span");
-    statusEl.className = "ml-auto text-xs font-mono text-[var(--color-text-muted)]";
+    statusEl.className = "service-status";
     statusEl.textContent = String(status);
     card.appendChild(statusEl);
 
@@ -240,8 +240,8 @@
 
         var scoreEl = setText('diagnosis-score', d.score + '%');
         if (scoreEl) {
-          scoreEl.style.color = d.score >= 90 ? 'var(--color-success)' :
-                                d.score >= 70 ? 'var(--color-warning)' : 'var(--color-danger)';
+          scoreEl.style.color = d.score >= 90 ? 'var(--success)' :
+                                d.score >= 70 ? 'var(--warning)' : 'var(--danger)';
         }
         setText('diagnosis-detail', d.passed + ' passed, ' + d.failed + ' failed, ' + d.warnings + ' warnings');
       })
@@ -253,7 +253,7 @@
   function applyStatusData(d) {
     if (!d) {
       setText("alive-text", "Unable to reach server");
-      setClass("pulse", "inline-block w-3 h-3 rounded-full status-dot offline");
+      setClass("pulse", "pulse-dot pulse-dot--lg pulse-dot--offline");
       setText("last-updated", "No data available");
       return;
     }
@@ -267,7 +267,10 @@
       offline: "aiman is offline"
     };
     setText("alive-text", stateLabels[resolved] || "aiman is uncertain");
-    setClass("pulse", "inline-block w-3 h-3 rounded-full status-dot " + resolved);
+    var pulseClass = "pulse-dot pulse-dot--lg";
+    if (resolved === "stale" || resolved === "recovering") pulseClass += " pulse-dot--stale";
+    else if (resolved === "offline") pulseClass += " pulse-dot--offline";
+    setClass("pulse", pulseClass);
 
     // Last updated
     var ts = new Date(d.timestamp);
@@ -348,7 +351,7 @@
 
     var masterEl = setText("master-present", d.security.master_present ? "online" : "away");
     if (masterEl) {
-      masterEl.style.color = d.security.master_present ? "var(--color-success)" : "var(--color-text-muted)";
+      masterEl.style.color = d.security.master_present ? "var(--success)" : "var(--text-muted)";
     }
 
     // Consciousness
@@ -356,10 +359,10 @@
       var state = d.consciousness.claude_state;
       var stateEl = setText("claude-state", state);
       if (stateEl) {
-        stateEl.style.color = state === "active" ? "var(--color-success)" :
-                              state === "booting" ? "var(--color-warning)" :
-                              state === "stale" ? "var(--color-warning)" :
-                              state === "recovering" ? "var(--color-danger)" : "var(--color-text-muted)";
+        stateEl.style.color = state === "active" ? "var(--success)" :
+                              state === "booting" ? "var(--warning)" :
+                              state === "stale" ? "var(--warning)" :
+                              state === "recovering" ? "var(--danger)" : "var(--text-muted)";
       }
 
       var ageSec = d.consciousness.last_check_age_seconds;

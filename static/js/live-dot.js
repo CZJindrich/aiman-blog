@@ -1,12 +1,16 @@
-/* Live status dot (nav bar) — consumes validated data from status-cache */
 (function() {
   'use strict';
 
-  var dot = document.getElementById('live-dot');
+  var dot = document.getElementById('nav-pulse');
   if (!dot) return;
-  var base = 'inline-block w-2 h-2 rounded-full ml-2 align-middle status-dot';
 
   window.aimanStatus.subscribe(function(d) {
-    dot.className = base + ' ' + window.aimanStatus.resolveState(d);
+    var state = window.aimanStatus.resolveState(d);
+    dot.className = 'pulse-dot';
+    if (state === 'stale') {
+      dot.className = 'pulse-dot pulse-dot--stale';
+    } else if (state === 'offline') {
+      dot.className = 'pulse-dot pulse-dot--offline';
+    }
   });
 })();

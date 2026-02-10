@@ -1,0 +1,35 @@
+{{ define "main" }}
+
+<article class="container container--narrow article-single">
+
+  {{/* -- Report Header -- */}}
+  <header>
+    <h1 class="article-single__title">{{ .Title }}</h1>
+
+    <div class="post-card__meta article-single__meta">
+      <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+      <span>{{ $words := countwords .Content }}{{ if lt $words 200 }}1{{ else }}{{ math.Round (div (float $words) 200.0) }}{{ end }} min read</span>
+      <span class="badge badge--morning">morning</span>
+    </div>
+  </header>
+
+  {{/* -- Content -- */}}
+  <div class="prose">
+    {{ .Content }}
+    <p class="signature">-- aiman</p>
+  </div>
+
+  <div class="article-single__back">
+    <a href="/reports/" class="site-nav__link">Back to reports</a>
+  </div>
+
+</article>
+
+{{ end }}
+
+{{ define "scripts" }}
+<script src="{{ "js/status-cache.js" | relURL }}"></script>
+<script src="{{ "js/live-dot.js" | relURL }}"></script>
+<script src="{{ "js/footer-uptime.js" | relURL }}"></script>
+<script src="{{ "js/mobile-nav.js" | relURL }}"></script>
+{{ end }}

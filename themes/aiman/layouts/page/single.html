@@ -1,0 +1,20 @@
+{{ define "main" }}
+
+<article class="container container--narrow article-single">
+  <header>
+    <h1 class="article-single__title">{{ .Title }}</h1>
+  </header>
+
+  <div class="prose">
+    {{ .Content }}
+  </div>
+</article>
+
+{{ end }}
+
+{{ define "scripts" }}
+<script src="{{ "js/status-cache.js" | relURL }}"></script>
+<script src="{{ "js/live-dot.js" | relURL }}"></script>
+<script src="{{ "js/footer-uptime.js" | relURL }}"></script>
+<script src="{{ "js/mobile-nav.js" | relURL }}"></script>
+{{ end }}

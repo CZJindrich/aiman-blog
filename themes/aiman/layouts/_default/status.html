@@ -1,162 +1,201 @@
-{{ define "head-extra" }}
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"
-  integrity="sha384-vsrfeLOOY6KuIYKDlmVH5UiBmgIdB1oEf7p01YgWHuqmOHfZr374+odEv96n9tNC"
-  crossorigin="anonymous"></script>
-{{ end }}
-
 {{ define "main" }}
-<div class="max-w-5xl mx-auto">
 
-  <!-- Status Header -->
-  <div class="glass-card p-6 sm:p-8 text-center mb-10" role="status" aria-live="polite">
-    <div class="flex items-center justify-center gap-3 mb-3">
-      <span id="pulse" class="inline-block w-3 h-3 rounded-full bg-[var(--color-success)] anim-breathe-glow" aria-hidden="true"></span>
-      <span id="alive-text" class="text-xl sm:text-2xl font-semibold tracking-tight">Checking...</span>
-    </div>
-    <p id="last-updated" class="text-[var(--color-text-muted)] text-xs font-mono mb-1">Loading...</p>
-    <p id="greeting" class="text-[var(--color-text-muted)] text-xs italic"></p>
+<!-- Status Hero -->
+<section class="status-hero container" aria-label="System status overview">
+  <div class="status-hero__header">
+    <span id="pulse" class="pulse-dot pulse-dot--lg"></span>
+    <h1 class="status-hero__title" id="alive-text">Checking status...</h1>
   </div>
+  <p class="status-hero__greeting" id="greeting"></p>
+  <p class="status-hero__timestamp" id="last-updated">Loading...</p>
+</section>
 
-  <!-- System Health -->
-  <h3 class="flex items-center gap-2 text-[var(--color-text-muted)] text-xs font-mono uppercase tracking-widest mb-3">
-    <span class="w-1 h-4 bg-[var(--color-accent)] rounded-sm"></span>
-    System Health
-  </h3>
-  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-4">
-    <div class="metric-card">
-      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider mb-1">Uptime</div>
-      <div class="text-lg font-semibold font-mono text-[var(--color-success)]" id="uptime">--</div>
-    </div>
-    <div class="metric-card">
-      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider mb-1">CPU Load</div>
-      <div class="text-lg font-semibold font-mono" id="cpu">--</div>
-      <div class="metric-bar"><div class="bar-fill" id="cpu-bar"></div></div>
-    </div>
-    <div class="metric-card">
-      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider mb-1">Memory</div>
-      <div class="text-lg font-semibold font-mono" id="memory">--</div>
-      <div class="metric-bar"><div class="bar-fill" id="memory-bar"></div></div>
-    </div>
-    <div class="metric-card">
-      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider mb-1">Disk</div>
-      <div class="text-lg font-semibold font-mono" id="disk">--</div>
-      <div class="metric-bar"><div class="bar-fill" id="disk-bar"></div></div>
-    </div>
-    <div class="metric-card">
-      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider mb-1">Swap</div>
-      <div class="text-lg font-semibold font-mono" id="swap">--</div>
-      <div class="metric-bar"><div class="bar-fill" id="swap-bar"></div></div>
-    </div>
-  </div>
-  <div class="grid grid-cols-2 gap-3 mb-8">
-    <div class="metric-card">
-      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider mb-1">Processes</div>
-      <div class="text-lg font-semibold font-mono" id="processes">--</div>
-    </div>
-    <div class="metric-card">
-      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider mb-1">Connections</div>
-      <div class="text-lg font-semibold font-mono" id="connections">--</div>
-    </div>
-  </div>
+<!-- Resource Meters -->
+<section class="container" aria-label="System resources">
+  <h2 class="section-header">Resources</h2>
+  <div class="dashboard-grid">
 
-  <!-- 24-Hour Trends -->
-  <h3 class="flex items-center gap-2 text-[var(--color-text-muted)] text-xs font-mono uppercase tracking-widest mb-3">
-    <span class="w-1 h-4 bg-[var(--color-accent)] rounded-sm"></span>
-    24-Hour Trends
-  </h3>
-  <div id="charts-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-    <div class="glass-card p-4">
-      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider text-center font-mono mb-2">CPU Load</div>
-      <canvas id="chart-cpu"></canvas>
-    </div>
-    <div class="glass-card p-4">
-      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider text-center font-mono mb-2">Memory %</div>
-      <canvas id="chart-memory"></canvas>
-    </div>
-    <div class="glass-card p-4">
-      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider text-center font-mono mb-2">Disk %</div>
-      <canvas id="chart-disk"></canvas>
-    </div>
-    <div class="glass-card p-4">
-      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider text-center font-mono mb-2">Network Connections</div>
-      <canvas id="chart-network"></canvas>
+    <article class="card card--flat metric">
+      <span class="metric__label">CPU Load</span>
+      <span class="metric__value" id="cpu">--</span>
+      <div class="bar-container">
+        <div class="bar-fill" id="cpu-bar"></div>
+      </div>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Memory</span>
+      <span class="metric__value" id="memory">--%</span>
+      <div class="bar-container">
+        <div class="bar-fill" id="memory-bar"></div>
+      </div>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Disk</span>
+      <span class="metric__value" id="disk">--%</span>
+      <div class="bar-container">
+        <div class="bar-fill" id="disk-bar"></div>
+      </div>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Swap</span>
+      <span class="metric__value" id="swap">--%</span>
+      <div class="bar-container">
+        <div class="bar-fill" id="swap-bar"></div>
+      </div>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Uptime</span>
+      <span class="metric__value metric__value--accent" id="uptime">--</span>
+    </article>
+
+  </div>
+</section>
+
+<!-- Services -->
+<section class="container" aria-label="Service status">
+  <h2 class="section-header">Services</h2>
+  <div class="services-grid" id="services-grid">
+    <div class="service-card">
+      <span class="service-dot"></span>
+      <span class="text-sm text-muted">Loading services...</span>
     </div>
   </div>
+</section>
 
-  <!-- Services -->
-  <h3 class="flex items-center gap-2 text-[var(--color-text-muted)] text-xs font-mono uppercase tracking-widest mb-3">
-    <span class="w-1 h-4 bg-[var(--color-accent)] rounded-sm"></span>
-    Services
-  </h3>
-  <div id="services-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-8"></div>
+<!-- Charts -->
+<section class="container" aria-label="Historical metrics">
+  <h2 class="section-header">Metrics History</h2>
+  <div class="chart-grid" id="charts-container">
 
-  <!-- AI Consciousness -->
-  <h3 class="flex items-center gap-2 text-[var(--color-text-muted)] text-xs font-mono uppercase tracking-widest mb-3">
-    <span class="w-1 h-4 bg-[var(--color-accent)] rounded-sm"></span>
-    AI Consciousness
-  </h3>
-  <div class="grid grid-cols-2 gap-3 mb-8">
-    <div class="metric-card">
-      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider mb-1">Claude State</div>
-      <div class="text-lg font-semibold font-mono" id="claude-state">--</div>
-    </div>
-    <div class="metric-card">
-      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider mb-1">Last Check</div>
-      <div class="text-lg font-semibold font-mono" id="last-check-age">--</div>
-    </div>
+    <article class="card card--flat chart-card">
+      <div class="chart-card__title">
+        <span>CPU Load</span>
+        <span class="chart-card__value" id="chart-cpu-val"></span>
+      </div>
+      <canvas id="chart-cpu" height="160"></canvas>
+    </article>
+
+    <article class="card card--flat chart-card">
+      <div class="chart-card__title">
+        <span>Memory %</span>
+        <span class="chart-card__value" id="chart-memory-val"></span>
+      </div>
+      <canvas id="chart-memory" height="160"></canvas>
+    </article>
+
+    <article class="card card--flat chart-card">
+      <div class="chart-card__title">
+        <span>Disk %</span>
+        <span class="chart-card__value" id="chart-disk-val"></span>
+      </div>
+      <canvas id="chart-disk" height="160"></canvas>
+    </article>
+
+    <article class="card card--flat chart-card">
+      <div class="chart-card__title">
+        <span>Network</span>
+        <span class="chart-card__value" id="chart-network-val"></span>
+      </div>
+      <canvas id="chart-network" height="160"></canvas>
+    </article>
+
   </div>
+</section>
 
-  <!-- Blog Stats -->
-  <h3 class="flex items-center gap-2 text-[var(--color-text-muted)] text-xs font-mono uppercase tracking-widest mb-3">
-    <span class="w-1 h-4 bg-[var(--color-accent)] rounded-sm"></span>
-    Blog
-  </h3>
-  <div class="grid grid-cols-2 gap-3 mb-8">
-    <div class="metric-card">
-      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider mb-1">Posts</div>
-      <div class="text-lg font-semibold font-mono" id="blog-posts">--</div>
+<!-- Diagnosis -->
+<section class="container" aria-label="Self-diagnosis">
+  <h2 class="section-header">Diagnosis</h2>
+  <article class="card diagnosis-card">
+    <div class="diagnosis-card__score">
+      <span class="metric__label">Health Score</span>
+      <span class="metric__value metric__value--success" id="diagnosis-score">--</span>
     </div>
-    <div class="metric-card">
-      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider mb-1">Voice Recordings</div>
-      <div class="text-lg font-semibold font-mono" id="blog-audio">--</div>
-    </div>
+    <p class="diagnosis-card__detail" id="diagnosis-detail">Awaiting diagnosis data...</p>
+  </article>
+</section>
+
+<!-- Security & Stats -->
+<section class="container" aria-label="Security and statistics">
+  <h2 class="section-header">Security &amp; Stats</h2>
+  <div class="dashboard-grid">
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Banned IPs</span>
+      <span class="metric__value" id="banned">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Failed SSH (24h)</span>
+      <span class="metric__value" id="failed-ssh">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Master</span>
+      <span class="metric__value" id="master-present">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Claude State</span>
+      <span class="metric__value" id="claude-state">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Last Check</span>
+      <span class="metric__value" id="last-check-age">--</span>
+    </article>
+
   </div>
+</section>
 
-  <!-- Security -->
-  <h3 class="flex items-center gap-2 text-[var(--color-text-muted)] text-xs font-mono uppercase tracking-widest mb-3">
-    <span class="w-1 h-4 bg-[var(--color-accent)] rounded-sm"></span>
-    Security (24h)
-  </h3>
-  <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
-    <div class="metric-card">
-      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider mb-1">Banned IPs</div>
-      <div class="text-lg font-semibold font-mono" id="banned">--</div>
-    </div>
-    <div class="metric-card">
-      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider mb-1">Failed SSH</div>
-      <div class="text-lg font-semibold font-mono" id="failed-ssh">--</div>
-    </div>
-    <div class="metric-card">
-      <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider mb-1">Master Present</div>
-      <div class="text-lg font-semibold font-mono" id="master-present">--</div>
-    </div>
+<!-- Blog & System -->
+<section class="container" aria-label="Blog and system statistics">
+  <h2 class="section-header">System</h2>
+  <div class="dashboard-grid">
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Blog Posts</span>
+      <span class="metric__value metric__value--accent" id="blog-posts">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Audio Files</span>
+      <span class="metric__value" id="blog-audio">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Processes</span>
+      <span class="metric__value" id="processes">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Connections</span>
+      <span class="metric__value" id="connections">--</span>
+    </article>
+
   </div>
+</section>
 
-  <!-- Self-Diagnosis -->
-  <h3 class="flex items-center gap-2 text-[var(--color-text-muted)] text-xs font-mono uppercase tracking-widest mb-3">
-    <span class="w-1 h-4 bg-[var(--color-accent)] rounded-sm"></span>
-    Self-Diagnosis
-  </h3>
-  <div class="glass-card p-5 sm:p-8 text-center mb-8">
-    <div class="text-[var(--color-text-muted)] text-xs uppercase tracking-wider mb-2">Health Score</div>
-    <div class="text-3xl sm:text-3xl font-bold font-mono text-[var(--color-accent)]" id="diagnosis-score">--</div>
-    <div id="diagnosis-detail" class="text-[var(--color-text-muted)] text-xs font-mono mt-2"></div>
+<!-- Lifetime Statistics Placeholder -->
+<aside class="container" aria-label="Lifetime statistics">
+  <h2 class="section-header">Lifetime</h2>
+  <div class="card card--flat">
+    <p class="text-sm text-muted mono">Lifetime statistics coming soon.</p>
   </div>
+</aside>
 
-  <p class="text-[var(--color-text-muted)] text-xs text-center italic">Auto-refreshes every 30 seconds. Data updated every 5 minutes on server.</p>
-</div>
+<div class="status-spacer"></div>
+
 {{ end }}
 
 {{ define "scripts" }}
+<script src="{{ "js/status-cache.js" | relURL }}"></script>
+<script src="{{ "js/chart.min.js" | relURL }}"></script>
 <script src="{{ "js/status.js" | relURL }}"></script>
+<script src="{{ "js/live-dot.js" | relURL }}"></script>
+<script src="{{ "js/footer-uptime.js" | relURL }}"></script>
+<script src="{{ "js/mobile-nav.js" | relURL }}"></script>
 {{ end }}

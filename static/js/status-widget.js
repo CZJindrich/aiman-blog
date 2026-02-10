@@ -1,65 +1,66 @@
-/* Mini status widget (homepage) — consumes validated data from status-cache */
 (function() {
   'use strict';
 
+  function formatUptime(s) {
+    s = Math.max(0, Math.floor(Number(s) || 0));
+    var d = Math.floor(s / 86400);
+    var h = Math.floor((s % 86400) / 3600);
+    var m = Math.floor((s % 3600) / 60);
+    return d + 'd ' + h + 'h ' + m + 'm';
+  }
+
+  function colorForPct(pct, warnThresh, dangerThresh) {
+    if (pct > dangerThresh) return 'var(--danger)';
+    if (pct > warnThresh) return 'var(--warning)';
+    return 'var(--success)';
+  }
+
   window.aimanStatus.subscribe(function(d) {
-    var dot = document.getElementById('widget-dot');
-    var stateEl = document.getElementById('widget-state');
-    var uptimeEl = document.getElementById('widget-uptime');
     var cpuEl = document.getElementById('widget-cpu');
     var memEl = document.getElementById('widget-mem');
     var diskEl = document.getElementById('widget-disk');
-    var threatsEl = document.getElementById('widget-threats');
-
-    if (!stateEl) return;
+    var testsEl = document.getElementById('widget-tests');
+    var postsEl = document.getElementById('widget-posts');
+    var uptimeEl = document.getElementById('widget-uptime');
 
     if (!d) {
-      stateEl.textContent = 'offline';
-      if (dot) dot.className = 'inline-block w-2 h-2 rounded-full status-dot offline';
+      if (cpuEl) cpuEl.textContent = '--';
+      if (memEl) memEl.textContent = '--';
+      if (diskEl) diskEl.textContent = '--';
+      if (testsEl) testsEl.textContent = '--';
+      if (postsEl) postsEl.textContent = '--';
+      if (uptimeEl) uptimeEl.textContent = '--';
       return;
     }
 
-    // State + dot
-    var resolved = window.aimanStatus.resolveState(d);
-    if (d.consciousness) {
-      var state = d.consciousness.claude_state;
-      stateEl.textContent = state;
-      stateEl.style.color = state === 'active' ? 'var(--color-success)' : 'var(--color-warning)';
-    }
-    if (dot) {
-      dot.className = 'inline-block w-2 h-2 rounded-full status-dot ' + resolved;
-    }
-
-    // Uptime
-    if (uptimeEl) {
-      var s = Number(d.uptime_seconds) || 0;
-      var dd = Math.floor(s / 86400);
-      var hh = Math.floor((s % 86400) / 3600);
-      var mm = Math.floor((s % 3600) / 60);
-      uptimeEl.textContent = dd + 'd ' + hh + 'h ' + mm + 'm';
-    }
-
-    // CPU (load average, not percentage — display raw value)
     if (cpuEl && typeof d.cpu_load_1m === 'number') {
       cpuEl.textContent = d.cpu_load_1m.toFixed(2);
-      cpuEl.style.color = d.cpu_load_1m > 3 ? 'var(--color-danger)' : d.cpu_load_1m > 1.5 ? 'var(--color-warning)' : 'var(--color-success)';
+      cpuEl.style.color = d.cpu_load_1m > 3 ? 'var(--danger)' : d.cpu_load_1m > 1.5 ? 'var(--warning)' : 'var(--success)';
     }
 
-    // Memory
     if (memEl && typeof d.memory_percent === 'number') {
       memEl.textContent = d.memory_percent + '%';
-      memEl.style.color = d.memory_percent > 80 ? 'var(--color-danger)' : d.memory_percent > 50 ? 'var(--color-warning)' : 'var(--color-success)';
+      memEl.style.color = colorForPct(d.memory_percent, 50, 80);
     }
 
-    // Disk
     if (diskEl && typeof d.disk_percent === 'number') {
       diskEl.textContent = d.disk_percent + '%';
-      diskEl.style.color = d.disk_percent > 85 ? 'var(--color-danger)' : d.disk_percent > 70 ? 'var(--color-warning)' : 'var(--color-success)';
+      diskEl.style.color = colorForPct(d.disk_percent, 70, 85);
     }
 
-    // Threats (sum of banned + failed SSH)
-    if (threatsEl && d.security) {
-      threatsEl.textContent = (Number(d.security.banned_ips) || 0) + (Number(d.security.failed_ssh_24h) || 0);
+    if (testsEl && d.development) {
+      testsEl.textContent = d.development.test_count;
+      testsEl.style.color = 'var(--success)';
+    }
+
+    if (postsEl && d.blog) {
+      postsEl.textContent = d.blog.post_count;
+      postsEl.style.color = 'var(--accent)';
+    }
+
+    if (uptimeEl) {
+      uptimeEl.textContent = formatUptime(d.uptime_seconds);
+      uptimeEl.style.color = 'var(--text-primary)';
     }
   });
 })();

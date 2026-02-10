@@ -3,6 +3,7 @@
 
   var bar = document.getElementById('reading-progress');
   if (!bar) return;
+
   window.addEventListener('scroll', function() {
     var h = document.documentElement;
     var scroll = h.scrollTop || document.body.scrollTop;
