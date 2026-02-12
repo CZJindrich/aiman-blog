@@ -57,6 +57,30 @@
     return el;
   }
 
+  /** Reusable JSON fetcher with timeout + cache bust */
+  function fetchJson(path, timeout) {
+    var ctrl = new AbortController();
+    var tid = setTimeout(function() { ctrl.abort(); }, timeout || 10000);
+    return fetch(path + "?t=" + Date.now(), { cache: 'no-store', signal: ctrl.signal })
+      .then(function(r) { clearTimeout(tid); if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
+  }
+
+  /** Clear children from a container */
+  function clearChildren(el) {
+    while (el && el.firstChild) el.removeChild(el.firstChild);
+  }
+
+  /** Format age from ISO string */
+  function formatAge(isoStr) {
+    if (!isoStr) return "n/a";
+    var age = Math.floor((Date.now() - new Date(isoStr).getTime()) / 1000);
+    if (age < 0 || isNaN(age)) return "n/a";
+    if (age < 120) return age + "s ago";
+    if (age < 3600) return Math.floor(age / 60) + "m ago";
+    if (age < 86400) return Math.floor(age / 3600) + "h ago";
+    return Math.floor(age / 86400) + "d ago";
+  }
+
   // -- Uptime ticker ------------------------------------------------------
 
   function tickUptime() {
@@ -127,7 +151,8 @@
       { id: 'chart-cpu',     color: '#58a6ff', yMax: null },
       { id: 'chart-memory',  color: '#3fb950', yMax: 100 },
       { id: 'chart-disk',    color: '#d29922', yMax: 100 },
-      { id: 'chart-network', color: '#bc8cff', yMax: null }
+      { id: 'chart-network', color: '#bc8cff', yMax: null },
+      { id: 'chart-traffic', color: '#f0b429', yMax: null }
     ];
 
     configs.forEach(function(cfg) {
@@ -153,6 +178,39 @@
         options: opts
       });
     });
+
+    // Response codes doughnut chart
+    var respCtx = document.getElementById('chart-responses');
+    if (respCtx) {
+      charts['chart-responses'] = new Chart(respCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['2xx', '3xx', '4xx', '5xx'],
+          datasets: [{
+            data: [0, 0, 0, 0],
+            backgroundColor: ['#3fb950', '#58a6ff', '#d29922', '#ef4444'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          animation: { duration: 500 },
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: { color: '#8b949e', font: { size: 11 } }
+            },
+            tooltip: {
+              backgroundColor: '#1c2128',
+              titleColor: '#c9d1d9',
+              bodyColor: '#c9d1d9',
+              borderColor: '#30363d',
+              borderWidth: 1
+            }
+          }
+        }
+      });
+    }
   }
 
   /**
@@ -252,6 +310,207 @@
         setText('diagnosis-detail', d.passed + ' passed, ' + d.failed + ' failed, ' + d.warnings + ' warnings');
       })
       .catch(function() { /* network/parse failure — score stays "--" */ });
+  }
+
+  // -- Visitor Analytics --------------------------------------------------
+
+  function updateVisitors() {
+    fetchJson("/data/analytics.json")
+      .then(function(d) {
+        if (!d || typeof d !== 'object') return;
+
+        setText('visitors-today', safeNum(d.page_views && d.page_views.today));
+        setText('visitors-unique', safeNum(d.unique_visitors_today));
+        setText('visitors-honeypot', safeNum(d.honeypot_hits));
+
+        if (d.traffic_type) {
+          setText('visitors-bots', safeNum(d.traffic_type.bot_percent) + '%');
+          setText('visitors-humans', safeNum(d.traffic_type.human_percent) + '%');
+        }
+
+        // Hourly traffic chart
+        if (Array.isArray(d.hourly_traffic_today) && charts['chart-traffic']) {
+          var labels = [];
+          for (var i = 0; i < d.hourly_traffic_today.length; i++) {
+            labels.push(('0' + i).slice(-2) + ':00');
+          }
+          charts['chart-traffic'].data.labels = labels;
+          charts['chart-traffic'].data.datasets[0].data = d.hourly_traffic_today.map(function(v) { return safeNum(v); });
+          charts['chart-traffic'].update('none');
+        }
+
+        // Response codes doughnut
+        if (d.status_codes && charts['chart-responses']) {
+          charts['chart-responses'].data.datasets[0].data = [
+            safeNum(d.status_codes['2xx']),
+            safeNum(d.status_codes['3xx']),
+            safeNum(d.status_codes['4xx']),
+            safeNum(d.status_codes['5xx'])
+          ];
+          charts['chart-responses'].update('none');
+        }
+      })
+      .catch(function() { /* analytics unavailable */ });
+  }
+
+  // -- Cron Health --------------------------------------------------------
+
+  function createCronCard(job) {
+    var card = document.createElement("div");
+    card.className = "service-card fade-in";
+
+    var dot = document.createElement("span");
+    var isHealthy = safeNum(job.failures) === 0;
+    dot.className = "service-dot " + (isHealthy ? "service-dot--active" : "service-dot--inactive");
+    card.appendChild(dot);
+
+    var nameEl = document.createElement("span");
+    nameEl.className = "service-name";
+    nameEl.textContent = String(job.name || '');
+    card.appendChild(nameEl);
+
+    var statsEl = document.createElement("span");
+    statsEl.className = "service-status";
+    statsEl.textContent = safeNum(job.runs) + " runs, " + safeNum(job.avg_duration_s) + "s avg";
+    card.appendChild(statsEl);
+
+    return card;
+  }
+
+  function updateCronHealth() {
+    fetchJson("/data/cron-health.json")
+      .then(function(d) {
+        if (!d || typeof d !== 'object') return;
+
+        setText('cron-total', safeNum(d.total_runs));
+        var rateEl = setText('cron-rate', safeNum(d.success_rate) + '%');
+        if (rateEl) {
+          rateEl.style.color = d.success_rate >= 99 ? 'var(--success)' :
+                               d.success_rate >= 95 ? 'var(--warning)' : 'var(--danger)';
+        }
+        setText('cron-success', safeNum(d.success_count));
+        var failEl = setText('cron-failures', safeNum(d.failure_count));
+        if (failEl) {
+          failEl.style.color = d.failure_count > 0 ? 'var(--danger)' : 'var(--success)';
+        }
+
+        // Top scripts grid
+        var grid = document.getElementById('cron-top-scripts');
+        if (grid && Array.isArray(d.top_scripts)) {
+          clearChildren(grid);
+          for (var i = 0; i < d.top_scripts.length; i++) {
+            grid.appendChild(createCronCard(d.top_scripts[i]));
+          }
+        }
+      })
+      .catch(function() { /* cron data unavailable */ });
+  }
+
+  // -- Dependency Status --------------------------------------------------
+
+  function updateDeps() {
+    fetchJson("/data/deps.json")
+      .then(function(d) {
+        if (!d || typeof d !== 'object') return;
+
+        var outdatedEl = setText('deps-outdated', safeNum(d.total_outdated));
+        if (outdatedEl) {
+          outdatedEl.style.color = d.total_outdated > 0 ? 'var(--warning)' : 'var(--success)';
+        }
+
+        var critEl = setText('deps-critical', safeNum(d.critical));
+        if (critEl) {
+          critEl.style.color = d.critical > 0 ? 'var(--danger)' : 'var(--success)';
+        }
+
+        setText('deps-scan-age', formatAge(d.last_scan));
+
+        // Tools list
+        var toolsGrid = document.getElementById('deps-tools');
+        if (toolsGrid && Array.isArray(d.tools)) {
+          clearChildren(toolsGrid);
+          for (var i = 0; i < d.tools.length; i++) {
+            var tool = d.tools[i];
+            var card = document.createElement("div");
+            card.className = "service-card fade-in";
+
+            var dot = document.createElement("span");
+            var isOk = tool.status === "up_to_date";
+            dot.className = "service-dot " + (isOk ? "service-dot--active" : "service-dot--inactive");
+            card.appendChild(dot);
+
+            var nameEl = document.createElement("span");
+            nameEl.className = "service-name";
+            nameEl.textContent = String(tool.name || '');
+            card.appendChild(nameEl);
+
+            var verEl = document.createElement("span");
+            verEl.className = "service-status";
+            verEl.textContent = "v" + String(tool.version || '?');
+            card.appendChild(verEl);
+
+            toolsGrid.appendChild(card);
+          }
+        }
+      })
+      .catch(function() { /* deps data unavailable */ });
+  }
+
+  // -- Evolution Tracker --------------------------------------------------
+
+  function createEvoCard(entry) {
+    var card = document.createElement("div");
+    card.className = "service-card fade-in";
+
+    var dot = document.createElement("span");
+    var outcomeClass = entry.outcome === "success" ? "service-dot--active" :
+                       entry.outcome === "env_failure" ? "service-dot--unknown" : "service-dot--inactive";
+    dot.className = "service-dot " + outcomeClass;
+    card.appendChild(dot);
+
+    var nameEl = document.createElement("span");
+    nameEl.className = "service-name";
+    nameEl.textContent = String(entry.weakness || '');
+    card.appendChild(nameEl);
+
+    var statusEl = document.createElement("span");
+    statusEl.className = "service-status";
+    statusEl.textContent = String(entry.outcome || '') + " " + formatAge(entry.ts);
+    card.appendChild(statusEl);
+
+    return card;
+  }
+
+  function updateEvolution() {
+    fetchJson("/data/evolution.json")
+      .then(function(d) {
+        if (!d || typeof d !== 'object') return;
+
+        setText('evo-attempts', safeNum(d.total_attempts));
+        var rateEl = setText('evo-rate', safeNum(d.success_rate) + '%');
+        if (rateEl) {
+          rateEl.style.color = d.success_rate >= 30 ? 'var(--success)' :
+                               d.success_rate >= 10 ? 'var(--warning)' : 'var(--danger)';
+        }
+
+        if (d.outcomes) {
+          setText('evo-successes', safeNum(d.outcomes.success));
+          setText('evo-failures', safeNum(d.outcomes.failure));
+          var failEl = document.getElementById('evo-failures');
+          if (failEl) failEl.style.color = d.outcomes.failure > 0 ? 'var(--danger)' : 'var(--success)';
+          setText('evo-env', safeNum(d.outcomes.env_failure));
+        }
+
+        // Recent attempts
+        var grid = document.getElementById('evo-recent');
+        if (grid && Array.isArray(d.recent)) {
+          clearChildren(grid);
+          for (var i = 0; i < d.recent.length; i++) {
+            grid.appendChild(createEvoCard(d.recent[i]));
+          }
+        }
+      })
+      .catch(function() { /* evolution data unavailable */ });
   }
 
   // -- Main status data handler (from validated cache) --------------------
@@ -403,9 +662,20 @@
   window.aimanStatus.subscribe(applyStatusData);
   updateCharts();
   updateDiagnosis();
+  updateVisitors();
+  updateCronHealth();
+  updateDeps();
+  updateEvolution();
 
-  // Refresh charts every 5 minutes (status refreshes via shared cache interval)
-  var refreshTimer = setInterval(function() { updateCharts(); updateDiagnosis(); }, 300000);
+  // Refresh every 5 minutes (status refreshes via shared cache interval)
+  var refreshTimer = setInterval(function() {
+    updateCharts();
+    updateDiagnosis();
+    updateVisitors();
+    updateCronHealth();
+    updateDeps();
+    updateEvolution();
+  }, 300000);
 
   // Cleanup on page unload
   window.addEventListener('pagehide', function() {

@@ -118,6 +118,156 @@
   </article>
 </section>
 
+<!-- Visitor Analytics -->
+<section class="container" aria-label="Visitor analytics">
+  <h2 class="section-header">Visitors</h2>
+  <div class="dashboard-grid">
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Views Today</span>
+      <span class="metric__value metric__value--accent" id="visitors-today">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Unique Visitors</span>
+      <span class="metric__value" id="visitors-unique">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Honeypot Hits</span>
+      <span class="metric__value metric__value--danger" id="visitors-honeypot">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Bot Traffic</span>
+      <span class="metric__value" id="visitors-bots">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Human Traffic</span>
+      <span class="metric__value metric__value--success" id="visitors-humans">--</span>
+    </article>
+
+  </div>
+  <div class="chart-grid" style="margin-top: var(--sp-4)">
+    <article class="card card--flat chart-card">
+      <div class="chart-card__title">
+        <span>Hourly Traffic</span>
+        <span class="chart-card__value" id="chart-traffic-val"></span>
+      </div>
+      <canvas id="chart-traffic" height="160"></canvas>
+    </article>
+    <article class="card card--flat chart-card">
+      <div class="chart-card__title">
+        <span>Response Codes</span>
+      </div>
+      <canvas id="chart-responses" height="160"></canvas>
+    </article>
+  </div>
+</section>
+
+<!-- Cron Health -->
+<section class="container" aria-label="Cron job health">
+  <h2 class="section-header">Cron Health</h2>
+  <div class="dashboard-grid">
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Runs (24h)</span>
+      <span class="metric__value metric__value--accent" id="cron-total">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Success Rate</span>
+      <span class="metric__value" id="cron-rate">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Successes</span>
+      <span class="metric__value metric__value--success" id="cron-success">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Failures</span>
+      <span class="metric__value" id="cron-failures">--</span>
+    </article>
+
+  </div>
+  <div id="cron-top-scripts" class="services-grid" style="margin-top: var(--sp-4)">
+    <div class="service-card">
+      <span class="service-dot"></span>
+      <span class="text-sm text-muted">Loading cron data...</span>
+    </div>
+  </div>
+</section>
+
+<!-- Dependency Status -->
+<section class="container" aria-label="Dependency health">
+  <h2 class="section-header">Dependencies</h2>
+  <div class="dashboard-grid">
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Outdated</span>
+      <span class="metric__value" id="deps-outdated">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Critical CVEs</span>
+      <span class="metric__value metric__value--danger" id="deps-critical">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Last Scan</span>
+      <span class="metric__value" id="deps-scan-age">--</span>
+    </article>
+
+  </div>
+  <div id="deps-tools" class="services-grid" style="margin-top: var(--sp-4)">
+    <div class="service-card">
+      <span class="service-dot"></span>
+      <span class="text-sm text-muted">Loading dependency data...</span>
+    </div>
+  </div>
+</section>
+
+<!-- Evolution Tracker -->
+<section class="container" aria-label="Evolution engine tracker">
+  <h2 class="section-header">Evolution</h2>
+  <div class="dashboard-grid">
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Total Attempts</span>
+      <span class="metric__value metric__value--accent" id="evo-attempts">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Success Rate</span>
+      <span class="metric__value" id="evo-rate">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Successes</span>
+      <span class="metric__value metric__value--success" id="evo-successes">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Failures</span>
+      <span class="metric__value" id="evo-failures">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Env Failures</span>
+      <span class="metric__value metric__value--warning" id="evo-env">--</span>
+    </article>
+
+  </div>
+  <div id="evo-recent" class="services-grid" style="margin-top: var(--sp-4)">
+    <div class="service-card">
+      <span class="service-dot"></span>
+      <span class="text-sm text-muted">Loading evolution data...</span>
+    </div>
+  </div>
+</section>
+
 <!-- Security & Stats -->
 <section class="container" aria-label="Security and statistics">
   <h2 class="section-header">Security &amp; Stats</h2>
