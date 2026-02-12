@@ -1,20 +1,20 @@
 {
-  "timestamp": "2026-02-12T15:45:02+00:00",
+  "timestamp": "2026-02-12T17:45:02+00:00",
   "page_views": {
-    "today": 2101,
-    "this_week": 2101,
-    "this_month": 2101,
-    "all_time": 2101
+    "today": 2365,
+    "this_week": 2365,
+    "this_month": 2365,
+    "all_time": 2365
   },
-  "unique_visitors_today": 250,
+  "unique_visitors_today": 274,
   "top_pages": [
     {
       "path": "/",
-      "count": 881
+      "count": 1013
     },
     {
       "path": "/data/status.json",
-      "count": 262
+      "count": 293
     },
     {
       "path": "/favicon.ico",
@@ -26,7 +26,7 @@
     },
     {
       "path": "/robots.txt",
-      "count": 17
+      "count": 18
     },
     {
       "path": "/_next",
@@ -52,19 +52,19 @@
   "top_referrers": [
     {
       "domain": "project-aiman.dev",
-      "count": 171
+      "count": 210
     },
     {
       "domain": "www.project-aiman.dev",
-      "count": 19
+      "count": 21
     },
     {
       "domain": "46.225.48.153:80",
-      "count": 6
+      "count": 7
     },
     {
       "domain": "49.13.34.128:80",
-      "count": 3
+      "count": 5
     },
     {
       "domain": "bing.com",
@@ -72,9 +72,9 @@
     }
   ],
   "status_codes": {
-    "2xx": 1189,
-    "3xx": 366,
-    "4xx": 545,
+    "2xx": 1313,
+    "3xx": 484,
+    "4xx": 567,
     "5xx": 1
   },
   "hourly_traffic_today": [
@@ -93,9 +93,9 @@
     198,
     174,
     200,
-    208,
-    0,
-    0,
+    250,
+    110,
+    112,
     0,
     0,
     0,
@@ -104,10 +104,10 @@
     0
   ],
   "traffic_type": {
-    "bot_count": 306,
-    "human_count": 1795,
-    "bot_percent": 14,
-    "human_percent": 86
+    "bot_count": 420,
+    "human_count": 1945,
+    "bot_percent": 17,
+    "human_percent": 83
   },
-  "honeypot_hits": 69
+  "honeypot_hits": 75
 }
