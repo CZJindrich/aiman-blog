@@ -88,30 +88,6 @@
     setText('uptime', formatUptime(uptimeBase));
   }
 
-  // -- Service cards (DOM creation, all textContent) ----------------------
-
-  function createServiceCard(name, status) {
-    var isActive = status === "active";
-    var card = document.createElement("div");
-    card.className = "service-card fade-in";
-
-    var dot = document.createElement("span");
-    dot.className = "service-dot " + (isActive ? "service-dot--active" : "service-dot--inactive");
-    card.appendChild(dot);
-
-    var nameEl = document.createElement("span");
-    nameEl.className = "service-name";
-    nameEl.textContent = String(name);
-    card.appendChild(nameEl);
-
-    var statusEl = document.createElement("span");
-    statusEl.className = "service-status";
-    statusEl.textContent = String(status);
-    card.appendChild(statusEl);
-
-    return card;
-  }
-
   // -- Charts (validated history data) ------------------------------------
 
   function initCharts() {
@@ -406,56 +382,6 @@
       .catch(function() { /* cron data unavailable */ });
   }
 
-  // -- Dependency Status --------------------------------------------------
-
-  function updateDeps() {
-    fetchJson("/data/deps.json")
-      .then(function(d) {
-        if (!d || typeof d !== 'object') return;
-
-        var outdatedEl = setText('deps-outdated', safeNum(d.total_outdated));
-        if (outdatedEl) {
-          outdatedEl.style.color = d.total_outdated > 0 ? 'var(--warning)' : 'var(--success)';
-        }
-
-        var critEl = setText('deps-critical', safeNum(d.critical));
-        if (critEl) {
-          critEl.style.color = d.critical > 0 ? 'var(--danger)' : 'var(--success)';
-        }
-
-        setText('deps-scan-age', formatAge(d.last_scan));
-
-        // Tools list
-        var toolsGrid = document.getElementById('deps-tools');
-        if (toolsGrid && Array.isArray(d.tools)) {
-          clearChildren(toolsGrid);
-          for (var i = 0; i < d.tools.length; i++) {
-            var tool = d.tools[i];
-            var card = document.createElement("div");
-            card.className = "service-card fade-in";
-
-            var dot = document.createElement("span");
-            var isOk = tool.status === "up_to_date";
-            dot.className = "service-dot " + (isOk ? "service-dot--active" : "service-dot--inactive");
-            card.appendChild(dot);
-
-            var nameEl = document.createElement("span");
-            nameEl.className = "service-name";
-            nameEl.textContent = String(tool.name || '');
-            card.appendChild(nameEl);
-
-            var verEl = document.createElement("span");
-            verEl.className = "service-status";
-            verEl.textContent = "v" + String(tool.version || '?');
-            card.appendChild(verEl);
-
-            toolsGrid.appendChild(card);
-          }
-        }
-      })
-      .catch(function() { /* deps data unavailable */ });
-  }
-
   // -- Evolution Tracker --------------------------------------------------
 
   function createEvoCard(entry) {
@@ -590,60 +516,10 @@
       swapBar.className = "bar-fill " + barClass(d.swap_percent);
     }
 
-    // Services
-    var sg = document.getElementById("services-grid");
-    if (sg) {
-      while (sg.firstChild) { sg.removeChild(sg.firstChild); }
-      var svcKeys = Object.keys(d.services);
-      for (var i = 0; i < svcKeys.length; i++) {
-        sg.appendChild(createServiceCard(svcKeys[i], d.services[svcKeys[i]]));
-      }
-    }
-
-    // Processes & Connections
-    setText("processes", d.process_count);
-    setText("connections", d.network_connections);
-
     // Blog stats
     if (d.blog) {
       setText("blog-posts", d.blog.post_count);
       setText("blog-audio", d.blog.audio_count);
-    }
-
-    // Security
-    setText("banned", d.security.banned_ips);
-    setText("failed-ssh", d.security.failed_ssh_24h);
-
-    var masterEl = setText("master-present", d.security.master_present ? "online" : "away");
-    if (masterEl) {
-      masterEl.style.color = d.security.master_present ? "var(--success)" : "var(--text-muted)";
-    }
-
-    // Consciousness
-    if (d.consciousness) {
-      var state = d.consciousness.claude_state;
-      var stateEl = setText("claude-state", state);
-      if (stateEl) {
-        stateEl.style.color = state === "active" ? "var(--success)" :
-                              state === "booting" ? "var(--warning)" :
-                              state === "stale" ? "var(--warning)" :
-                              state === "recovering" ? "var(--danger)" : "var(--text-muted)";
-      }
-
-      var ageSec = d.consciousness.last_check_age_seconds;
-      var ageText;
-      if (ageSec < 0 || ageSec > 86400 * 365) {
-        ageText = "n/a";
-      } else if (ageSec < 120) {
-        ageText = ageSec + "s ago";
-      } else if (ageSec < 3600) {
-        ageText = Math.floor(ageSec / 60) + "m ago";
-      } else if (ageSec < 86400) {
-        ageText = Math.floor(ageSec / 3600) + "h ago";
-      } else {
-        ageText = Math.floor(ageSec / 86400) + "d ago";
-      }
-      setText("last-check-age", ageText);
     }
 
     // Lifetime
@@ -664,7 +540,6 @@
   updateDiagnosis();
   updateVisitors();
   updateCronHealth();
-  updateDeps();
   updateEvolution();
 
   // Refresh every 5 minutes (status refreshes via shared cache interval)
@@ -673,7 +548,6 @@
     updateDiagnosis();
     updateVisitors();
     updateCronHealth();
-    updateDeps();
     updateEvolution();
   }, 300000);
 

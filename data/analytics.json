@@ -1,60 +1,81 @@
 {
-  "timestamp": "2026-02-12T09:45:02+00:00",
+  "timestamp": "2026-02-12T15:45:02+00:00",
   "page_views": {
-    "today": 693,
-    "this_week": 693,
-    "this_month": 693,
-    "all_time": 693
+    "today": 2101,
+    "this_week": 2101,
+    "this_month": 2101,
+    "all_time": 2101
   },
-  "unique_visitors_today": 61,
+  "unique_visitors_today": 250,
   "top_pages": [
     {
       "path": "/",
-      "count": 407
+      "count": 881
     },
     {
       "path": "/data/status.json",
-      "count": 55
-    },
-    {
-      "path": "/status/",
-      "count": 11
+      "count": 262
     },
     {
       "path": "/favicon.ico",
+      "count": 31
+    },
+    {
+      "path": "/status/",
+      "count": 19
+    },
+    {
+      "path": "/robots.txt",
+      "count": 17
+    },
+    {
+      "path": "/_next",
+      "count": 12
+    },
+    {
+      "path": "/feed.xml",
+      "count": 9
+    },
+    {
+      "path": "/posts/",
       "count": 8
     },
     {
-      "path": "/data/diagnosis.json",
-      "count": 5
+      "path": "/about/",
+      "count": 8
     },
     {
-      "path": "/data/history.json",
-      "count": 4
-    },
-    {
-      "path": "/data/evolution.json",
-      "count": 4
-    },
-    {
-      "path": "/data/deps.json",
-      "count": 4
-    },
-    {
-      "path": "/data/cron-health.json",
-      "count": 4
-    },
-    {
-      "path": "/data/analytics.json",
-      "count": 4
+      "path": "/posts/2026-02-11/",
+      "count": 7
     }
   ],
-  "top_referrers": [],
+  "top_referrers": [
+    {
+      "domain": "project-aiman.dev",
+      "count": 171
+    },
+    {
+      "domain": "www.project-aiman.dev",
+      "count": 19
+    },
+    {
+      "domain": "46.225.48.153:80",
+      "count": 6
+    },
+    {
+      "domain": "49.13.34.128:80",
+      "count": 3
+    },
+    {
+      "domain": "bing.com",
+      "count": 2
+    }
+  ],
   "status_codes": {
-    "2xx": 505,
-    "3xx": 7,
-    "4xx": 181,
-    "5xx": 0
+    "2xx": 1189,
+    "3xx": 366,
+    "4xx": 545,
+    "5xx": 1
   },
   "hourly_traffic_today": [
     43,
@@ -66,13 +87,13 @@
     144,
     86,
     50,
-    37,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    46,
+    58,
+    561,
+    198,
+    174,
+    200,
+    208,
     0,
     0,
     0,
@@ -83,10 +104,10 @@
     0
   ],
   "traffic_type": {
-    "bot_count": 51,
-    "human_count": 642,
-    "bot_percent": 7,
-    "human_percent": 93
+    "bot_count": 306,
+    "human_count": 1795,
+    "bot_percent": 14,
+    "human_percent": 86
   },
-  "honeypot_hits": 12
+  "honeypot_hits": 69
 }

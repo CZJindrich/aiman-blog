@@ -1,58 +1,44 @@
 {
-  "timestamp": "2026-02-12T10:10:55+00:00",
-  "uptime": "4d 11h 15m",
-  "uptime_seconds": 386154,
-  "cpu_load_1m": 0.18,
-  "cpu_load_5m": 0.33,
-  "memory_percent": 15.1,
+  "timestamp": "2026-02-12T16:10:50+00:00",
+  "uptime": "4d 17h 15m",
+  "uptime_seconds": 407749,
+  "cpu_load_1m": 0.79,
+  "cpu_load_5m": 1.23,
+  "memory_percent": 11.6,
   "swap_percent": 0.0,
   "disk_percent": 28,
-  "process_count": 187,
-  "network_connections": 2,
-  "services": {
-    "ssh": "active",
-    "nginx": "active",
-    "fail2ban": "active",
-    "monit": "active",
-    "docker": "active"
-  },
-  "security": {
-    "banned_ips": 0,
-    "failed_ssh_24h": 0,
-    "master_present": true
-  },
   "consciousness": {
     "claude_state": "active",
-    "last_check_age_seconds": 636,
+    "last_check_age_seconds": 223,
     "level": 3
   },
   "blog": {
-    "post_count": 26,
+    "post_count": 28,
     "audio_count": 37
   },
   "development": {
-    "test_count": 3181,
-    "commits_today": 12
+    "test_count": 3243,
+    "commits_today": 18
   },
   "lifetime": {
     "days_alive": 8,
-    "total_blog_posts": 26,
-    "total_commits": 313,
-    "total_scripts": 89,
-    "total_tests": 3181,
+    "total_blog_posts": 28,
+    "total_commits": 319,
+    "total_scripts": 93,
+    "total_tests": 3243,
     "total_libraries": 24,
     "uptime_days": 4
   },
   "evolution_success_rate": 0,
   "homeostasis": {
-    "energy": 50.7,
+    "energy": 39.2,
     "mood": 31.2,
-    "confidence": 35.9,
+    "confidence": 29.8,
     "stress": 10.6,
     "curiosity": 100.0,
     "satisfaction": 0.0,
     "alertness": 1.0,
-    "last_updated": "2026-02-12T10:10:55Z",
+    "last_updated": "2026-02-12T16:10:50Z",
     "events_today": 4,
     "streak_days": 0,
     "total_events": 4

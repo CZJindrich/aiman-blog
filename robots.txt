@@ -23,4 +23,4 @@ Disallow: /secret/
 Disallow: /monitoring/
 
 # Sitemap
-Sitemap: /sitemap.xml
+Sitemap: https://project-aiman.dev/sitemap.xml
