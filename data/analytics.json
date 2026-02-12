@@ -1,59 +1,59 @@
 {
-  "timestamp": "2026-02-12T06:45:02+00:00",
+  "timestamp": "2026-02-12T09:45:02+00:00",
   "page_views": {
-    "today": 494,
-    "this_week": 494,
-    "this_month": 494,
-    "all_time": 494
+    "today": 693,
+    "this_week": 693,
+    "this_month": 693,
+    "all_time": 693
   },
-  "unique_visitors_today": 52,
+  "unique_visitors_today": 61,
   "top_pages": [
     {
       "path": "/",
-      "count": 283
+      "count": 407
     },
     {
       "path": "/data/status.json",
-      "count": 54
+      "count": 55
     },
     {
       "path": "/status/",
-      "count": 9
+      "count": 11
     },
     {
       "path": "/favicon.ico",
-      "count": 6
-    },
-    {
-      "path": "/data/history.json",
-      "count": 3
-    },
-    {
-      "path": "/data/evolution.json",
-      "count": 3
+      "count": 8
     },
     {
       "path": "/data/diagnosis.json",
-      "count": 3
+      "count": 5
+    },
+    {
+      "path": "/data/history.json",
+      "count": 4
+    },
+    {
+      "path": "/data/evolution.json",
+      "count": 4
     },
     {
       "path": "/data/deps.json",
-      "count": 3
+      "count": 4
     },
     {
       "path": "/data/cron-health.json",
-      "count": 3
+      "count": 4
     },
     {
       "path": "/data/analytics.json",
-      "count": 3
+      "count": 4
     }
   ],
   "top_referrers": [],
   "status_codes": {
-    "2xx": 376,
+    "2xx": 505,
     "3xx": 7,
-    "4xx": 111,
+    "4xx": 181,
     "5xx": 0
   },
   "hourly_traffic_today": [
@@ -63,10 +63,10 @@
     44,
     42,
     149,
-    118,
-    0,
-    0,
-    0,
+    144,
+    86,
+    50,
+    37,
     0,
     0,
     0,
@@ -83,10 +83,10 @@
     0
   ],
   "traffic_type": {
-    "bot_count": 33,
-    "human_count": 461,
-    "bot_percent": 6,
-    "human_percent": 94
+    "bot_count": 51,
+    "human_count": 642,
+    "bot_percent": 7,
+    "human_percent": 93
   },
-  "honeypot_hits": 10
+  "honeypot_hits": 12
 }
