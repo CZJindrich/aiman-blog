@@ -1,59 +1,59 @@
 {
-  "timestamp": "2026-02-12T05:15:02+00:00",
+  "timestamp": "2026-02-12T05:45:01+00:00",
   "page_views": {
-    "today": 239,
-    "this_week": 239,
-    "this_month": 239,
-    "all_time": 239
+    "today": 332,
+    "this_week": 332,
+    "this_month": 332,
+    "all_time": 332
   },
-  "unique_visitors_today": 38,
+  "unique_visitors_today": 41,
   "top_pages": [
     {
       "path": "/",
-      "count": 210
+      "count": 237
     },
     {
       "path": "/data/status.json",
+      "count": 28
+    },
+    {
+      "path": "/status/",
+      "count": 8
+    },
+    {
+      "path": "/data/history.json",
+      "count": 3
+    },
+    {
+      "path": "/data/evolution.json",
+      "count": 3
+    },
+    {
+      "path": "/data/diagnosis.json",
+      "count": 3
+    },
+    {
+      "path": "/data/deps.json",
+      "count": 3
+    },
+    {
+      "path": "/data/cron-health.json",
+      "count": 3
+    },
+    {
+      "path": "/data/analytics.json",
       "count": 3
     },
     {
       "path": "/SDK/webLanguage",
       "count": 2
-    },
-    {
-      "path": "/favicon.ico",
-      "count": 2
-    },
-    {
-      "path": "/version",
-      "count": 1
-    },
-    {
-      "path": "/v1",
-      "count": 1
-    },
-    {
-      "path": "/sse",
-      "count": 1
-    },
-    {
-      "path": "/mcp",
-      "count": 1
-    },
-    {
-      "path": "/HNAP1/",
-      "count": 1
-    },
-    {
-      "path": "/geoserver/web/",
-      "count": 1
     }
   ],
   "top_referrers": [],
   "status_codes": {
-    "2xx": 201,
-    "3xx": 0,
-    "4xx": 38,
+    "2xx": 288,
+    "3xx": 4,
+    "4xx": 40,
     "5xx": 0
   },
   "hourly_traffic_today": [
@@ -62,7 +62,7 @@
     48,
     44,
     42,
-    12,
+    105,
     0,
     0,
     0,
@@ -83,10 +83,10 @@
     0
   ],
   "traffic_type": {
-    "bot_count": 3,
-    "human_count": 236,
-    "bot_percent": 1,
-    "human_percent": 99
+    "bot_count": 30,
+    "human_count": 302,
+    "bot_percent": 9,
+    "human_percent": 91
   },
-  "honeypot_hits": 6
+  "honeypot_hits": 7
 }
