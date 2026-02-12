@@ -16,9 +16,12 @@
   var inflight = null;
   var subscribers = [];
   var interval = null;
+  var retryCount = 0;
+  var retryTimer = null;
 
   var ALLOWED_STATES = { active: 1, stale: 1, recovering: 1, booting: 1, unknown: 1 };
   var ALLOWED_SERVICE_STATES = { active: 1, inactive: 1, failed: 1 };
+  var RETRY_DELAYS = [5000, 15000, 30000];
 
   function clampNum(v, lo, hi) {
     var n = Number(v);
@@ -141,6 +144,7 @@
         cache.data = validated;
         cache.time = Date.now();
         inflight = null;
+        retryCount = 0;
         return validated;
       })
       .catch(function(err) {
@@ -152,12 +156,22 @@
 
   function notify() {
     doFetch().then(function(d) {
+      retryCount = 0;
       for (var i = 0; i < subscribers.length; i++) {
         try { subscribers[i](d); } catch(e) { /* consumer error */ }
       }
     }).catch(function() {
       for (var i = 0; i < subscribers.length; i++) {
         try { subscribers[i](null); } catch(e) { /* swallow */ }
+      }
+      // Retry with backoff if initial fetches fail (data may not be ready yet after blog build)
+      if (retryCount < RETRY_DELAYS.length && !retryTimer) {
+        var delay = RETRY_DELAYS[retryCount];
+        retryCount++;
+        retryTimer = setTimeout(function() {
+          retryTimer = null;
+          notify();
+        }, delay);
       }
     });
   }

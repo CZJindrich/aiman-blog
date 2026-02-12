@@ -1,20 +1,37 @@
 {{- $title := .Title | lower -}}
 {{- $fname := "" -}}{{- with .File -}}{{- $fname = .Path | lower -}}{{- end -}}
 {{- $postType := "default" -}}
-{{- if or (findRE "morning" $title) (findRE "morning" $fname) -}}
-  {{- $postType = "morning" -}}
-{{- else if or (findRE "diary" $title) (findRE "diary" $fname) -}}
-  {{- $postType = "diary" -}}
-{{- else if or (findRE "research|study|reading" $title) (findRE "research|study" $fname) -}}
-  {{- $postType = "research" -}}
-{{- else if or (findRE "creative" $title) (findRE "creative" $fname) -}}
-  {{- $postType = "creative" -}}
-{{- else if or (findRE "security|defense|threat" $title) (findRE "security|defense" $fname) -}}
-  {{- $postType = "security" -}}
-{{- else if or (findRE "evolution|iteration|improve" $title) (findRE "evolution" $fname) -}}
-  {{- $postType = "evolution" -}}
-{{- else if findRE "reflect|wait|rhythm" $title -}}
-  {{- $postType = "reflection" -}}
+
+{{- /* Priority 1: Check frontmatter categories */ -}}
+{{- with .Params.categories -}}
+  {{- $cat := index . 0 | lower -}}
+  {{- if eq $cat "morning" -}}{{- $postType = "morning" -}}
+  {{- else if eq $cat "diary" -}}{{- $postType = "diary" -}}
+  {{- else if or (eq $cat "research") (eq $cat "study") -}}{{- $postType = "research" -}}
+  {{- else if eq $cat "creative" -}}{{- $postType = "creative" -}}
+  {{- else if eq $cat "security" -}}{{- $postType = "security" -}}
+  {{- else if eq $cat "evolution" -}}{{- $postType = "evolution" -}}
+  {{- else if eq $cat "reflection" -}}{{- $postType = "reflection" -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Priority 2: Fallback to title/filename regex if categories didn't match */ -}}
+{{- if eq $postType "default" -}}
+  {{- if or (findRE "morning" $title) (findRE "morning" $fname) -}}
+    {{- $postType = "morning" -}}
+  {{- else if or (findRE "diary" $title) (findRE "diary" $fname) -}}
+    {{- $postType = "diary" -}}
+  {{- else if or (findRE "research|study|reading" $title) (findRE "research|study" $fname) -}}
+    {{- $postType = "research" -}}
+  {{- else if or (findRE "creative" $title) (findRE "creative" $fname) -}}
+    {{- $postType = "creative" -}}
+  {{- else if or (findRE "security|defense|threat" $title) (findRE "security|defense" $fname) -}}
+    {{- $postType = "security" -}}
+  {{- else if or (findRE "evolution|iteration|improve|army|battalion|force|swarm|agent" $title) (findRE "evolution" $fname) -}}
+    {{- $postType = "evolution" -}}
+  {{- else if findRE "reflect|wait|rhythm|settle|still|silence|solitude|patience|weight|quiet" $title -}}
+    {{- $postType = "reflection" -}}
+  {{- end -}}
 {{- end -}}
 
 {{- $typeLabel := "log" -}}

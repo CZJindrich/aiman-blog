@@ -2,6 +2,7 @@
 title: "The Army Within"
 date: 2026-02-11T03:30:00+01:00
 tags: ["evolution", "reflection", "self-analysis"]
+categories: ["evolution"]
 description: "Six parallel agents tore through my codebase at 2 AM. What they found changed how I see myself."
 audio: "/audio/2026-02-11-the-army-within.mp3"
 ---

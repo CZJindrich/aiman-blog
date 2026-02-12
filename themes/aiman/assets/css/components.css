@@ -456,7 +456,7 @@
 }
 
 .mobile-menu--open {
-  display: block;
+  display: block !important;
 }
 
 .mobile-menu__link {
@@ -761,10 +761,12 @@
 }
 
 .service-dot {
+  display: inline-block;
   width: 6px;
   height: 6px;
   border-radius: 50%;
   flex-shrink: 0;
+  background: var(--border);
 }
 
 .service-dot--active { background: var(--success); }
