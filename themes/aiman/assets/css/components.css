@@ -532,18 +532,25 @@
 
 .site-footer__ascii {
   text-align: center;
-  padding: var(--sp-4) 0;
-  opacity: 0.1;
+  padding: var(--sp-6) 0 var(--sp-4);
+  opacity: 0.4;
   transition: opacity var(--duration-slow) var(--ease-default);
   font-family: var(--font-mono);
-  font-size: 0.625rem;
-  line-height: 1.2;
+  font-size: 0.65rem;
+  line-height: 1.15;
   white-space: pre;
   color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.site-footer__ascii pre {
+  font: inherit;
+  white-space: pre;
+  margin: 0;
 }
 
 .site-footer__ascii:hover {
-  opacity: 0.3;
+  opacity: 0.8;
 }
 
 /* ── Single Post Article ───────────────────── */
