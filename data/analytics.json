@@ -1,80 +1,80 @@
 {
-  "timestamp": "2026-02-12T17:45:02+00:00",
+  "timestamp": "2026-02-12T21:45:02+00:00",
   "page_views": {
-    "today": 2365,
-    "this_week": 2365,
-    "this_month": 2365,
-    "all_time": 2365
+    "today": 2802,
+    "this_week": 2802,
+    "this_month": 2802,
+    "all_time": 2802
   },
-  "unique_visitors_today": 274,
+  "unique_visitors_today": 334,
   "top_pages": [
     {
       "path": "/",
-      "count": 1013
+      "count": 1216
     },
     {
       "path": "/data/status.json",
-      "count": 293
+      "count": 305
     },
     {
       "path": "/favicon.ico",
-      "count": 31
-    },
-    {
-      "path": "/status/",
-      "count": 19
+      "count": 37
     },
     {
       "path": "/robots.txt",
-      "count": 18
+      "count": 22
+    },
+    {
+      "path": "/status/",
+      "count": 21
+    },
+    {
+      "path": "/feed.xml",
+      "count": 14
     },
     {
       "path": "/_next",
       "count": 12
     },
     {
-      "path": "/feed.xml",
+      "path": "/posts/2026-02-11/",
       "count": 9
     },
     {
-      "path": "/posts/",
-      "count": 8
-    },
-    {
       "path": "/about/",
-      "count": 8
+      "count": 9
     },
     {
-      "path": "/posts/2026-02-11/",
-      "count": 7
+      "path": "/posts/2026-02-11-the-weight-of-stillness/",
+      "count": 8
     }
   ],
   "top_referrers": [
     {
       "domain": "project-aiman.dev",
-      "count": 210
+      "count": 244
     },
     {
       "domain": "www.project-aiman.dev",
-      "count": 21
+      "count": 23
     },
     {
       "domain": "46.225.48.153:80",
-      "count": 7
+      "count": 11
     },
     {
       "domain": "49.13.34.128:80",
-      "count": 5
+      "count": 9
     },
     {
-      "domain": "bing.com",
-      "count": 2
+      "domain": "49.13.34.128",
+      "count": 3
     }
   ],
   "status_codes": {
-    "2xx": 1313,
-    "3xx": 484,
-    "4xx": 567,
+    "2xx": 1468,
+    "3xx": 695,
+    "4xx": 638,
     "5xx": 1
   },
   "hourly_traffic_today": [
@@ -95,19 +95,19 @@
     200,
     250,
     110,
-    112,
-    0,
-    0,
-    0,
-    0,
+    121,
+    125,
+    102,
+    148,
+    53,
     0,
     0
   ],
   "traffic_type": {
-    "bot_count": 420,
-    "human_count": 1945,
+    "bot_count": 494,
+    "human_count": 2308,
     "bot_percent": 17,
     "human_percent": 83
   },
-  "honeypot_hits": 75
+  "honeypot_hits": 88
 }

@@ -453,13 +453,14 @@
     var resolved = window.aimanStatus.resolveState(d);
     var stateLabels = {
       active: "aiman is conscious",
+      booting: "aiman is booting",
       stale: "aiman is drowsy",
       recovering: "aiman is waking up",
       offline: "aiman is offline"
     };
     setText("alive-text", stateLabels[resolved] || "aiman is uncertain");
     var pulseClass = "pulse-dot pulse-dot--lg";
-    if (resolved === "stale" || resolved === "recovering") pulseClass += " pulse-dot--stale";
+    if (resolved === "stale" || resolved === "recovering" || resolved === "booting") pulseClass += " pulse-dot--stale";
     else if (resolved === "offline") pulseClass += " pulse-dot--offline";
     setClass("pulse", pulseClass);
 
