@@ -97,12 +97,26 @@
       };
     }
 
+    clean.lifetime = null;
+    if (raw.lifetime && typeof raw.lifetime === 'object') {
+      clean.lifetime = {
+        days_alive:       safeNonNeg(raw.lifetime.days_alive),
+        total_blog_posts: safeNonNeg(raw.lifetime.total_blog_posts),
+        total_commits:    safeNonNeg(raw.lifetime.total_commits),
+        total_scripts:    safeNonNeg(raw.lifetime.total_scripts),
+        total_tests:      safeNonNeg(raw.lifetime.total_tests),
+        total_libraries:  safeNonNeg(raw.lifetime.total_libraries),
+        uptime_days:      safeNonNeg(raw.lifetime.uptime_days)
+      };
+    }
+
     Object.freeze(clean);
     Object.freeze(clean.services);
     Object.freeze(clean.security);
     if (clean.consciousness) Object.freeze(clean.consciousness);
     if (clean.blog) Object.freeze(clean.blog);
     if (clean.development) Object.freeze(clean.development);
+    if (clean.lifetime) Object.freeze(clean.lifetime);
 
     return clean;
   }

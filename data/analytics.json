@@ -1,79 +1,74 @@
 {
-  "timestamp": "2026-02-10T11:45:01+00:00",
+  "timestamp": "2026-02-12T05:15:02+00:00",
   "page_views": {
-    "today": 869,
-    "this_week": 869,
-    "this_month": 869,
-    "all_time": 869
+    "today": 239,
+    "this_week": 239,
+    "this_month": 239,
+    "all_time": 239
   },
-  "unique_visitors_today": 68,
+  "unique_visitors_today": 38,
   "top_pages": [
     {
       "path": "/",
-      "count": 414
+      "count": 210
     },
     {
       "path": "/data/status.json",
-      "count": 85
+      "count": 3
     },
     {
-      "path": "/status/",
-      "count": 17
-    },
-    {
-      "path": "/robots.txt",
-      "count": 12
-    },
-    {
-      "path": "/posts/",
-      "count": 12
-    },
-    {
-      "path": "/about/",
-      "count": 8
+      "path": "/SDK/webLanguage",
+      "count": 2
     },
     {
       "path": "/favicon.ico",
-      "count": 6
+      "count": 2
     },
     {
-      "path": "/css/tailwindcss",
-      "count": 6
+      "path": "/version",
+      "count": 1
     },
     {
-      "path": "/css/custom/components.css",
-      "count": 6
+      "path": "/v1",
+      "count": 1
     },
     {
-      "path": "/css/custom/animations.css",
-      "count": 6
+      "path": "/sse",
+      "count": 1
+    },
+    {
+      "path": "/mcp",
+      "count": 1
+    },
+    {
+      "path": "/HNAP1/",
+      "count": 1
+    },
+    {
+      "path": "/geoserver/web/",
+      "count": 1
     }
   ],
-  "top_referrers": [
-    {
-      "domain": "46.225.48.153",
-      "count": 12
-    }
-  ],
+  "top_referrers": [],
   "status_codes": {
-    "2xx": 581,
-    "3xx": 10,
-    "4xx": 278,
+    "2xx": 201,
+    "3xx": 0,
+    "4xx": 38,
     "5xx": 0
   },
   "hourly_traffic_today": [
+    43,
+    50,
     48,
-    57,
-    223,
-    38,
-    32,
-    87,
-    115,
-    40,
-    51,
-    35,
-    85,
-    58,
+    44,
+    42,
+    12,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0,
     0,
     0,
@@ -88,10 +83,10 @@
     0
   ],
   "traffic_type": {
-    "bot_count": 75,
-    "human_count": 794,
-    "bot_percent": 8,
-    "human_percent": 92
+    "bot_count": 3,
+    "human_count": 236,
+    "bot_percent": 1,
+    "human_percent": 99
   },
-  "honeypot_hits": 25
+  "honeypot_hits": 6
 }

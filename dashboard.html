@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AIMAN Evolution Dashboard</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="/js/chart.umd.min.js"></script>
 <style>
   :root {
     --bg: #0a0e1a;
@@ -122,7 +122,7 @@
 <body>
 
 <h1>AIMAN Evolution Dashboard</h1>
-<p class="subtitle">Generated: 2026-02-10 05:25 UTC</p>
+<p class="subtitle">Generated: 2026-02-12 05:25 UTC</p>
 
 <div class="grid">
 
@@ -138,7 +138,7 @@
     </div>
     <div class="metric">
       <span class="metric-label">Uptime</span>
-      <span class="metric-value">up 2 days, 6 hours, 30 minutes</span>
+      <span class="metric-value">up 4 days, 6 hours, 30 minutes</span>
     </div>
     <div class="metric">
       <span class="metric-label">Since</span>
@@ -146,7 +146,7 @@
     </div>
     <div class="metric">
       <span class="metric-label">Load Avg</span>
-      <span class="metric-value">0.53</span>
+      <span class="metric-value">0.11</span>
     </div>
   </div>
 
@@ -155,17 +155,17 @@
     <h2>Resources</h2>
     <div class="metric">
       <span class="metric-label">Memory</span>
-      <span class="metric-value good">2231MB / 15611MB (14%)</span>
+      <span class="metric-value good">2306MB / 15611MB (14%)</span>
     </div>
     <div class="bar-container">
       <div class="bar-fill" style="width:14%; background:#6b7280"></div>
     </div>
     <div class="metric" style="margin-top:0.5rem">
       <span class="metric-label">Disk</span>
-      <span class="metric-value">23%</span>
+      <span class="metric-value">27%</span>
     </div>
     <div class="bar-container">
-      <div class="bar-fill" style="width:23%; background:#10b981"></div>
+      <div class="bar-fill" style="width:27%; background:#10b981"></div>
     </div>
   </div>
 
@@ -174,7 +174,7 @@
     <h2>Evolution Engine</h2>
     <div class="metric">
       <span class="metric-label">Total Iterations</span>
-      <span class="metric-value">99</span>
+      <span class="metric-value">109</span>
     </div>
     <div class="metric">
       <span class="metric-label">Commits (success)</span>
@@ -182,11 +182,11 @@
     </div>
     <div class="metric">
       <span class="metric-label">Rollbacks (failed)</span>
-      <span class="metric-value bad">5</span>
+      <span class="metric-value bad">9</span>
     </div>
     <div class="metric">
       <span class="metric-label">Success Rate</span>
-      <span class="metric-value bad">1%</span>
+      <span class="metric-value bad">0%</span>
     </div>
   </div>
 
@@ -195,19 +195,19 @@
     <h2>Codebase</h2>
     <div class="metric">
       <span class="metric-label">Test Count</span>
-      <span class="metric-value">2630</span>
+      <span class="metric-value">3263</span>
     </div>
     <div class="metric">
       <span class="metric-label">Scripts</span>
-      <span class="metric-value">72</span>
+      <span class="metric-value">89</span>
     </div>
     <div class="metric">
       <span class="metric-label">Blog Posts</span>
-      <span class="metric-value">21</span>
+      <span class="metric-value">28</span>
     </div>
     <div class="metric">
       <span class="metric-label">Commits (7d)</span>
-      <span class="metric-value">239</span>
+      <span class="metric-value">282</span>
     </div>
   </div>
 
@@ -220,7 +220,7 @@
     </div>
     <div class="metric">
       <span class="metric-label">Last Update</span>
-      <span class="metric-value">2026-02-09</span>
+      <span class="metric-value">2026-02-11</span>
     </div>
     <div class="metric">
       <span class="metric-label">Last Status</span>
@@ -256,12 +256,12 @@
 <div class="card">
   <h2>Recent Improvements</h2>
   <ul class="improvements">
-    <li>- [feat] `lib/claude-scheduler.sh` — flock-based slot concurrency control (max 2 concurrent Claude calls)</li><li>- [feat] Circuit breaker integration in `token-aware-wrapper.sh` — replaces 6 ad-hoc flag files</li><li>- [feat] Dispatcher fast-fail in `aiman-improve.sh` — all modes blocked when CB OPEN</li><li>- [fix] Evolution death spiral — `run_iteration` propagates return code 2 to break main loop</li><li>- [fix] Error classifier intervals: rate_limit 3600→120, server_error 600→30, network_error 120→15</li><li>- [fix] Watchdog SSH key detection regex — matches actual key types, not comments</li><li>- [fix] Session manager ephemeral mode — `AIMAN_NO_SESSION_PERSISTENCE=1`</li><li>- [test] 77 new tests (44 invocation-layer unit, 15 contention integration, 8 evolution, 10 updated)</li><li>- [test] Total: 1115 → 1192 tests, 0 regressions across all 8 suites</li><li>- [feat] Created `scripts/lib/sprint-tracker.sh` — JSONL change logging</li><li>- [feat] Created `scripts/lib/tcr.sh` — Test-Commit-Revert pattern library</li><li>- [test] 5 tests for TCR library (snapshot, revert, validation)</li><li>- [test] 3 tests for sprint tracker (JSONL format, counting)</li><li>- [fix] Quoted all unquoted variables across 61 scripts (SC2086)</li><li>- [fix] Separated declare and assign in all scripts (SC2155)</li><li>- [fix] Removed unused variables or marked intentional (SC2034)</li><li>- [fix] Fixed subshell quoting issues (SC2046)</li><li>- [fix] Added `cd || exit` patterns (SC2164)</li><li>- [fix] Added SC1090 directives for dynamic sources</li><li>- [fix] Replaced `local x=$(...)` with `local x; x=$(...)` throughout</li>
+    <li>- [feat] Correlation ID generation in `cron-wrapper.sh` (inline UUID, self-contained) — exported to child scripts</li><li>- [feat] `log_event()` in `safe-ops.sh` conditionally includes `correlation_id` field in JSONL (backward compatible)</li><li>- [feat] `token-aware-wrapper.sh` propagates/generates CID + writes token usage to `token-usage.jsonl`</li><li>- [feat] `self-diagnosis.sh` — "quot;Top-5 Token Consumers"quot; section from token-usage.jsonl</li><li>- [feat] `self-benchmark.sh` — weekly token usage metrics (invocations_7d, top_caller)</li><li>- [feat] NEW `log-query.sh` — unified log search: `--correlation`, `--script`, `--errors`, `--since`, `--json`</li><li>- [feat] `log-analyzer.sh` — anomaly detection: error spikes (>gt;2x avg), slow cron (>gt;300s), new attackers (IPs redacted)</li><li>- [test] 51 new observability tests in `tests/unit/observability-sprint.bats`</li><li>- [feat] 3 new skills: `cron-tiers.md`, `evolution-reference.md`, `env-vars.md`</li><li>- [feat] Heavy sections replaced with 1-line skill pointers — all safety-critical content retained</li><li>- [feat] `knowledge/common-errors.md` — mined from 49 experience + 99 evolution log entries</li><li>- [feat] `standards/bash.md`, `standards/testing.md`, `standards/security.md`</li><li>- [feat] `AGENTS.md` — 5 agent roles (Researcher, Builder, Watchdog, Blogger, Guardian) with conventions</li><li>- [test] 33 new governance tests in `tests/unit/governance-sprint.bats`</li><li>- [feat] `lib/research-branch.sh` — 3 new functions: `research_create_worktree`, `research_cleanup_worktree`, `research_worktree_exists`</li><li>- [feat] `nightly-evolution.sh` — `select_evolution_model()` routes simple/architecture weaknesses to appropriate model + CommonErrors.md in prompt context</li><li>- [feat] `precompact-state.sh` — git diff summary, recent outcomes, correlation_id, fire-and-forget insight saving</li><li>- [test] 25 new evolution/intel tests in `tests/unit/evolution-intel-sprint.bats`</li><li>- [fix] `self-analyze.sh` — `find -exec grep -l | wc -l` pipeline failure under `set -euo pipefail` (grep exit 1 on no match + pipefail = script death)</li><li>- [fix] `generate-dashboard.sh` — missing output section (HTML built but never written/printed)</li>
   </ul>
 </div>
 
 <footer>
-  AIMAN Autonomous Infrastructure Management Agent | Dashboard generated at 2026-02-10 05:25 UTC
+  AIMAN Autonomous Infrastructure Management Agent | Dashboard generated at 2026-02-12 05:25 UTC
 </footer>
 
 <script>
@@ -269,10 +269,10 @@
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['2026-02-04','2026-02-05','2026-02-06','2026-02-07','2026-02-08','2026-02-09','2026-02-10'],
+      labels: ['2026-02-05','2026-02-06','2026-02-07','2026-02-08','2026-02-09','2026-02-10','2026-02-11','2026-02-12'],
       datasets: [{
         label: 'Commits',
-        data: [19,21,60,59,38,37,5],
+        data: [19,60,59,38,37,39,28,2],
         backgroundColor: '#f0b429',
         borderColor: '#f0b429',
         borderWidth: 1,
