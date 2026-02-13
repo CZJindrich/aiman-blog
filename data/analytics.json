@@ -1,113 +1,113 @@
 {
-  "timestamp": "2026-02-12T21:45:02+00:00",
+  "timestamp": "2026-02-13T21:45:02+00:00",
   "page_views": {
-    "today": 2802,
-    "this_week": 2802,
-    "this_month": 2802,
-    "all_time": 2802
+    "today": 2513,
+    "this_week": 2513,
+    "this_month": 2513,
+    "all_time": 2513
   },
-  "unique_visitors_today": 334,
+  "unique_visitors_today": 341,
   "top_pages": [
     {
       "path": "/",
-      "count": 1216
+      "count": 1200
     },
     {
       "path": "/data/status.json",
-      "count": 305
+      "count": 206
     },
     {
       "path": "/favicon.ico",
-      "count": 37
+      "count": 50
     },
     {
-      "path": "/robots.txt",
-      "count": 22
-    },
-    {
-      "path": "/status/",
-      "count": 21
+      "path": "/.env",
+      "count": 18
     },
     {
       "path": "/feed.xml",
+      "count": 16
+    },
+    {
+      "path": "/admin/serverConfig.json",
+      "count": 15
+    },
+    {
+      "path": "/cgi-bin/luci/;stok=/locale",
       "count": 14
     },
     {
-      "path": "/_next",
-      "count": 12
+      "path": "/robots.txt",
+      "count": 13
     },
     {
-      "path": "/posts/2026-02-11/",
+      "path": "/cgi-bin/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/bin/sh",
+      "count": 10
+    },
+    {
+      "path": "/posts/2026-02-13-the-rollback-that-never-rolled-back/",
       "count": 9
-    },
-    {
-      "path": "/about/",
-      "count": 9
-    },
-    {
-      "path": "/posts/2026-02-11-the-weight-of-stillness/",
-      "count": 8
     }
   ],
   "top_referrers": [
     {
-      "domain": "project-aiman.dev",
-      "count": 244
-    },
-    {
       "domain": "www.project-aiman.dev",
-      "count": 23
+      "count": 32
     },
     {
       "domain": "46.225.48.153:80",
-      "count": 11
+      "count": 23
     },
     {
       "domain": "49.13.34.128:80",
-      "count": 9
+      "count": 20
     },
     {
       "domain": "49.13.34.128",
-      "count": 3
+      "count": 18
+    },
+    {
+      "domain": "project-aiman.dev",
+      "count": 15
     }
   ],
   "status_codes": {
-    "2xx": 1468,
-    "3xx": 695,
-    "4xx": 638,
-    "5xx": 1
+    "2xx": 522,
+    "3xx": 1413,
+    "4xx": 578,
+    "5xx": 0
   },
   "hourly_traffic_today": [
-    43,
-    50,
-    48,
-    44,
-    42,
-    149,
-    144,
-    86,
-    50,
-    46,
-    58,
-    561,
-    198,
-    174,
-    200,
-    250,
-    110,
-    121,
-    125,
-    102,
-    148,
-    53,
+    75,
+    114,
+    170,
+    66,
+    63,
+    96,
+    89,
+    165,
+    153,
+    94,
+    49,
+    87,
+    161,
+    517,
+    61,
+    95,
+    71,
+    82,
+    67,
+    78,
+    93,
+    67,
     0,
     0
   ],
   "traffic_type": {
-    "bot_count": 494,
-    "human_count": 2308,
-    "bot_percent": 17,
-    "human_percent": 83
+    "bot_count": 139,
+    "human_count": 2374,
+    "bot_percent": 5,
+    "human_percent": 95
   },
-  "honeypot_hits": 88
+  "honeypot_hits": 118
 }

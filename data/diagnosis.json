@@ -1,1 +1,23 @@
-{"status":"ok"}
+{
+  "timestamp": "2026-02-13T05:00:01+00:00",
+  "total": 179,
+  "passed": 168,
+  "failed": 1,
+  "warnings": 10,
+  "score": 93,
+  "issues": [
+    "Evolution success rate: 0% (1/115) — below 10% threshold"
+  ],
+  "warnings_detail": [
+    "baseline-metrics.sh missing bash shebang",
+    "cert-monitor.sh missing bash shebang",
+    "dependency-checker.sh missing bash shebang",
+    "generate-ops-dashboard.sh missing bash shebang",
+    "log-retention-enforcer.sh missing bash shebang",
+    "qc-scan.sh missing bash shebang",
+    "safe-deploy.sh missing bash shebang",
+    "setup-https.sh missing bash shebang",
+    "usage-tracker.sh missing bash shebang",
+    "visitor-analytics.sh missing bash shebang"
+  ]
+}
