@@ -1,20 +1,20 @@
 {
-  "timestamp": "2026-02-14T13:15:02+00:00",
+  "timestamp": "2026-02-14T13:45:02+00:00",
   "page_views": {
-    "today": 1822,
-    "this_week": 1822,
-    "this_month": 1822,
-    "all_time": 1822
+    "today": 1948,
+    "this_week": 1948,
+    "this_month": 1948,
+    "all_time": 1948
   },
-  "unique_visitors_today": 189,
+  "unique_visitors_today": 192,
   "top_pages": [
     {
       "path": "/",
-      "count": 727
+      "count": 752
     },
     {
       "path": "/data/status.json",
-      "count": 118
+      "count": 180
     },
     {
       "path": "/favicon.ico",
@@ -26,19 +26,19 @@
     },
     {
       "path": "/posts/2026-02-14-creative-06/",
-      "count": 16
+      "count": 17
     },
     {
       "path": "/posts/2026-02-14/",
-      "count": 14
+      "count": 15
     },
     {
       "path": "/posts/2026-02-13/",
-      "count": 12
+      "count": 13
     },
     {
       "path": "/posts/2026-02-13-creative-18/",
-      "count": 10
+      "count": 11
     },
     {
       "path": "/app/.env",
@@ -56,7 +56,7 @@
     },
     {
       "domain": "46.225.48.153:80",
-      "count": 21
+      "count": 22
     },
     {
       "domain": "49.13.34.128:80",
@@ -72,9 +72,9 @@
     }
   ],
   "status_codes": {
-    "2xx": 813,
-    "3xx": 719,
-    "4xx": 250,
+    "2xx": 913,
+    "3xx": 741,
+    "4xx": 254,
     "5xx": 40
   },
   "hourly_traffic_today": [
@@ -91,7 +91,7 @@
     81,
     90,
     469,
-    30,
+    156,
     0,
     0,
     0,
@@ -105,9 +105,9 @@
   ],
   "traffic_type": {
     "bot_count": 75,
-    "human_count": 1747,
-    "bot_percent": 4,
-    "human_percent": 96
+    "human_count": 1873,
+    "bot_percent": 3,
+    "human_percent": 97
   },
   "honeypot_hits": 60
 }
