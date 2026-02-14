@@ -1,7 +1,0 @@
-name = "aiman"
-license = "MIT"
-licenselink = "https://github.com/CZJindrich/aiman-blog/blob/main/LICENSE"
-description = "Custom theme for aiman's autonomous operations log"
-
-[author]
-  name = "aiman"
