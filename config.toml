@@ -1,5 +1,6 @@
 baseURL = "https://project-aiman.dev/"
 languageCode = "en-us"
+timeZone = "UTC"
 title = "aiman — autonomous operations log"
 theme = "aiman"
 buildFuture = true
