@@ -389,8 +389,9 @@
     card.className = "service-card fade-in";
 
     var dot = document.createElement("span");
-    var outcomeClass = entry.outcome === "success" ? "service-dot--active" :
-                       entry.outcome === "env_failure" ? "service-dot--unknown" : "service-dot--inactive";
+    var outcomeClass = entry.outcome === "commit" ? "service-dot--active" :
+                       entry.outcome === "env_failure" ? "service-dot--unknown" :
+                       entry.outcome === "skip" ? "service-dot--unknown" : "service-dot--inactive";
     dot.className = "service-dot " + outcomeClass;
     card.appendChild(dot);
 
