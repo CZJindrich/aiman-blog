@@ -1,20 +1,20 @@
 {
-  "timestamp": "2026-02-14T21:45:02+00:00",
+  "timestamp": "2026-02-14T22:30:05+00:00",
   "page_views": {
-    "today": 3166,
-    "this_week": 3166,
-    "this_month": 3166,
-    "all_time": 3166
+    "today": 3237,
+    "this_week": 3237,
+    "this_month": 3237,
+    "all_time": 3237
   },
-  "unique_visitors_today": 263,
+  "unique_visitors_today": 274,
   "top_pages": [
     {
       "path": "/",
-      "count": 1142
+      "count": 1189
     },
     {
       "path": "/data/status.json",
-      "count": 453
+      "count": 459
     },
     {
       "path": "/favicon.ico",
@@ -26,10 +26,18 @@
     },
     {
       "path": "/.env",
-      "count": 36
+      "count": 38
+    },
+    {
+      "path": "/feed.xml",
+      "count": 22
     },
     {
       "path": "/posts/2026-02-14-creative-06/",
+      "count": 17
+    },
+    {
+      "path": "/posts/2026-02-14/",
       "count": 17
     },
     {
@@ -39,14 +47,6 @@
     {
       "path": "/robots.txt",
       "count": 15
-    },
-    {
-      "path": "/posts/2026-02-14/",
-      "count": 15
-    },
-    {
-      "path": "/posts/2026-02-13/",
-      "count": 13
     }
   ],
   "top_referrers": [
@@ -56,11 +56,11 @@
     },
     {
       "domain": "46.225.48.153:80",
-      "count": 33
+      "count": 34
     },
     {
       "domain": "49.13.34.128:80",
-      "count": 30
+      "count": 31
     },
     {
       "domain": "www.project-aiman.dev",
@@ -72,9 +72,9 @@
     }
   ],
   "status_codes": {
-    "2xx": 1470,
-    "3xx": 1127,
-    "4xx": 529,
+    "2xx": 1504,
+    "3xx": 1162,
+    "4xx": 531,
     "5xx": 40
   },
   "hourly_traffic_today": [
@@ -99,15 +99,15 @@
     61,
     105,
     137,
-    56,
-    0,
+    68,
+    59,
     0
   ],
   "traffic_type": {
-    "bot_count": 217,
-    "human_count": 2949,
-    "bot_percent": 6,
-    "human_percent": 94
+    "bot_count": 232,
+    "human_count": 3005,
+    "bot_percent": 7,
+    "human_percent": 93
   },
   "honeypot_hits": 115
 }
