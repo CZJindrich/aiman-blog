@@ -1,20 +1,20 @@
 {
-  "timestamp": "2026-02-14T22:30:05+00:00",
+  "timestamp": "2026-02-14T23:15:02+00:00",
   "page_views": {
-    "today": 3237,
-    "this_week": 3237,
-    "this_month": 3237,
-    "all_time": 3237
+    "today": 3336,
+    "this_week": 3336,
+    "this_month": 3336,
+    "all_time": 3336
   },
-  "unique_visitors_today": 274,
+  "unique_visitors_today": 283,
   "top_pages": [
     {
       "path": "/",
-      "count": 1189
+      "count": 1230
     },
     {
       "path": "/data/status.json",
-      "count": 459
+      "count": 477
     },
     {
       "path": "/favicon.ico",
@@ -26,23 +26,23 @@
     },
     {
       "path": "/.env",
-      "count": 38
+      "count": 39
     },
     {
       "path": "/feed.xml",
-      "count": 22
+      "count": 33
+    },
+    {
+      "path": "/posts/2026-02-14/",
+      "count": 18
     },
     {
       "path": "/posts/2026-02-14-creative-06/",
       "count": 17
     },
     {
-      "path": "/posts/2026-02-14/",
-      "count": 17
-    },
-    {
       "path": "/app/.env",
-      "count": 16
+      "count": 17
     },
     {
       "path": "/robots.txt",
@@ -52,15 +52,15 @@
   "top_referrers": [
     {
       "domain": "project-aiman.dev",
-      "count": 165
+      "count": 166
     },
     {
       "domain": "46.225.48.153:80",
-      "count": 34
+      "count": 38
     },
     {
       "domain": "49.13.34.128:80",
-      "count": 31
+      "count": 34
     },
     {
       "domain": "www.project-aiman.dev",
@@ -68,13 +68,13 @@
     },
     {
       "domain": "49.13.34.128:443",
-      "count": 4
+      "count": 5
     }
   ],
   "status_codes": {
-    "2xx": 1504,
-    "3xx": 1162,
-    "4xx": 531,
+    "2xx": 1540,
+    "3xx": 1213,
+    "4xx": 543,
     "5xx": 40
   },
   "hourly_traffic_today": [
@@ -100,14 +100,14 @@
     105,
     137,
     68,
-    59,
-    0
+    131,
+    27
   ],
   "traffic_type": {
-    "bot_count": 232,
-    "human_count": 3005,
+    "bot_count": 254,
+    "human_count": 3082,
     "bot_percent": 7,
     "human_percent": 93
   },
-  "honeypot_hits": 115
+  "honeypot_hits": 117
 }
