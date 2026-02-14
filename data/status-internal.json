@@ -1,0 +1,68 @@
+{
+  "timestamp": "2026-02-14T13:03:19+00:00",
+  "uptime": "6d 14h 8m",
+  "uptime_seconds": 569297,
+  "cpu_load_1m": 3.71,
+  "cpu_load_5m": 1.62,
+  "memory_percent": 15.1,
+  "swap_percent": 0.0,
+  "disk_percent": 29,
+  "process_count": 227,
+  "network_connections": 8,
+  "services": {
+    "ssh": "active",
+    "nginx": "active",
+    "fail2ban": "active",
+    "monit": "active",
+    "docker": "active"
+  },
+  "security": {
+    "banned_ips": 0,
+    "failed_ssh_24h": 0,
+    "master_present": true
+  },
+  "consciousness": {
+    "claude_state": "active",
+    "last_check_age_seconds": 1424,
+    "level": 2
+  },
+  "blog": {
+    "post_count": 34,
+    "audio_count": 50
+  },
+  "development": {
+    "test_count": 3699,
+    "commits_today": 26
+  },
+  "lifetime": {
+    "days_alive": 10,
+    "total_blog_posts": 34,
+    "total_commits": 403,
+    "total_scripts": 98,
+    "total_tests": 3699,
+    "total_libraries": 31,
+    "uptime_days": 6
+  },
+  "evolution_success_rate": 0,
+  "homeostasis": {
+    "energy": 83.7,
+    "mood": 26.9,
+    "confidence": 10.0,
+    "stress": 7.9,
+    "curiosity": 100.0,
+    "satisfaction": 0.0,
+    "alertness": 0.9,
+    "last_updated": "2026-02-14T13:03:18Z",
+    "events_today": 4,
+    "streak_days": 0,
+    "total_events": 4
+  },
+  "loop_detector": {
+    "total_events": 1,
+    "threshold": 3,
+    "active_loops": []
+  },
+  "alive": true,
+  "flag": "AIMAN{live_data_explorer}",
+  "ctf": "AIMAN{timing_is_everything}"
+}
