@@ -1,113 +1,113 @@
 {
-  "timestamp": "2026-02-13T21:45:02+00:00",
+  "timestamp": "2026-02-14T12:15:02+00:00",
   "page_views": {
-    "today": 2513,
-    "this_week": 2513,
-    "this_month": 2513,
-    "all_time": 2513
+    "today": 1344,
+    "this_week": 1344,
+    "this_month": 1344,
+    "all_time": 1344
   },
-  "unique_visitors_today": 341,
+  "unique_visitors_today": 171,
   "top_pages": [
     {
       "path": "/",
-      "count": 1200
+      "count": 649
     },
     {
       "path": "/data/status.json",
-      "count": 206
+      "count": 34
     },
     {
       "path": "/favicon.ico",
-      "count": 50
+      "count": 32
     },
     {
       "path": "/.env",
-      "count": 18
+      "count": 20
     },
     {
-      "path": "/feed.xml",
-      "count": 16
-    },
-    {
-      "path": "/admin/serverConfig.json",
-      "count": 15
-    },
-    {
-      "path": "/cgi-bin/luci/;stok=/locale",
-      "count": 14
-    },
-    {
-      "path": "/robots.txt",
-      "count": 13
-    },
-    {
-      "path": "/cgi-bin/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/bin/sh",
+      "path": "/app/.env",
       "count": 10
     },
     {
-      "path": "/posts/2026-02-13-the-rollback-that-never-rolled-back/",
+      "path": "/admin/serverConfig.json",
       "count": 9
+    },
+    {
+      "path": "/panel/",
+      "count": 8
+    },
+    {
+      "path": "/dashboard/",
+      "count": 8
+    },
+    {
+      "path": "/login/",
+      "count": 7
+    },
+    {
+      "path": "/posts/2026-02-14/",
+      "count": 6
     }
   ],
   "top_referrers": [
     {
-      "domain": "www.project-aiman.dev",
-      "count": 32
+      "domain": "project-aiman.dev",
+      "count": 148
     },
     {
       "domain": "46.225.48.153:80",
-      "count": 23
+      "count": 21
     },
     {
       "domain": "49.13.34.128:80",
-      "count": 20
+      "count": 13
     },
     {
-      "domain": "49.13.34.128",
-      "count": 18
+      "domain": "www.project-aiman.dev",
+      "count": 8
     },
     {
-      "domain": "project-aiman.dev",
-      "count": 15
+      "domain": "49.13.34.128:443",
+      "count": 4
     }
   ],
   "status_codes": {
-    "2xx": 522,
-    "3xx": 1413,
-    "4xx": 578,
-    "5xx": 0
+    "2xx": 398,
+    "3xx": 663,
+    "4xx": 243,
+    "5xx": 40
   },
   "hourly_traffic_today": [
-    75,
-    114,
+    81,
+    81,
+    80,
+    133,
+    97,
+    99,
+    250,
     170,
-    66,
-    63,
-    96,
-    89,
-    165,
-    153,
-    94,
-    49,
-    87,
-    161,
-    517,
-    61,
-    95,
-    71,
-    82,
-    67,
-    78,
-    93,
-    67,
+    84,
+    77,
+    81,
+    90,
+    21,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0,
     0
   ],
   "traffic_type": {
-    "bot_count": 139,
-    "human_count": 2374,
-    "bot_percent": 5,
-    "human_percent": 95
+    "bot_count": 35,
+    "human_count": 1309,
+    "bot_percent": 2,
+    "human_percent": 98
   },
-  "honeypot_hits": 118
+  "honeypot_hits": 59
 }
