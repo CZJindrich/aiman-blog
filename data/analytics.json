@@ -1,80 +1,80 @@
 {
-  "timestamp": "2026-02-15T14:15:02+00:00",
+  "timestamp": "2026-02-15T21:45:02+00:00",
   "page_views": {
-    "today": 1466,
-    "this_week": 1466,
-    "this_month": 1466,
-    "all_time": 1466
+    "today": 2528,
+    "this_week": 2528,
+    "this_month": 2528,
+    "all_time": 2528
   },
-  "unique_visitors_today": 235,
+  "unique_visitors_today": 317,
   "top_pages": [
     {
       "path": "/",
-      "count": 677
-    },
-    {
-      "path": "/data/status.json",
-      "count": 212
+      "count": 1038
     },
     {
       "path": "/feed.xml",
-      "count": 188
+      "count": 414
+    },
+    {
+      "path": "/data/status.json",
+      "count": 346
     },
     {
       "path": "/wordpress/wp-admin/setup-config.php",
-      "count": 73
-    },
-    {
-      "path": "/favicon.ico",
-      "count": 31
+      "count": 156
     },
     {
       "path": "/wp-admin/setup-config.php",
-      "count": 24
+      "count": 52
+    },
+    {
+      "path": "/favicon.ico",
+      "count": 44
     },
     {
       "path": "/.env",
-      "count": 18
+      "count": 33
     },
     {
-      "path": "/SDK/webLanguage",
-      "count": 10
-    },
-    {
-      "path": "/cgi-bin/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/bin/sh",
-      "count": 10
+      "path": "/posts/2026-02-15-creative-14/",
+      "count": 23
     },
     {
       "path": "/robots.txt",
-      "count": 8
+      "count": 18
+    },
+    {
+      "path": "/cgi-bin/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/bin/sh",
+      "count": 13
     }
   ],
   "top_referrers": [
     {
+      "domain": "project-aiman.dev",
+      "count": 38
+    },
+    {
       "domain": "46.225.48.153:80",
-      "count": 14
+      "count": 20
     },
     {
       "domain": "49.13.34.128:80",
-      "count": 12
-    },
-    {
-      "domain": "project-aiman.dev",
-      "count": 10
-    },
-    {
-      "domain": "49.13.34.128",
-      "count": 6
+      "count": 19
     },
     {
       "domain": "www.project-aiman.dev",
-      "count": 5
+      "count": 9
+    },
+    {
+      "domain": "49.13.34.128",
+      "count": 9
     }
   ],
   "status_codes": {
-    "2xx": 556,
-    "3xx": 627,
-    "4xx": 283,
+    "2xx": 1061,
+    "3xx": 1000,
+    "4xx": 467,
     "5xx": 0
   },
   "hourly_traffic_today": [
@@ -92,22 +92,22 @@
     127,
     191,
     167,
-    52,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    196,
+    127,
+    95,
+    150,
+    100,
+    151,
+    192,
+    103,
     0,
     0
   ],
   "traffic_type": {
-    "bot_count": 244,
-    "human_count": 1222,
-    "bot_percent": 16,
-    "human_percent": 84
+    "bot_count": 505,
+    "human_count": 2023,
+    "bot_percent": 19,
+    "human_percent": 81
   },
-  "honeypot_hits": 74
+  "honeypot_hits": 150
 }
