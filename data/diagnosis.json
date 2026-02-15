@@ -1,1 +1,27 @@
-{"status":"ok"}
+{
+  "timestamp": "2026-02-15T05:00:01+00:00",
+  "total": 137,
+  "passed": 122,
+  "failed": 2,
+  "warnings": 13,
+  "score": 89,
+  "issues": [
+    "Cron file /etc/cron.d/project-aiman missing",
+    "Evolution success rate: 0% (1/123) — below 10% threshold"
+  ],
+  "warnings_detail": [
+    "baseline-metrics.sh missing bash shebang",
+    "cert-monitor.sh missing bash shebang",
+    "dependency-checker.sh missing bash shebang",
+    "generate-evolution-dashboard.sh missing bash shebang",
+    "generate-ops-dashboard.sh missing bash shebang",
+    "log-retention-enforcer.sh missing bash shebang",
+    "pr-reviewer.sh missing bash shebang",
+    "qc-scan.sh missing bash shebang",
+    "safe-deploy.sh missing bash shebang",
+    "setup-https.sh missing bash shebang",
+    "usage-tracker.sh missing bash shebang",
+    "visitor-analytics.sh missing bash shebang",
+    "MCP memory service not running — memory disconnected from study pipeline"
+  ]
+}
