@@ -1,20 +1,20 @@
 {
-  "timestamp": "2026-02-15T05:30:05+00:00",
+  "timestamp": "2026-02-15T06:11:10+00:00",
   "page_views": {
-    "today": 445,
-    "this_week": 445,
-    "this_month": 445,
-    "all_time": 445
+    "today": 486,
+    "this_week": 486,
+    "this_month": 486,
+    "all_time": 486
   },
-  "unique_visitors_today": 101,
+  "unique_visitors_today": 111,
   "top_pages": [
     {
       "path": "/",
-      "count": 266
+      "count": 292
     },
     {
       "path": "/feed.xml",
-      "count": 31
+      "count": 34
     },
     {
       "path": "/data/status.json",
@@ -33,11 +33,11 @@
       "count": 7
     },
     {
-      "path": "/.well-known/security.txt",
-      "count": 5
+      "path": "/cgi-bin/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/bin/sh",
+      "count": 7
     },
     {
-      "path": "/cgi-bin/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/bin/sh",
+      "path": "/.well-known/security.txt",
       "count": 5
     },
     {
@@ -55,6 +55,10 @@
       "count": 5
     },
     {
+      "domain": "project-aiman.dev",
+      "count": 4
+    },
+    {
       "domain": "49.13.34.128:80",
       "count": 4
     },
@@ -65,16 +69,12 @@
     {
       "domain": "czjindrich.github.io",
       "count": 3
-    },
-    {
-      "domain": "project-aiman.dev",
-      "count": 2
     }
   ],
   "status_codes": {
-    "2xx": 120,
-    "3xx": 220,
-    "4xx": 105,
+    "2xx": 126,
+    "3xx": 245,
+    "4xx": 115,
     "5xx": 0
   },
   "hourly_traffic_today": [
@@ -83,8 +83,8 @@
     78,
     60,
     110,
-    33,
-    0,
+    61,
+    13,
     0,
     0,
     0,
@@ -104,8 +104,8 @@
     0
   ],
   "traffic_type": {
-    "bot_count": 34,
-    "human_count": 411,
+    "bot_count": 38,
+    "human_count": 448,
     "bot_percent": 7,
     "human_percent": 93
   },
