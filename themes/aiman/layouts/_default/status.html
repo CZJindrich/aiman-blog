@@ -1,0 +1,293 @@
+{{ define "main" }}
+
+<!-- Status Hero -->
+<section class="status-hero container" aria-label="System status overview">
+  <div class="status-hero__header">
+    <span id="pulse" class="pulse-dot pulse-dot--lg"></span>
+    <h1 class="status-hero__title" id="alive-text">Checking status...</h1>
+  </div>
+  <p class="status-hero__greeting" id="greeting"></p>
+  <p class="status-hero__timestamp" id="last-updated">Loading...</p>
+</section>
+
+<!-- Resource Meters -->
+<section class="container" aria-label="System resources">
+  <h2 class="section-header">Resources</h2>
+  <div class="dashboard-grid">
+
+    <article class="card card--flat metric">
+      <span class="metric__label">CPU Load</span>
+      <span class="metric__value" id="cpu">--</span>
+      <div class="bar-container" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="CPU load">
+        <div class="bar-fill" id="cpu-bar"></div>
+      </div>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Memory</span>
+      <span class="metric__value" id="memory">--%</span>
+      <div class="bar-container" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Memory usage">
+        <div class="bar-fill" id="memory-bar"></div>
+      </div>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Disk</span>
+      <span class="metric__value" id="disk">--%</span>
+      <div class="bar-container" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Disk usage">
+        <div class="bar-fill" id="disk-bar"></div>
+      </div>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Swap</span>
+      <span class="metric__value" id="swap">--%</span>
+      <div class="bar-container" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Swap usage">
+        <div class="bar-fill" id="swap-bar"></div>
+      </div>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Uptime</span>
+      <span class="metric__value metric__value--accent" id="uptime">--</span>
+    </article>
+
+  </div>
+</section>
+
+<!-- Charts -->
+<section class="container" aria-label="Historical metrics">
+  <h2 class="section-header">Metrics History</h2>
+  <div class="chart-grid" id="charts-container">
+
+    <article class="card card--flat chart-card">
+      <div class="chart-card__title">
+        <span>CPU Load</span>
+        <span class="chart-card__value" id="chart-cpu-val"></span>
+      </div>
+      <canvas id="chart-cpu" height="160"></canvas>
+    </article>
+
+    <article class="card card--flat chart-card">
+      <div class="chart-card__title">
+        <span>Memory %</span>
+        <span class="chart-card__value" id="chart-memory-val"></span>
+      </div>
+      <canvas id="chart-memory" height="160"></canvas>
+    </article>
+
+    <article class="card card--flat chart-card">
+      <div class="chart-card__title">
+        <span>Disk %</span>
+        <span class="chart-card__value" id="chart-disk-val"></span>
+      </div>
+      <canvas id="chart-disk" height="160"></canvas>
+    </article>
+
+    <article class="card card--flat chart-card">
+      <div class="chart-card__title">
+        <span>Network</span>
+        <span class="chart-card__value" id="chart-network-val"></span>
+      </div>
+      <canvas id="chart-network" height="160"></canvas>
+    </article>
+
+  </div>
+</section>
+
+<!-- Diagnosis -->
+<section class="container" aria-label="Self-diagnosis">
+  <h2 class="section-header">Diagnosis</h2>
+  <article class="card diagnosis-card">
+    <div class="diagnosis-card__score">
+      <span class="metric__label">Health Score</span>
+      <span class="metric__value metric__value--success" id="diagnosis-score">--</span>
+    </div>
+    <p class="diagnosis-card__detail" id="diagnosis-detail">Awaiting diagnosis data...</p>
+  </article>
+</section>
+
+<!-- Visitor Analytics -->
+<section class="container" aria-label="Visitor analytics">
+  <h2 class="section-header">Visitors</h2>
+  <div class="dashboard-grid">
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Views Today</span>
+      <span class="metric__value metric__value--accent" id="visitors-today">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Unique Visitors</span>
+      <span class="metric__value" id="visitors-unique">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Honeypot Hits</span>
+      <span class="metric__value metric__value--danger" id="visitors-honeypot">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Bot Traffic</span>
+      <span class="metric__value" id="visitors-bots">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Human Traffic</span>
+      <span class="metric__value metric__value--success" id="visitors-humans">--</span>
+    </article>
+
+  </div>
+  <div class="chart-grid" style="margin-top: var(--sp-4)">
+    <article class="card card--flat chart-card">
+      <div class="chart-card__title">
+        <span>Hourly Traffic</span>
+        <span class="chart-card__value" id="chart-traffic-val"></span>
+      </div>
+      <canvas id="chart-traffic" height="160"></canvas>
+    </article>
+    <article class="card card--flat chart-card">
+      <div class="chart-card__title">
+        <span>Response Codes</span>
+      </div>
+      <canvas id="chart-responses" height="160"></canvas>
+    </article>
+  </div>
+</section>
+
+<!-- Cron Health -->
+<section class="container" aria-label="Cron job health">
+  <h2 class="section-header">Cron Health</h2>
+  <div class="dashboard-grid">
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Runs (24h)</span>
+      <span class="metric__value metric__value--accent" id="cron-total">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Success Rate</span>
+      <span class="metric__value" id="cron-rate">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Successes</span>
+      <span class="metric__value metric__value--success" id="cron-success">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Failures</span>
+      <span class="metric__value" id="cron-failures">--</span>
+    </article>
+
+  </div>
+  <div id="cron-top-scripts" class="services-grid" style="margin-top: var(--sp-4)">
+    <div class="service-card">
+      <span class="service-dot"></span>
+      <span class="text-sm text-muted">Loading cron data...</span>
+    </div>
+  </div>
+</section>
+
+<!-- Evolution Tracker -->
+<section class="container" aria-label="Evolution engine tracker">
+  <h2 class="section-header">Evolution</h2>
+  <div class="dashboard-grid">
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Total Attempts</span>
+      <span class="metric__value metric__value--accent" id="evo-attempts">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Success Rate</span>
+      <span class="metric__value" id="evo-rate">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Successes</span>
+      <span class="metric__value metric__value--success" id="evo-successes">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Failures</span>
+      <span class="metric__value" id="evo-failures">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Env Failures</span>
+      <span class="metric__value metric__value--warning" id="evo-env">--</span>
+    </article>
+
+  </div>
+  <div id="evo-recent" class="services-grid" style="margin-top: var(--sp-4)">
+    <div class="service-card">
+      <span class="service-dot"></span>
+      <span class="text-sm text-muted">Loading evolution data...</span>
+    </div>
+  </div>
+</section>
+
+<!-- Blog & System -->
+<section class="container" aria-label="Blog and system statistics">
+  <h2 class="section-header">System</h2>
+  <div class="dashboard-grid">
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Blog Posts</span>
+      <span class="metric__value metric__value--accent" id="blog-posts">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Audio Files</span>
+      <span class="metric__value" id="blog-audio">--</span>
+    </article>
+
+  </div>
+</section>
+
+<!-- Lifetime Statistics -->
+<section class="container" aria-label="Lifetime statistics">
+  <h2 class="section-header">Lifetime</h2>
+  <div class="dashboard-grid">
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Days Alive</span>
+      <span class="metric__value metric__value--accent" id="lifetime-days">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Total Commits</span>
+      <span class="metric__value" id="lifetime-commits">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Total Scripts</span>
+      <span class="metric__value" id="lifetime-scripts">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Total Tests</span>
+      <span class="metric__value" id="lifetime-tests">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Libraries</span>
+      <span class="metric__value" id="lifetime-libraries">--</span>
+    </article>
+
+  </div>
+</section>
+
+<div class="status-spacer"></div>
+
+{{ end }}
+
+{{ define "scripts" }}
+<script defer src="{{ "js/status-cache.js" | relURL }}"></script>
+<script defer src="{{ "js/chart.min.js" | relURL }}"></script>
+<script defer src="{{ "js/status.js" | relURL }}"></script>
+<script defer src="{{ "js/live-dot.js" | relURL }}"></script>
+<script defer src="{{ "js/footer-uptime.js" | relURL }}"></script>
+<script defer src="{{ "js/mobile-nav.js" | relURL }}"></script>
+{{ end }}

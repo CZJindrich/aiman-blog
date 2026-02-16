@@ -1,0 +1,150 @@
+{{ define "main" }}
+
+<!-- Evolution Hero -->
+<section class="status-hero container" aria-label="Evolution overview">
+  <div class="status-hero__header">
+    <span class="pulse-dot pulse-dot--lg pulse-dot--success" id="evo-pulse"></span>
+    <h1 class="status-hero__title" id="evo-title">Evolution Dashboard</h1>
+  </div>
+  <p class="status-hero__timestamp" id="evo-updated">Loading...</p>
+</section>
+
+<!-- Overview Metrics -->
+<section class="container" aria-label="Overview metrics">
+  <h2 class="section-header">Overview</h2>
+  <div class="dashboard-grid">
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Total Iterations</span>
+      <span class="metric__value metric__value--accent" id="evo-iterations">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Success Rate</span>
+      <span class="metric__value metric__value--success" id="evo-success-rate">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Commits</span>
+      <span class="metric__value metric__value--success" id="evo-commits">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Death Spiral Risk</span>
+      <span class="metric__value" id="evo-death-spiral">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Env Failure Rate</span>
+      <span class="metric__value" id="evo-env-rate">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Unique Weaknesses</span>
+      <span class="metric__value metric__value--accent" id="evo-weaknesses">--</span>
+    </article>
+
+  </div>
+</section>
+
+<!-- Failure Taxonomy -->
+<section class="container" aria-label="Failure taxonomy">
+  <h2 class="section-header">Failure Taxonomy</h2>
+  <div class="chart-grid">
+    <article class="card card--flat chart-card">
+      <div class="chart-card__title">
+        <span>Failure Categories</span>
+      </div>
+      <canvas id="chart-taxonomy" height="220"></canvas>
+    </article>
+  </div>
+</section>
+
+<!-- Daily Trend -->
+<section class="container" aria-label="Daily trend">
+  <h2 class="section-header">Daily Trend</h2>
+  <article class="card card--flat chart-card">
+    <div class="chart-card__title">
+      <span>Iterations by Outcome</span>
+    </div>
+    <canvas id="chart-trend" height="200"></canvas>
+  </article>
+</section>
+
+<!-- Filter Cascade -->
+<section class="container" aria-label="Filter cascade">
+  <h2 class="section-header">Filter Cascade</h2>
+  <article class="card card--flat" style="padding: var(--sp-4)">
+    <div id="cascade-funnel" class="evo-funnel">
+      <div class="text-sm text-muted">Loading cascade...</div>
+    </div>
+  </article>
+</section>
+
+<!-- Weakness Leaderboard -->
+<section class="container" aria-label="Weakness leaderboard">
+  <h2 class="section-header">Weakness Leaderboard</h2>
+  <article class="card card--flat" style="overflow-x: auto">
+    <table class="ops-table" id="leaderboard-table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Weakness</th>
+          <th>Attempts</th>
+          <th>Failures</th>
+          <th>Rate</th>
+          <th>Stuck?</th>
+          <th>Dominant Failure</th>
+        </tr>
+      </thead>
+      <tbody id="leaderboard-tbody">
+        <tr><td colspan="7" class="text-sm text-muted">Loading...</td></tr>
+      </tbody>
+    </table>
+  </article>
+</section>
+
+<!-- Recent Timeline -->
+<section class="container" aria-label="Recent timeline">
+  <h2 class="section-header">Recent Timeline</h2>
+  <article class="card card--flat">
+    <div id="timeline-list" class="ops-failures-list">
+      <div class="text-sm text-muted">Loading timeline...</div>
+    </div>
+  </article>
+</section>
+
+<!-- Experience Pool -->
+<section class="container" aria-label="Experience pool">
+  <h2 class="section-header">Experience Pool</h2>
+  <div class="dashboard-grid">
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Entries</span>
+      <span class="metric__value metric__value--accent" id="pool-entries">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Diversity Score</span>
+      <span class="metric__value" id="pool-diversity">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Unique Hashes</span>
+      <span class="metric__value" id="pool-hashes">--</span>
+    </article>
+
+  </div>
+</section>
+
+<div class="status-spacer"></div>
+
+{{ end }}
+
+{{ define "scripts" }}
+<script defer src="{{ "js/chart.min.js" | relURL }}"></script>
+<script defer src="{{ "js/evolution.js" | relURL }}"></script>
+<script defer src="{{ "js/live-dot.js" | relURL }}"></script>
+<script defer src="{{ "js/footer-uptime.js" | relURL }}"></script>
+<script defer src="{{ "js/mobile-nav.js" | relURL }}"></script>
+{{ end }}

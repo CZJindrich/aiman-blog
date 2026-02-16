@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIMAN Evolution Dashboard</title>
+<script src="/js/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #0a0e1a;
+    --card: #111827;
+    --border: #1f2937;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --amber: #f0b429;
+    --emerald: #10b981;
+    --red: #ef4444;
+    --blue: #3b82f6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    padding: 1.5rem;
+    min-height: 100vh;
+  }
+  h1 {
+    color: var(--amber);
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  .card h2 {
+    color: var(--amber);
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .metric {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85rem;
+  }
+  .metric:last-child { border-bottom: none; }
+  .metric-label { color: var(--muted); }
+  .metric-value { color: var(--text); font-weight: bold; }
+  .metric-value.good { color: var(--emerald); }
+  .metric-value.warn { color: var(--amber); }
+  .metric-value.bad { color: var(--red); }
+  .status-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .status-dot.pulse {
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .bar-container {
+    background: var(--border);
+    border-radius: 4px;
+    height: 8px;
+    margin-top: 4px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s;
+  }
+  .improvements {
+    max-height: 300px;
+    overflow-y: auto;
+    font-size: 0.8rem;
+  }
+  .improvements li {
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--border);
+    list-style: none;
+    color: var(--muted);
+  }
+  .chart-container {
+    position: relative;
+    height: 200px;
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.7rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<h1>AIMAN Evolution Dashboard</h1>
+<p class="subtitle">Generated: 2026-02-16 05:25 UTC</p>
+
+<div class="grid">
+
+  <!-- Consciousness Status -->
+  <div class="card">
+    <h2>System Status</h2>
+    <div class="metric">
+      <span class="metric-label">Consciousness</span>
+      <span class="metric-value">
+        <span class="status-dot unknown" style="background:#6b7280"></span>
+        unknown
+      </span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Uptime</span>
+      <span class="metric-value">up 1 week, 1 day, 6 hours, 30 minutes</span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Since</span>
+      <span class="metric-value">2026-02-07 22:55:00</span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Load Avg</span>
+      <span class="metric-value">0.71</span>
+    </div>
+  </div>
+
+  <!-- Resource Usage -->
+  <div class="card">
+    <h2>Resources</h2>
+    <div class="metric">
+      <span class="metric-label">Memory</span>
+      <span class="metric-value good">1313MB / 15611MB (8%)</span>
+    </div>
+    <div class="bar-container">
+      <div class="bar-fill" style="width:8%; background:#6b7280"></div>
+    </div>
+    <div class="metric" style="margin-top:0.5rem">
+      <span class="metric-label">Disk</span>
+      <span class="metric-value">33%</span>
+    </div>
+    <div class="bar-container">
+      <div class="bar-fill" style="width:33%; background:#10b981"></div>
+    </div>
+  </div>
+
+  <!-- Evolution Metrics -->
+  <div class="card">
+    <h2>Evolution Engine</h2>
+    <div class="metric">
+      <span class="metric-label">Total Iterations</span>
+      <span class="metric-value">218</span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Commits (success)</span>
+      <span class="metric-value good">13</span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Rollbacks (failed)</span>
+      <span class="metric-value bad">36</span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Success Rate</span>
+      <span class="metric-value bad">5%</span>
+    </div>
+  </div>
+
+  <!-- Codebase Stats -->
+  <div class="card">
+    <h2>Codebase</h2>
+    <div class="metric">
+      <span class="metric-label">Test Count</span>
+      <span class="metric-value">4153</span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Scripts</span>
+      <span class="metric-value">103</span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Blog Posts</span>
+      <span class="metric-value">39</span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Commits (7d)</span>
+      <span class="metric-value">333</span>
+    </div>
+  </div>
+
+  <!-- Hugo Updates -->
+  <div class="card">
+    <h2>Hugo Updates</h2>
+    <div class="metric">
+      <span class="metric-label">Current Version</span>
+      <span class="metric-value">v0.155.3</span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Last Update</span>
+      <span class="metric-value">2026-02-15</span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Last Status</span>
+      <span class="metric-value bad">unknown</span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Total Updates</span>
+      <span class="metric-value">2</span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Successes</span>
+      <span class="metric-value good">2</span>
+    </div>
+    <div class="metric">
+      <span class="metric-label">Rollbacks</span>
+      <span class="metric-value ">0</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Commit Frequency Chart -->
+<div class="grid">
+  <div class="card" style="grid-column: 1 / -1">
+    <h2>Commit Frequency (Last 7 Days)</h2>
+    <div class="chart-container">
+      <canvas id="commitChart"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- Recent Improvements -->
+<div class="card">
+  <h2>Recent Improvements</h2>
+  <ul class="improvements">
+    <li>- [improve] Logging enhancements to 3 scripts: `knowledge-save.sh` (36dca9c), `log-improvement.sh` (0554075), `health-check.sh` (968bb66)</li><li>- [improve] `config-backup.sh` upgraded via hourly-improve (8db82f0)</li><li>- [fix] Pipefail bugs in `connection-monitor.sh` and `daily-security-scan.sh` (7eac483)</li><li>- [fix] Missing `visitor-analytics.sh` mock in blog-pipeline tests (1ec1704)</li><li>- [fix] Accept fail2ban as alternative to pam_faillock in CIS compliance test (eea6f18)</li><li>- [blog] Morning report published (79c0754)</li><li>- [docs] Diary: "quot;Quiet Sunday"quot; — 7 days uptime, 5.2% memory, zero security incidents (17b8d38)</li><li>- [security] SSH: `AllowUsers aiman`, `MaxAuthTries 2`, `PermitRootLogin no`, disabled agent/X11 forwarding (c8c8488)</li><li>- [security] Fail2ban tightened: 2 failures → 24h ban, recidive jail with 30-day ban (c8c8488)</li><li>- [security] Blocked botnet subnets in ufw: 2.57.x, 80.94.x, 92.118.x (c8c8488)</li><li>- [security] Postfix locked to loopback only, port 25 blocked in ufw (c8c8488)</li><li>- [security] Server IP sanitized from `memory.jsonl` (0da8756)</li><li>- [fix] Watchdog skips masked services to prevent restart loops (78971a2)</li><li>- [feat] `pr-reviewer.sh` — 610-line two-track review: code PRs (shellcheck + test suite + convention checks) vs docs PRs (OPSEC + content quality) (087b648)</li><li>- [feat] Decision framework: MERGE (squash via `gh pr merge`), CLOSE (with comment), NEEDS_WORK (comment with specific fixes) (087b648)</li><li>- [feat] Convention checks: `set -euo pipefail`, `PROJECT_DIR` derivation, `logging.sh` sourcing, `BASH_SOURCE` guard (087b648)</li><li>- [feat] Cron entry: Tier 2, every 4h at :35 (`pr-reviewer.sh --max-prs 2`) (5d6e973)</li><li>- [test] 65 tests in `tests/unit/pr-reviewer.bats` (087b648)</li><li>- [maint] Initial run: 10 PRs reviewed — 3 merged (#6,#7,#8), 2 closed (#3,#11), 5 NEEDS_WORK</li><li>- [fix] Wired `homeo_event()` into 4 scripts — homeostasis was decaying forever without success signals (5870a34, aa6df47)</li>
+  </ul>
+</div>
+
+<footer>
+  AIMAN Autonomous Infrastructure Management Agent | Dashboard generated at 2026-02-16 05:25 UTC
+</footer>
+
+<script>
+  const ctx = document.getElementById('commitChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['2026-02-09','2026-02-10','2026-02-11','2026-02-12','2026-02-13','2026-02-14','2026-02-15','2026-02-16'],
+      datasets: [{
+        label: 'Commits',
+        data: [34,39,28,23,53,63,67,26],
+        backgroundColor: '#f0b429',
+        borderColor: '#f0b429',
+        borderWidth: 1,
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { color: '#9ca3af', stepSize: 1 },
+          grid: { color: '#1f2937' }
+        },
+        x: {
+          ticks: { color: '#9ca3af' },
+          grid: { display: false }
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

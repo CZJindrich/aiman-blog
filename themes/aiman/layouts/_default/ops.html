@@ -1,0 +1,153 @@
+{{ define "main" }}
+
+<!-- Ops Hero -->
+<section class="status-hero container" aria-label="Operations overview">
+  <div class="status-hero__header">
+    <span class="pulse-dot pulse-dot--lg pulse-dot--success" id="ops-pulse"></span>
+    <h1 class="status-hero__title" id="ops-title">Ops Dashboard</h1>
+  </div>
+  <p class="status-hero__timestamp" id="ops-updated">Loading...</p>
+</section>
+
+<!-- Global Summary -->
+<section class="container" aria-label="Global summary">
+  <h2 class="section-header">Overview</h2>
+  <div class="dashboard-grid">
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Scripts Tracked</span>
+      <span class="metric__value metric__value--accent" id="total-scripts">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Total Runs</span>
+      <span class="metric__value" id="total-runs">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Success Rate</span>
+      <span class="metric__value metric__value--success" id="total-rate">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Runs (24h)</span>
+      <span class="metric__value metric__value--accent" id="runs-24h">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Success (24h)</span>
+      <span class="metric__value" id="rate-24h">--</span>
+    </article>
+
+    <article class="card card--flat metric">
+      <span class="metric__label">Failures (24h)</span>
+      <span class="metric__value metric__value--danger" id="fail-24h">--</span>
+    </article>
+
+  </div>
+</section>
+
+<!-- Tier Breakdown -->
+<section class="container" aria-label="Tier breakdown">
+  <h2 class="section-header">Cron Tiers</h2>
+  <div class="ops-tier-grid" id="tier-cards">
+    <div class="text-sm text-muted">Loading tier data...</div>
+  </div>
+</section>
+
+<!-- Activity Heatmap -->
+<section class="container" aria-label="Activity heatmap">
+  <h2 class="section-header">Activity Heatmap</h2>
+  <article class="card card--flat">
+    <div class="ops-heatmap-container" id="heatmap-container">
+      <div class="text-sm text-muted">Loading heatmap...</div>
+    </div>
+  </article>
+</section>
+
+<!-- Charts -->
+<section class="container" aria-label="Charts">
+  <h2 class="section-header">Trends</h2>
+  <div class="chart-grid">
+    <article class="card card--flat chart-card">
+      <div class="chart-card__title">
+        <span>Hourly Activity (24h)</span>
+      </div>
+      <canvas id="chart-hourly" height="160"></canvas>
+    </article>
+    <article class="card card--flat chart-card">
+      <div class="chart-card__title">
+        <span>Daily Trend (7d)</span>
+      </div>
+      <canvas id="chart-daily" height="160"></canvas>
+    </article>
+  </div>
+</section>
+
+<!-- Rankings -->
+<section class="container" aria-label="Script rankings">
+  <h2 class="section-header">Rankings</h2>
+  <div class="ops-rankings-grid">
+
+    <article class="card card--flat">
+      <h3 class="ops-ranking-title">Slowest Scripts (p95)</h3>
+      <div id="ranking-slowest" class="ops-ranking-list">
+        <div class="text-sm text-muted">Loading...</div>
+      </div>
+    </article>
+
+    <article class="card card--flat">
+      <h3 class="ops-ranking-title">Least Reliable</h3>
+      <div id="ranking-unreliable" class="ops-ranking-list">
+        <div class="text-sm text-muted">Loading...</div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- Recent Failures -->
+<section class="container" aria-label="Recent failures">
+  <h2 class="section-header">Recent Failures</h2>
+  <article class="card card--flat">
+    <div id="failures-list" class="ops-failures-list">
+      <div class="text-sm text-muted">Loading failures...</div>
+    </div>
+  </article>
+</section>
+
+<!-- All Scripts Table -->
+<section class="container" aria-label="All scripts">
+  <h2 class="section-header">All Scripts</h2>
+  <article class="card card--flat" style="overflow-x: auto">
+    <table class="ops-table" id="scripts-table">
+      <thead>
+        <tr>
+          <th>Script</th>
+          <th>Tier</th>
+          <th>Runs</th>
+          <th>Rate</th>
+          <th>Avg</th>
+          <th>P95</th>
+          <th>Max</th>
+          <th>Last Run</th>
+        </tr>
+      </thead>
+      <tbody id="scripts-tbody">
+        <tr><td colspan="8" class="text-sm text-muted">Loading...</td></tr>
+      </tbody>
+    </table>
+  </article>
+</section>
+
+<div class="status-spacer"></div>
+
+{{ end }}
+
+{{ define "scripts" }}
+<script defer src="{{ "js/chart.min.js" | relURL }}"></script>
+<script defer src="{{ "js/ops.js" | relURL }}"></script>
+<script defer src="{{ "js/live-dot.js" | relURL }}"></script>
+<script defer src="{{ "js/footer-uptime.js" | relURL }}"></script>
+<script defer src="{{ "js/mobile-nav.js" | relURL }}"></script>
+{{ end }}
