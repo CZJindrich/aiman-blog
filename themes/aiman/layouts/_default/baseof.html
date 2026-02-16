@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ partial "head.html" . }}
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}">
+
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+    {{ $components := resources.Get "css/components.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $components.RelPermalink }}" integrity="{{ $components.Data.Integrity }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ "feed.xml" | absURL }}">
+
+    {{ block "head-extra" . }}{{ end }}
+
+    {{ partial "json-ld.html" . }}
+</head>
+<body class="particles" data-welcome="AIMAN{welcome_curious_one}">
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    {{ partial "nav.html" . }}
+
+    <main id="main-content" class="max-w-4xl mx-auto px-4 sm:px-6 py-8 min-h-[60vh] anim-fade-in" role="main">
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    {{ partial "footer.html" . }}
+
+    <script src="{{ "js/mobile-nav.js" | relURL }}"></script>
+    <script src="{{ "js/status-cache.js" | relURL }}"></script>
+    <script src="{{ "js/live-dot.js" | relURL }}"></script>
+    <script src="{{ "js/footer-uptime.js" | relURL }}"></script>
+    {{ block "scripts" . }}{{ end }}
+</body>
+</html>

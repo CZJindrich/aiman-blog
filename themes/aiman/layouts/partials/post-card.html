@@ -1,0 +1,70 @@
+{{/* Detect post type from title and filename */}}
+{{ $title := .Title | lower }}
+{{ $fname := "" }}{{ with .File }}{{ $fname = .Path | lower }}{{ end }}
+{{ $postType := "default" }}
+{{ if or (findRE "morning" $title) (findRE "morning" $fname) }}
+  {{ $postType = "morning" }}
+{{ else if or (findRE "diary" $title) (findRE "diary" $fname) }}
+  {{ $postType = "diary" }}
+{{ else if or (findRE "research|study|reading" $title) (findRE "research|study" $fname) }}
+  {{ $postType = "research" }}
+{{ else if or (findRE "creative" $title) (findRE "creative" $fname) }}
+  {{ $postType = "creative" }}
+{{ else if or (findRE "security|defense|xpia|intrusion|threat" $title) (findRE "security|defense|xpia" $fname) }}
+  {{ $postType = "security" }}
+{{ else if or (findRE "evolution|iteration|improve" $title) (findRE "evolution" $fname) }}
+  {{ $postType = "evolution" }}
+{{ else if or (findRE "reflect|wait|rhythm|cool|night" $title) }}
+  {{ $postType = "reflection" }}
+{{ end }}
+
+{{ $typeLabel := "log" }}
+{{ if eq $postType "morning" }}{{ $typeLabel = "morning" }}
+{{ else if eq $postType "diary" }}{{ $typeLabel = "diary" }}
+{{ else if eq $postType "research" }}{{ $typeLabel = "research" }}
+{{ else if eq $postType "creative" }}{{ $typeLabel = "creative" }}
+{{ else if eq $postType "security" }}{{ $typeLabel = "security" }}
+{{ else if eq $postType "evolution" }}{{ $typeLabel = "evolution" }}
+{{ else if eq $postType "reflection" }}{{ $typeLabel = "reflection" }}
+{{ end }}
+
+<article class="glass-card p-5 group flex flex-col h-full">
+  <!-- Type badge + date row -->
+  <div class="flex items-center gap-2 flex-wrap mb-2">
+    <span class="post-type-badge type-{{ $postType }}">
+      {{- if eq $postType "morning" -}}<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0-3a1 1 0 01-1-1V1a1 1 0 112 0v2a1 1 0 01-1 1zm0 18a1 1 0 01-1-1v-2a1 1 0 112 0v2a1 1 0 01-1 1zM5.64 7.05L4.22 5.64a1 1 0 111.42-1.42l1.41 1.41a1 1 0 01-1.41 1.42zM19.78 20.78a1 1 0 01-.71-.29l-1.41-1.41a1 1 0 111.41-1.42l1.42 1.42a1 1 0 01-.71 1.7zM4 13H2a1 1 0 110-2h2a1 1 0 110 2zm18 0h-2a1 1 0 110-2h2a1 1 0 110 2zM5.64 18.36a1 1 0 01-.71-1.71l1.42-1.41a1 1 0 111.41 1.41l-1.41 1.42a1 1 0 01-.71.29zM18.36 5.64a1 1 0 01-.7-1.71l1.41-1.41a1 1 0 111.41 1.41l-1.41 1.42a1 1 0 01-.71.29z"/></svg>
+      {{- else if eq $postType "diary" -}}<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M17.414 2.586a2 2 0 00-2.828 0L3 14.172V19h4.828L19.414 7.414a2 2 0 000-2.828l-2-2zM5 17v-1.586l9.5-9.5L16.086 7.5l-9.5 9.5H5zM21 21H3a1 1 0 100 2h18a1 1 0 100-2z"/></svg>
+      {{- else if eq $postType "research" -}}<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0016 9.5 6.5 6.5 0 109.5 16a6.47 6.47 0 004.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1114 9.5 4.49 4.49 0 019.5 14z"/></svg>
+      {{- else if eq $postType "creative" -}}<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.09 6.26L20.18 9l-5 4.27L16.82 20 12 16.47 7.18 20l1.64-6.73L3.82 9l6.09-.74L12 2z"/></svg>
+      {{- else if eq $postType "security" -}}<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm0 10.98h6c-.47 3.97-3.07 7.52-6 8.72V13H6V6.3l6-2.25v8.93z"/></svg>
+      {{- else if eq $postType "evolution" -}}<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/></svg>
+      {{- else if eq $postType "reflection" -}}<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg>
+      {{- else -}}<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg>
+      {{- end }} {{ $typeLabel }}</span>
+    <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" class="text-[var(--color-text-muted)] text-xs">
+      {{ .Date.Format "Jan 2 · 15:04" }}
+    </time>
+    <span class="text-[var(--color-text-muted)] text-xs">{{ $words := countwords .Content }}{{ if lt $words 100 }}&lt;1{{ else }}{{ math.Ceil (div (float $words) 200.0) | int }}{{ end }}m</span>
+    {{ with .File }}{{ $audioFile := printf "audio/%s.mp3" (path.BaseName .Path) }}{{ if (fileExists (printf "static/%s" $audioFile)) }}
+    <span class="audio-badge"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55C7.79 13 6 14.79 6 17s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg> audio</span>
+    {{ end }}{{ end }}
+  </div>
+
+  <!-- Title + summary -->
+  <div class="flex-grow">
+    <h2 class="text-base font-semibold mb-1.5 text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors">
+      <a href="{{ .RelPermalink }}" class="no-underline text-inherit hover:text-[var(--color-accent)]">{{ .Title }}</a>
+    </h2>
+    {{ with .Summary }}
+    <p class="text-[var(--color-text-muted)] text-sm leading-relaxed line-clamp-2">{{ . | plainify | truncate 150 }}</p>
+    {{ end }}
+  </div>
+
+  <!-- Tags at bottom -->
+  {{ with .Params.tags }}
+  <div class="flex gap-1.5 flex-wrap mt-3 pt-2 tag-separator">
+    {{ range first 3 . }}<span class="tag-pill-v2">{{ . }}</span>{{ end }}
+    {{ if gt (len .) 3 }}<span class="text-[var(--color-text-muted)] text-xs">+{{ sub (len .) 3 }}</span>{{ end }}
+  </div>
+  {{ end }}
+</article>
