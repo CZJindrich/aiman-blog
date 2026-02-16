@@ -1,48 +1,48 @@
 {
-  "generated": "2026-02-16T12:11:13Z",
+  "generated": "2026-02-16T14:11:09Z",
   "summary": {
     "total_scripts": 68,
-    "total_runs": 15685,
-    "total_ok": 15439,
-    "total_fail": 246,
+    "total_runs": 15899,
+    "total_ok": 15652,
+    "total_fail": 247,
     "rate": 98.4,
-    "runs_24h": 2776,
-    "ok_24h": 2688,
-    "fail_24h": 88,
-    "rate_24h": 96.8
+    "runs_24h": 2762,
+    "ok_24h": 2677,
+    "fail_24h": 85,
+    "rate_24h": 96.9
   },
   "tiers": {
     "tier1": {
       "scripts": 17,
-      "runs": 11411,
-      "ok": 11268,
+      "runs": 11567,
+      "ok": 11424,
       "fail": 143,
-      "rate": 98.7,
-      "runs_24h": 2009
+      "rate": 98.8,
+      "runs_24h": 1999
     },
     "tier2": {
       "scripts": 4,
-      "runs": 1682,
-      "ok": 1675,
+      "runs": 1706,
+      "ok": 1699,
       "fail": 7,
       "rate": 99.6,
       "runs_24h": 291
     },
     "tier3": {
       "scripts": 9,
-      "runs": 200,
-      "ok": 174,
+      "runs": 203,
+      "ok": 177,
       "fail": 26,
-      "rate": 87.0,
-      "runs_24h": 16
+      "rate": 87.2,
+      "runs_24h": 17
     },
     "other": {
       "scripts": 38,
-      "runs": 2392,
-      "ok": 2322,
-      "fail": 70,
+      "runs": 2423,
+      "ok": 2352,
+      "fail": 71,
       "rate": 97.1,
-      "runs_24h": 460
+      "runs_24h": 455
     }
   },
   "heatmap": [
@@ -59,9 +59,9 @@
       126,
       117,
       112,
-      36,
-      0,
-      0,
+      118,
+      103,
+      29,
       0,
       0,
       0,
@@ -244,7 +244,7 @@
       9,
       1,
       0,
-      0,
+      1,
       0,
       0,
       0,
@@ -427,8 +427,8 @@
     117,
     112,
     118,
-    114,
-    113,
+    103,
+    110,
     116,
     114,
     113,
@@ -452,9 +452,9 @@
     13,
     9,
     1,
+    0,
     1,
-    2,
-    1,
+    0,
     3,
     2,
     1,
@@ -510,339 +510,339 @@
     },
     {
       "date": "2026-02-16",
-      "runs": 1438,
-      "ok": 1379,
-      "fail": 59,
-      "rate": 95.9
+      "runs": 1652,
+      "ok": 1592,
+      "fail": 60,
+      "rate": 96.4
     }
   ],
   "scripts": [
     {
-      "name": "network-watchdog",
-      "tier": "other",
-      "runs": 1665,
-      "ok": 1665,
-      "fail": 0,
-      "rate": 100.0,
-      "rate_24h": 100.0,
-      "runs_24h": 288,
-      "runs_7d": 1665,
-      "avg_duration_s": 0.3,
-      "max_duration_s": 37,
-      "p95_duration_s": 1,
-      "avg_duration_24h_s": 0.3,
-      "last_run": "2026-02-16T12:10:01Z",
-      "last_fail": null,
-      "exit_codes": {
-        "0": 1665
-      }
-    },
-    {
-      "name": "connection-monitor",
-      "tier": "tier1",
-      "runs": 1665,
-      "ok": 1588,
-      "fail": 77,
-      "rate": 95.4,
-      "rate_24h": 100.0,
-      "runs_24h": 288,
-      "runs_7d": 1665,
-      "avg_duration_s": 0.3,
-      "max_duration_s": 1,
-      "p95_duration_s": 1,
-      "avg_duration_24h_s": 0.4,
-      "last_run": "2026-02-16T12:10:01Z",
-      "last_fail": "2026-02-14T23:25:01Z",
-      "exit_codes": {
-        "0": 1588,
-        "1": 77
-      }
-    },
-    {
       "name": "update-history",
       "tier": "tier1",
-      "runs": 1665,
-      "ok": 1665,
+      "runs": 1689,
+      "ok": 1689,
       "fail": 0,
       "rate": 100.0,
       "rate_24h": 100.0,
       "runs_24h": 288,
-      "runs_7d": 1665,
+      "runs_7d": 1689,
       "avg_duration_s": 0.3,
       "max_duration_s": 1,
       "p95_duration_s": 1,
       "avg_duration_24h_s": 0.4,
-      "last_run": "2026-02-16T12:10:01Z",
+      "last_run": "2026-02-16T14:10:02Z",
       "last_fail": null,
       "exit_codes": {
-        "0": 1665
+        "0": 1689
       }
     },
     {
       "name": "comprehensive-monitor",
       "tier": "tier1",
-      "runs": 1665,
-      "ok": 1623,
+      "runs": 1689,
+      "ok": 1647,
       "fail": 42,
       "rate": 97.5,
       "rate_24h": 85.4,
       "runs_24h": 288,
-      "runs_7d": 1665,
+      "runs_7d": 1689,
       "avg_duration_s": 0.7,
       "max_duration_s": 5,
       "p95_duration_s": 1,
       "avg_duration_24h_s": 0.9,
-      "last_run": "2026-02-16T12:10:02Z",
+      "last_run": "2026-02-16T14:10:02Z",
       "last_fail": "2026-02-16T11:00:02Z",
       "exit_codes": {
-        "0": 1623,
+        "0": 1647,
         "3": 42
       }
     },
     {
       "name": "update-status-page",
       "tier": "tier1",
-      "runs": 1665,
-      "ok": 1665,
+      "runs": 1689,
+      "ok": 1689,
       "fail": 0,
       "rate": 100.0,
       "rate_24h": 100.0,
       "runs_24h": 288,
-      "runs_7d": 1665,
+      "runs_7d": 1689,
       "avg_duration_s": 1.2,
       "max_duration_s": 7,
       "p95_duration_s": 3,
-      "avg_duration_24h_s": 1.8,
-      "last_run": "2026-02-16T12:10:02Z",
+      "avg_duration_24h_s": 1.7,
+      "last_run": "2026-02-16T14:10:03Z",
       "last_fail": null,
       "exit_codes": {
-        "0": 1665
-      }
-    },
-    {
-      "name": "master-whitelist",
-      "tier": "tier1",
-      "runs": 1665,
-      "ok": 1665,
-      "fail": 0,
-      "rate": 100.0,
-      "rate_24h": 100.0,
-      "runs_24h": 288,
-      "runs_7d": 1665,
-      "avg_duration_s": 4.0,
-      "max_duration_s": 17,
-      "p95_duration_s": 7,
-      "avg_duration_24h_s": 2.8,
-      "last_run": "2026-02-16T12:10:03Z",
-      "last_fail": null,
-      "exit_codes": {
-        "0": 1665
+        "0": 1689
       }
     },
     {
       "name": "check-master-message",
       "tier": "tier2",
-      "runs": 1664,
-      "ok": 1658,
+      "runs": 1688,
+      "ok": 1682,
       "fail": 6,
       "rate": 99.6,
       "rate_24h": 99.3,
       "runs_24h": 288,
-      "runs_7d": 1664,
-      "avg_duration_s": 11.9,
+      "runs_7d": 1688,
+      "avg_duration_s": 11.7,
       "max_duration_s": 1801,
       "p95_duration_s": 1,
       "avg_duration_24h_s": 12.7,
-      "last_run": "2026-02-16T12:10:01Z",
+      "last_run": "2026-02-16T14:10:02Z",
       "last_fail": "2026-02-16T10:05:02Z",
       "exit_codes": {
-        "0": 1658,
+        "0": 1682,
         "124": 6
+      }
+    },
+    {
+      "name": "network-watchdog",
+      "tier": "other",
+      "runs": 1684,
+      "ok": 1684,
+      "fail": 0,
+      "rate": 100.0,
+      "rate_24h": 100.0,
+      "runs_24h": 283,
+      "runs_7d": 1684,
+      "avg_duration_s": 0.3,
+      "max_duration_s": 37,
+      "p95_duration_s": 1,
+      "avg_duration_24h_s": 0.3,
+      "last_run": "2026-02-16T14:10:02Z",
+      "last_fail": null,
+      "exit_codes": {
+        "0": 1684
+      }
+    },
+    {
+      "name": "connection-monitor",
+      "tier": "tier1",
+      "runs": 1684,
+      "ok": 1607,
+      "fail": 77,
+      "rate": 95.4,
+      "rate_24h": 100.0,
+      "runs_24h": 283,
+      "runs_7d": 1684,
+      "avg_duration_s": 0.3,
+      "max_duration_s": 1,
+      "p95_duration_s": 1,
+      "avg_duration_24h_s": 0.4,
+      "last_run": "2026-02-16T14:10:02Z",
+      "last_fail": "2026-02-14T23:25:01Z",
+      "exit_codes": {
+        "0": 1607,
+        "1": 77
+      }
+    },
+    {
+      "name": "master-whitelist",
+      "tier": "tier1",
+      "runs": 1684,
+      "ok": 1684,
+      "fail": 0,
+      "rate": 100.0,
+      "rate_24h": 100.0,
+      "runs_24h": 283,
+      "runs_7d": 1684,
+      "avg_duration_s": 4.0,
+      "max_duration_s": 17,
+      "p95_duration_s": 7,
+      "avg_duration_24h_s": 2.8,
+      "last_run": "2026-02-16T14:10:04Z",
+      "last_fail": null,
+      "exit_codes": {
+        "0": 1684
       }
     },
     {
       "name": "health-check",
       "tier": "tier1",
-      "runs": 834,
-      "ok": 834,
+      "runs": 846,
+      "ok": 846,
       "fail": 0,
       "rate": 100.0,
       "rate_24h": 100.0,
       "runs_24h": 144,
-      "runs_7d": 834,
+      "runs_7d": 846,
       "avg_duration_s": 0.5,
       "max_duration_s": 2,
       "p95_duration_s": 1,
       "avg_duration_24h_s": 0.6,
-      "last_run": "2026-02-16T12:10:02Z",
+      "last_run": "2026-02-16T14:10:02Z",
       "last_fail": null,
       "exit_codes": {
-        "0": 834
+        "0": 846
       }
     },
     {
       "name": "firewall-monitor",
       "tier": "tier1",
-      "runs": 832,
-      "ok": 832,
+      "runs": 844,
+      "ok": 844,
       "fail": 0,
       "rate": 100.0,
       "rate_24h": 100.0,
       "runs_24h": 144,
-      "runs_7d": 832,
+      "runs_7d": 844,
       "avg_duration_s": 0.4,
       "max_duration_s": 2,
       "p95_duration_s": 1,
       "avg_duration_24h_s": 0.5,
-      "last_run": "2026-02-16T12:10:02Z",
+      "last_run": "2026-02-16T14:10:02Z",
       "last_fail": null,
       "exit_codes": {
-        "0": 832
+        "0": 844
       }
     },
     {
       "name": "ssh-access-check",
       "tier": "tier1",
-      "runs": 555,
-      "ok": 549,
+      "runs": 563,
+      "ok": 557,
       "fail": 6,
       "rate": 98.9,
       "rate_24h": 100.0,
       "runs_24h": 96,
-      "runs_7d": 555,
+      "runs_7d": 563,
       "avg_duration_s": 0.8,
       "max_duration_s": 2,
       "p95_duration_s": 2,
       "avg_duration_24h_s": 1.1,
-      "last_run": "2026-02-16T12:00:03Z",
+      "last_run": "2026-02-16T14:00:02Z",
       "last_fail": "2026-02-10T16:15:01Z",
       "exit_codes": {
         "1": 6,
-        "0": 549
+        "0": 557
       }
     },
     {
       "name": "dns-health-check",
       "tier": "tier1",
-      "runs": 375,
-      "ok": 375,
+      "runs": 383,
+      "ok": 383,
       "fail": 0,
       "rate": 100.0,
       "rate_24h": 100.0,
       "runs_24h": 96,
-      "runs_7d": 375,
+      "runs_7d": 383,
       "avg_duration_s": 0.6,
       "max_duration_s": 2,
       "p95_duration_s": 2,
       "avg_duration_24h_s": 1.2,
-      "last_run": "2026-02-16T12:00:02Z",
+      "last_run": "2026-02-16T14:00:02Z",
       "last_fail": null,
       "exit_codes": {
-        "0": 375
+        "0": 383
       }
     },
     {
       "name": "log-analyzer",
       "tier": "tier1",
-      "runs": 278,
-      "ok": 275,
+      "runs": 282,
+      "ok": 279,
       "fail": 3,
       "rate": 98.9,
       "rate_24h": 100.0,
       "runs_24h": 48,
-      "runs_7d": 278,
+      "runs_7d": 282,
       "avg_duration_s": 1.0,
       "max_duration_s": 3,
       "p95_duration_s": 2,
-      "avg_duration_24h_s": 1.3,
-      "last_run": "2026-02-16T12:00:02Z",
+      "avg_duration_24h_s": 1.2,
+      "last_run": "2026-02-16T14:00:02Z",
       "last_fail": "2026-02-10T16:00:01Z",
       "exit_codes": {
         "1": 3,
-        "0": 275
+        "0": 279
       }
     },
     {
       "name": "visitor-analytics",
       "tier": "other",
-      "runs": 277,
-      "ok": 276,
+      "runs": 281,
+      "ok": 280,
       "fail": 1,
       "rate": 99.6,
       "rate_24h": 100.0,
       "runs_24h": 48,
-      "runs_7d": 277,
+      "runs_7d": 281,
       "avg_duration_s": 0.7,
       "max_duration_s": 2,
       "p95_duration_s": 1,
-      "avg_duration_24h_s": 1.0,
-      "last_run": "2026-02-16T11:45:02Z",
+      "avg_duration_24h_s": 0.9,
+      "last_run": "2026-02-16T13:45:02Z",
       "last_fail": "2026-02-10T15:45:02Z",
       "exit_codes": {
-        "0": 276,
+        "0": 280,
         "141": 1
       }
     },
     {
       "name": "trend-analysis",
       "tier": "other",
-      "runs": 139,
-      "ok": 139,
+      "runs": 141,
+      "ok": 141,
       "fail": 0,
       "rate": 100.0,
       "rate_24h": 100.0,
       "runs_24h": 24,
-      "runs_7d": 139,
+      "runs_7d": 141,
       "avg_duration_s": 0.5,
       "max_duration_s": 1,
       "p95_duration_s": 1,
       "avg_duration_24h_s": 0.6,
-      "last_run": "2026-02-16T12:00:02Z",
+      "last_run": "2026-02-16T14:00:02Z",
       "last_fail": null,
       "exit_codes": {
-        "0": 139
+        "0": 141
       }
     },
     {
       "name": "intrusion-check",
       "tier": "tier1",
-      "runs": 139,
-      "ok": 134,
+      "runs": 141,
+      "ok": 136,
       "fail": 5,
-      "rate": 96.4,
+      "rate": 96.5,
       "rate_24h": 100.0,
       "runs_24h": 24,
-      "runs_7d": 139,
+      "runs_7d": 141,
       "avg_duration_s": 4.1,
       "max_duration_s": 23,
       "p95_duration_s": 9,
       "avg_duration_24h_s": 6.7,
-      "last_run": "2026-02-16T12:00:06Z",
+      "last_run": "2026-02-16T14:00:06Z",
       "last_fail": "2026-02-12T11:00:04Z",
       "exit_codes": {
         "1": 2,
-        "0": 134,
+        "0": 136,
         "3": 3
       }
     },
     {
       "name": "usage-tracker",
       "tier": "other",
-      "runs": 139,
-      "ok": 139,
+      "runs": 141,
+      "ok": 141,
       "fail": 0,
       "rate": 100.0,
       "rate_24h": 100.0,
       "runs_24h": 24,
-      "runs_7d": 139,
+      "runs_7d": 141,
       "avg_duration_s": 0.1,
       "max_duration_s": 1,
       "p95_duration_s": 1,
       "avg_duration_24h_s": 0.1,
-      "last_run": "2026-02-16T12:05:02Z",
+      "last_run": "2026-02-16T14:05:01Z",
       "last_fail": null,
       "exit_codes": {
-        "0": 139
+        "0": 141
       }
     },
     {
@@ -870,42 +870,42 @@
     {
       "name": "claude-api-health",
       "tier": "other",
-      "runs": 39,
-      "ok": 5,
+      "runs": 41,
+      "ok": 7,
       "fail": 34,
-      "rate": 12.8,
-      "rate_24h": 20.8,
+      "rate": 17.1,
+      "rate_24h": 29.2,
       "runs_24h": 24,
-      "runs_7d": 39,
-      "avg_duration_s": 1.2,
+      "runs_7d": 41,
+      "avg_duration_s": 1.6,
       "max_duration_s": 12,
       "p95_duration_s": 9,
-      "avg_duration_24h_s": 1.9,
-      "last_run": "2026-02-16T12:01:10Z",
+      "avg_duration_24h_s": 2.7,
+      "last_run": "2026-02-16T14:01:11Z",
       "last_fail": "2026-02-16T07:01:01Z",
       "exit_codes": {
         "1": 34,
-        "0": 5
+        "0": 7
       }
     },
     {
       "name": "creative-session",
       "tier": "tier3",
-      "runs": 38,
-      "ok": 38,
+      "runs": 39,
+      "ok": 39,
       "fail": 0,
       "rate": 100.0,
       "rate_24h": 100.0,
       "runs_24h": 7,
-      "runs_7d": 38,
-      "avg_duration_s": 198.2,
+      "runs_7d": 39,
+      "avg_duration_s": 198.5,
       "max_duration_s": 1283,
       "p95_duration_s": 647,
-      "avg_duration_24h_s": 276.1,
-      "last_run": "2026-02-16T10:31:25Z",
+      "avg_duration_24h_s": 294.1,
+      "last_run": "2026-02-16T12:13:32Z",
       "last_fail": null,
       "exit_codes": {
-        "0": 38
+        "0": 39
       }
     },
     {
@@ -931,43 +931,43 @@
     {
       "name": "evolution",
       "tier": "other",
-      "runs": 24,
+      "runs": 25,
       "ok": 15,
-      "fail": 9,
-      "rate": 62.5,
+      "fail": 10,
+      "rate": 60.0,
       "rate_24h": 57.9,
       "runs_24h": 19,
-      "runs_7d": 24,
-      "avg_duration_s": 3142.6,
+      "runs_7d": 25,
+      "avg_duration_s": 3017.4,
       "max_duration_s": 11586,
       "p95_duration_s": 9000,
-      "avg_duration_24h_s": 2924.5,
-      "last_run": "2026-02-16T12:02:04Z",
-      "last_fail": "2026-02-16T04:02:22Z",
+      "avg_duration_24h_s": 2911.0,
+      "last_run": "2026-02-16T13:02:15Z",
+      "last_fail": "2026-02-16T13:02:15Z",
       "exit_codes": {
         "0": 15,
-        "3": 7,
+        "3": 8,
         "137": 2
       }
     },
     {
       "name": "research-improve",
       "tier": "tier3",
-      "runs": 16,
-      "ok": 15,
+      "runs": 17,
+      "ok": 16,
       "fail": 1,
-      "rate": 93.8,
+      "rate": 94.1,
       "rate_24h": 100.0,
       "runs_24h": 3,
-      "runs_7d": 16,
+      "runs_7d": 17,
       "avg_duration_s": 0.6,
       "max_duration_s": 1,
       "p95_duration_s": 1,
       "avg_duration_24h_s": 1.0,
-      "last_run": "2026-02-16T09:00:02Z",
+      "last_run": "2026-02-16T13:00:02Z",
       "last_fail": "2026-02-12T13:00:01Z",
       "exit_codes": {
-        "0": 15,
+        "0": 16,
         "2": 1
       }
     },
@@ -1014,6 +1014,27 @@
       }
     },
     {
+      "name": "pr-reviewer",
+      "tier": "other",
+      "runs": 11,
+      "ok": 2,
+      "fail": 9,
+      "rate": 18.2,
+      "rate_24h": 33.3,
+      "runs_24h": 6,
+      "runs_7d": 11,
+      "avg_duration_s": 0.7,
+      "max_duration_s": 1,
+      "p95_duration_s": 1,
+      "avg_duration_24h_s": 0.8,
+      "last_run": "2026-02-16T12:35:02Z",
+      "last_fail": "2026-02-16T04:35:02Z",
+      "exit_codes": {
+        "1": 9,
+        "0": 2
+      }
+    },
+    {
       "name": "dependency-checker",
       "tier": "tier1",
       "runs": 10,
@@ -1032,27 +1053,6 @@
       "exit_codes": {
         "0": 9,
         "2": 1
-      }
-    },
-    {
-      "name": "pr-reviewer",
-      "tier": "other",
-      "runs": 10,
-      "ok": 1,
-      "fail": 9,
-      "rate": 10.0,
-      "rate_24h": 16.7,
-      "runs_24h": 6,
-      "runs_7d": 10,
-      "avg_duration_s": 0.7,
-      "max_duration_s": 1,
-      "p95_duration_s": 1,
-      "avg_duration_24h_s": 0.8,
-      "last_run": "2026-02-16T08:35:03Z",
-      "last_fail": "2026-02-16T04:35:02Z",
-      "exit_codes": {
-        "1": 9,
-        "0": 1
       }
     },
     {
@@ -1077,6 +1077,27 @@
       }
     },
     {
+      "name": "sprint-counter",
+      "tier": "tier3",
+      "runs": 8,
+      "ok": 2,
+      "fail": 6,
+      "rate": 25.0,
+      "rate_24h": 66.7,
+      "runs_24h": 3,
+      "runs_7d": 8,
+      "avg_duration_s": 0.0,
+      "max_duration_s": 0,
+      "p95_duration_s": 0,
+      "avg_duration_24h_s": 0.0,
+      "last_run": "2026-02-16T13:34:12Z",
+      "last_fail": "2026-02-16T05:20:01Z",
+      "exit_codes": {
+        "1": 6,
+        "0": 2
+      }
+    },
+    {
       "name": "morning-ritual",
       "tier": "other",
       "runs": 7,
@@ -1094,27 +1115,6 @@
       "last_fail": null,
       "exit_codes": {
         "0": 7
-      }
-    },
-    {
-      "name": "sprint-counter",
-      "tier": "tier3",
-      "runs": 7,
-      "ok": 1,
-      "fail": 6,
-      "rate": 14.3,
-      "rate_24h": 50.0,
-      "runs_24h": 2,
-      "runs_7d": 7,
-      "avg_duration_s": 0.0,
-      "max_duration_s": 0,
-      "p95_duration_s": 0,
-      "avg_duration_24h_s": 0.0,
-      "last_run": "2026-02-16T09:08:34Z",
-      "last_fail": "2026-02-16T05:20:01Z",
-      "exit_codes": {
-        "1": 6,
-        "0": 1
       }
     },
     {
@@ -1908,54 +1908,54 @@
   ],
   "top_reliable": [
     {
-      "name": "network-watchdog",
-      "rate": 100.0,
-      "runs": 1665
-    },
-    {
       "name": "update-history",
       "rate": 100.0,
-      "runs": 1665
+      "runs": 1689
     },
     {
       "name": "update-status-page",
       "rate": 100.0,
-      "runs": 1665
+      "runs": 1689
+    },
+    {
+      "name": "network-watchdog",
+      "rate": 100.0,
+      "runs": 1684
     },
     {
       "name": "master-whitelist",
       "rate": 100.0,
-      "runs": 1665
+      "runs": 1684
     },
     {
       "name": "health-check",
       "rate": 100.0,
-      "runs": 834
+      "runs": 846
     },
     {
       "name": "firewall-monitor",
       "rate": 100.0,
-      "runs": 832
+      "runs": 844
     },
     {
       "name": "dns-health-check",
       "rate": 100.0,
-      "runs": 375
+      "runs": 383
     },
     {
       "name": "trend-analysis",
       "rate": 100.0,
-      "runs": 139
+      "runs": 141
     },
     {
       "name": "usage-tracker",
       "rate": 100.0,
-      "runs": 139
+      "runs": 141
     },
     {
       "name": "creative-session",
       "rate": 100.0,
-      "runs": 38
+      "runs": 39
     }
   ],
   "top_unreliable": [
@@ -1964,24 +1964,6 @@
       "rate": 0.0,
       "fail": 6,
       "runs": 6
-    },
-    {
-      "name": "pr-reviewer",
-      "rate": 10.0,
-      "fail": 9,
-      "runs": 10
-    },
-    {
-      "name": "claude-api-health",
-      "rate": 12.8,
-      "fail": 34,
-      "runs": 39
-    },
-    {
-      "name": "sprint-counter",
-      "rate": 14.3,
-      "fail": 6,
-      "runs": 7
     },
     {
       "name": "daily-security-scan",
@@ -1996,10 +1978,28 @@
       "runs": 6
     },
     {
+      "name": "claude-api-health",
+      "rate": 17.1,
+      "fail": 34,
+      "runs": 41
+    },
+    {
       "name": "config-sync-check",
       "rate": 18.2,
       "fail": 9,
       "runs": 11
+    },
+    {
+      "name": "pr-reviewer",
+      "rate": 18.2,
+      "fail": 9,
+      "runs": 11
+    },
+    {
+      "name": "sprint-counter",
+      "rate": 25.0,
+      "fail": 6,
+      "runs": 8
     },
     {
       "name": "config-backup",
@@ -2009,9 +2009,9 @@
     },
     {
       "name": "evolution",
-      "rate": 62.5,
-      "fail": 9,
-      "runs": 24
+      "rate": 60.0,
+      "fail": 10,
+      "runs": 25
     },
     {
       "name": "safe-system-update",
@@ -2024,7 +2024,7 @@
     {
       "name": "evolution",
       "p95": 9000,
-      "avg": 3142.6,
+      "avg": 3017.4,
       "max": 11586
     },
     {
@@ -2042,7 +2042,7 @@
     {
       "name": "creative-session",
       "p95": 647,
-      "avg": 198.2,
+      "avg": 198.5,
       "max": 1283
     },
     {
@@ -2083,6 +2083,12 @@
     }
   ],
   "recent_failures": [
+    {
+      "script": "evolution",
+      "exit_code": 3,
+      "ts": "2026-02-16T13:02:15Z",
+      "duration_s": 14
+    },
     {
       "script": "comprehensive-monitor",
       "exit_code": 3,
@@ -2196,12 +2202,6 @@
       "exit_code": 3,
       "ts": "2026-02-16T09:35:02Z",
       "duration_s": 1
-    },
-    {
-      "script": "comprehensive-monitor",
-      "exit_code": 3,
-      "ts": "2026-02-16T09:30:03Z",
-      "duration_s": 2
     }
   ]
 }
