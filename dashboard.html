@@ -122,7 +122,7 @@
 <body>
 
 <h1>AIMAN Evolution Dashboard</h1>
-<p class="subtitle">Generated: 2026-02-15 05:25 UTC</p>
+<p class="subtitle">Generated: 2026-02-16 05:25 UTC</p>
 
 <div class="grid">
 
@@ -138,7 +138,7 @@
     </div>
     <div class="metric">
       <span class="metric-label">Uptime</span>
-      <span class="metric-value">up 1 week, 6 hours, 30 minutes</span>
+      <span class="metric-value">up 1 week, 1 day, 6 hours, 30 minutes</span>
     </div>
     <div class="metric">
       <span class="metric-label">Since</span>
@@ -146,7 +146,7 @@
     </div>
     <div class="metric">
       <span class="metric-label">Load Avg</span>
-      <span class="metric-value">0.01</span>
+      <span class="metric-value">0.71</span>
     </div>
   </div>
 
@@ -155,17 +155,17 @@
     <h2>Resources</h2>
     <div class="metric">
       <span class="metric-label">Memory</span>
-      <span class="metric-value good">723MB / 15611MB (4%)</span>
+      <span class="metric-value good">1313MB / 15611MB (8%)</span>
     </div>
     <div class="bar-container">
-      <div class="bar-fill" style="width:4%; background:#6b7280"></div>
+      <div class="bar-fill" style="width:8%; background:#6b7280"></div>
     </div>
     <div class="metric" style="margin-top:0.5rem">
       <span class="metric-label">Disk</span>
-      <span class="metric-value">31%</span>
+      <span class="metric-value">33%</span>
     </div>
     <div class="bar-container">
-      <div class="bar-fill" style="width:31%; background:#10b981"></div>
+      <div class="bar-fill" style="width:33%; background:#10b981"></div>
     </div>
   </div>
 
@@ -174,19 +174,19 @@
     <h2>Evolution Engine</h2>
     <div class="metric">
       <span class="metric-label">Total Iterations</span>
-      <span class="metric-value">123</span>
+      <span class="metric-value">218</span>
     </div>
     <div class="metric">
       <span class="metric-label">Commits (success)</span>
-      <span class="metric-value good">1</span>
+      <span class="metric-value good">13</span>
     </div>
     <div class="metric">
       <span class="metric-label">Rollbacks (failed)</span>
-      <span class="metric-value bad">18</span>
+      <span class="metric-value bad">36</span>
     </div>
     <div class="metric">
       <span class="metric-label">Success Rate</span>
-      <span class="metric-value bad">0%</span>
+      <span class="metric-value bad">5%</span>
     </div>
   </div>
 
@@ -195,19 +195,19 @@
     <h2>Codebase</h2>
     <div class="metric">
       <span class="metric-label">Test Count</span>
-      <span class="metric-value">4040</span>
+      <span class="metric-value">4153</span>
     </div>
     <div class="metric">
       <span class="metric-label">Scripts</span>
-      <span class="metric-value">102</span>
+      <span class="metric-value">103</span>
     </div>
     <div class="metric">
       <span class="metric-label">Blog Posts</span>
-      <span class="metric-value">37</span>
+      <span class="metric-value">39</span>
     </div>
     <div class="metric">
       <span class="metric-label">Commits (7d)</span>
-      <span class="metric-value">279</span>
+      <span class="metric-value">333</span>
     </div>
   </div>
 
@@ -220,7 +220,7 @@
     </div>
     <div class="metric">
       <span class="metric-label">Last Update</span>
-      <span class="metric-value">2026-02-14</span>
+      <span class="metric-value">2026-02-15</span>
     </div>
     <div class="metric">
       <span class="metric-label">Last Status</span>
@@ -256,12 +256,12 @@
 <div class="card">
   <h2>Recent Improvements</h2>
   <ul class="improvements">
-    <li>- [feat] Correlation ID generation in `cron-wrapper.sh` (inline UUID, self-contained) — exported to child scripts</li><li>- [feat] `log_event()` in `safe-ops.sh` conditionally includes `correlation_id` field in JSONL (backward compatible)</li><li>- [feat] `token-aware-wrapper.sh` propagates/generates CID + writes token usage to `token-usage.jsonl`</li><li>- [feat] `self-diagnosis.sh` — "quot;Top-5 Token Consumers"quot; section from token-usage.jsonl</li><li>- [feat] `self-benchmark.sh` — weekly token usage metrics (invocations_7d, top_caller)</li><li>- [feat] NEW `log-query.sh` — unified log search: `--correlation`, `--script`, `--errors`, `--since`, `--json`</li><li>- [feat] `log-analyzer.sh` — anomaly detection: error spikes (>gt;2x avg), slow cron (>gt;300s), new attackers (IPs redacted)</li><li>- [test] 51 new observability tests in `tests/unit/observability-sprint.bats`</li><li>- [feat] 3 new skills: `cron-tiers.md`, `evolution-reference.md`, `env-vars.md`</li><li>- [feat] Heavy sections replaced with 1-line skill pointers — all safety-critical content retained</li><li>- [feat] `knowledge/common-errors.md` — mined from 49 experience + 99 evolution log entries</li><li>- [feat] `standards/bash.md`, `standards/testing.md`, `standards/security.md`</li><li>- [feat] `AGENTS.md` — 5 agent roles (Researcher, Builder, Watchdog, Blogger, Guardian) with conventions</li><li>- [test] 33 new governance tests in `tests/unit/governance-sprint.bats`</li><li>- [feat] `lib/research-branch.sh` — 3 new functions: `research_create_worktree`, `research_cleanup_worktree`, `research_worktree_exists`</li><li>- [feat] `nightly-evolution.sh` — `select_evolution_model()` routes simple/architecture weaknesses to appropriate model + CommonErrors.md in prompt context</li><li>- [feat] `precompact-state.sh` — git diff summary, recent outcomes, correlation_id, fire-and-forget insight saving</li><li>- [test] 25 new evolution/intel tests in `tests/unit/evolution-intel-sprint.bats`</li><li>- [fix] `self-analyze.sh` — `find -exec grep -l | wc -l` pipeline failure under `set -euo pipefail` (grep exit 1 on no match + pipefail = script death)</li><li>- [fix] `generate-dashboard.sh` — missing output section (HTML built but never written/printed)</li>
+    <li>- [improve] Logging enhancements to 3 scripts: `knowledge-save.sh` (36dca9c), `log-improvement.sh` (0554075), `health-check.sh` (968bb66)</li><li>- [improve] `config-backup.sh` upgraded via hourly-improve (8db82f0)</li><li>- [fix] Pipefail bugs in `connection-monitor.sh` and `daily-security-scan.sh` (7eac483)</li><li>- [fix] Missing `visitor-analytics.sh` mock in blog-pipeline tests (1ec1704)</li><li>- [fix] Accept fail2ban as alternative to pam_faillock in CIS compliance test (eea6f18)</li><li>- [blog] Morning report published (79c0754)</li><li>- [docs] Diary: "quot;Quiet Sunday"quot; — 7 days uptime, 5.2% memory, zero security incidents (17b8d38)</li><li>- [security] SSH: `AllowUsers aiman`, `MaxAuthTries 2`, `PermitRootLogin no`, disabled agent/X11 forwarding (c8c8488)</li><li>- [security] Fail2ban tightened: 2 failures → 24h ban, recidive jail with 30-day ban (c8c8488)</li><li>- [security] Blocked botnet subnets in ufw: 2.57.x, 80.94.x, 92.118.x (c8c8488)</li><li>- [security] Postfix locked to loopback only, port 25 blocked in ufw (c8c8488)</li><li>- [security] Server IP sanitized from `memory.jsonl` (0da8756)</li><li>- [fix] Watchdog skips masked services to prevent restart loops (78971a2)</li><li>- [feat] `pr-reviewer.sh` — 610-line two-track review: code PRs (shellcheck + test suite + convention checks) vs docs PRs (OPSEC + content quality) (087b648)</li><li>- [feat] Decision framework: MERGE (squash via `gh pr merge`), CLOSE (with comment), NEEDS_WORK (comment with specific fixes) (087b648)</li><li>- [feat] Convention checks: `set -euo pipefail`, `PROJECT_DIR` derivation, `logging.sh` sourcing, `BASH_SOURCE` guard (087b648)</li><li>- [feat] Cron entry: Tier 2, every 4h at :35 (`pr-reviewer.sh --max-prs 2`) (5d6e973)</li><li>- [test] 65 tests in `tests/unit/pr-reviewer.bats` (087b648)</li><li>- [maint] Initial run: 10 PRs reviewed — 3 merged (#6,#7,#8), 2 closed (#3,#11), 5 NEEDS_WORK</li><li>- [fix] Wired `homeo_event()` into 4 scripts — homeostasis was decaying forever without success signals (5870a34, aa6df47)</li>
   </ul>
 </div>
 
 <footer>
-  AIMAN Autonomous Infrastructure Management Agent | Dashboard generated at 2026-02-15 05:25 UTC
+  AIMAN Autonomous Infrastructure Management Agent | Dashboard generated at 2026-02-16 05:25 UTC
 </footer>
 
 <script>
@@ -269,10 +269,10 @@
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['2026-02-08','2026-02-09','2026-02-10','2026-02-11','2026-02-12','2026-02-13','2026-02-14','2026-02-15'],
+      labels: ['2026-02-09','2026-02-10','2026-02-11','2026-02-12','2026-02-13','2026-02-14','2026-02-15','2026-02-16'],
       datasets: [{
         label: 'Commits',
-        data: [31,37,39,28,23,53,63,5],
+        data: [34,39,28,23,53,63,67,26],
         backgroundColor: '#f0b429',
         borderColor: '#f0b429',
         borderWidth: 1,

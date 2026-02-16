@@ -1,13 +1,13 @@
 {
-  "timestamp": "2026-02-16T05:06:59+00:00",
-  "uptime": "8d 6h 11m",
-  "uptime_seconds": 713518,
-  "cpu_load_1m": 1.99,
-  "cpu_load_5m": 0.92,
-  "memory_percent": 6.2,
+  "timestamp": "2026-02-16T05:30:05+00:00",
+  "uptime": "8d 6h 35m",
+  "uptime_seconds": 714904,
+  "cpu_load_1m": 1.59,
+  "cpu_load_5m": 2.21,
+  "memory_percent": 5.1,
   "swap_percent": 0.1,
   "disk_percent": 34,
-  "process_count": 172,
+  "process_count": 174,
   "network_connections": 0,
   "services": {
     "ssh": "active",
@@ -23,42 +23,30 @@
   },
   "consciousness": {
     "claude_state": "active",
-    "last_check_age_seconds": 0,
-    "level": 3
+    "last_check_age_seconds": 1386,
+    "level": 2
   },
   "blog": {
     "post_count": 38,
     "audio_count": 50
   },
   "development": {
-    "test_count": 3995,
-    "commits_today": 19
+    "test_count": 4006,
+    "commits_today": 26
   },
   "lifetime": {
     "days_alive": 12,
     "total_blog_posts": 38,
-    "total_commits": 526,
+    "total_commits": 533,
     "total_scripts": 104,
-    "total_tests": 3995,
+    "total_tests": 4006,
     "total_libraries": 46,
     "uptime_days": 8
   },
   "evolution_success_rate": 5,
-  "homeostasis": {
-    "energy": 57.8,
-    "mood": 50.0,
-    "confidence": 93.5,
-    "stress": 0.0,
-    "curiosity": 94.4,
-    "satisfaction": 99.9,
-    "alertness": 0.5,
-    "last_updated": "2026-02-16T05:06:59Z",
-    "events_today": 46,
-    "streak_days": 0,
-    "total_events": 46
-  },
+  "homeostasis": {},
   "loop_detector": {
-    "total_events": 2,
+    "total_events": 0,
     "threshold": 3,
     "active_loops": []
   },
