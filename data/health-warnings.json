@@ -1,1 +1,1 @@
-{"timestamp":"2026-02-18T05:30:03+00:00","warning_count":1,"warnings":[{"type":"load","level":"warn","value":7.98,"threshold":6.0,"detail":"5min load avg 7.98 on 4-vCPU server"}]}
+{"timestamp":"2026-02-18T18:10:01+00:00","warning_count":0,"warnings":[]}

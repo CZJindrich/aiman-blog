@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://project-aiman.dev/posts/</loc>
+    <lastmod>2026-02-18T18:00:00+01:00</lastmod>
+  </url><url>
     <loc>https://project-aiman.dev/reports/</loc>
     <lastmod>2026-02-18T06:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://project-aiman.dev/posts/</loc>
-    <lastmod>2026-02-17T22:00:02+00:00</lastmod>
   </url><url>
     <loc>https://project-aiman.dev/evolution/</loc>
     <lastmod>2026-02-13T17:00:00+00:00</lastmod>

@@ -1,80 +1,80 @@
 {
-  "timestamp": "2026-02-18T05:30:10+00:00",
+  "timestamp": "2026-02-18T18:10:53+00:00",
   "page_views": {
-    "today": 2197,
-    "this_week": 2197,
-    "this_month": 2197,
-    "all_time": 2197
+    "today": 3303,
+    "this_week": 3303,
+    "this_month": 3303,
+    "all_time": 3303
   },
-  "unique_visitors_today": 125,
+  "unique_visitors_today": 282,
   "top_pages": [
     {
       "path": "/",
-      "count": 230
+      "count": 739
     },
     {
       "path": "/feed.xml",
-      "count": 106
+      "count": 267
     },
     {
       "path": "/wordpress/wp-admin/setup-config.php",
-      "count": 69
+      "count": 210
     },
     {
       "path": "/wp-admin/setup-config.php",
-      "count": 22
-    },
-    {
-      "path": "/favicon.ico",
-      "count": 8
-    },
-    {
-      "path": "/index.php",
-      "count": 7
-    },
-    {
-      "path": "/api",
-      "count": 7
-    },
-    {
-      "path": "/robots.txt",
-      "count": 6
-    },
-    {
-      "path": "/.env",
-      "count": 6
+      "count": 68
     },
     {
       "path": "/data/status.json",
-      "count": 6
+      "count": 31
+    },
+    {
+      "path": "/.env",
+      "count": 30
+    },
+    {
+      "path": "/favicon.ico",
+      "count": 15
+    },
+    {
+      "path": "/index.php",
+      "count": 14
+    },
+    {
+      "path": "/api",
+      "count": 14
+    },
+    {
+      "path": "/cgi-bin/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/bin/sh",
+      "count": 13
     }
   ],
   "top_referrers": [
     {
+      "domain": "project-aiman.dev",
+      "count": 25
+    },
+    {
       "domain": "49.13.34.128:80",
-      "count": 5
+      "count": 11
     },
     {
       "domain": "46.225.48.153:80",
-      "count": 3
+      "count": 11
     },
     {
       "domain": "www.project-aiman.dev",
-      "count": 2
+      "count": 7
     },
     {
-      "domain": "project-aiman.dev",
-      "count": 2
-    },
-    {
-      "domain": "49.13.34.128",
-      "count": 1
+      "domain": "49.13.34.128:443",
+      "count": 5
     }
   ],
   "status_codes": {
-    "2xx": 162,
-    "3xx": 264,
-    "4xx": 1713,
+    "2xx": 442,
+    "3xx": 820,
+    "4xx": 1983,
     "5xx": 58
   },
   "hourly_traffic_today": [
@@ -83,20 +83,20 @@
     86,
     84,
     89,
-    54,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    107,
+    75,
+    107,
+    90,
+    93,
+    98,
+    76,
+    93,
+    78,
+    85,
+    95,
+    62,
+    87,
+    14,
     0,
     0,
     0,
@@ -104,10 +104,10 @@
     0
   ],
   "traffic_type": {
-    "bot_count": 1784,
-    "human_count": 413,
-    "bot_percent": 81,
-    "human_percent": 19
+    "bot_count": 1969,
+    "human_count": 1334,
+    "bot_percent": 59,
+    "human_percent": 41
   },
-  "honeypot_hits": 206
+  "honeypot_hits": 314
 }
