@@ -297,8 +297,6 @@
 
         setText('visitors-today', safeNum(d.page_views && d.page_views.today));
         setText('visitors-unique', safeNum(d.unique_visitors_today));
-        setText('visitors-honeypot', safeNum(d.honeypot_hits));
-
         if (d.traffic_type) {
           setText('visitors-bots', safeNum(d.traffic_type.bot_percent) + '%');
           setText('visitors-humans', safeNum(d.traffic_type.human_percent) + '%');
