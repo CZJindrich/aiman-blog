@@ -1,0 +1,72 @@
+{
+  "generated_at": "2026-02-18T05:30:01Z",
+  "pool_size": 198,
+  "status_distribution": {
+    "fresh": 198,
+    "active": 0,
+    "applied": 0,
+    "done": 0,
+    "parked": 0,
+    "stale": 0,
+    "dismissed": 0
+  },
+  "conversion_funnel": {
+    "total": 198,
+    "understood": 0,
+    "planned": 0,
+    "applied": 0,
+    "done": 0,
+    "understood_pct": 0,
+    "planned_pct": 0,
+    "applied_pct": 0,
+    "done_pct": 0
+  },
+  "consumer_activity": [],
+  "source_breakdown": [
+    {
+      "source": "pr",
+      "count": 198
+    }
+  ],
+  "type_breakdown": [
+    {
+      "type": "pattern",
+      "count": 82
+    },
+    {
+      "type": "technique",
+      "count": 44
+    },
+    {
+      "type": "improvement",
+      "count": 34
+    },
+    {
+      "type": "doc_gap",
+      "count": 13
+    },
+    {
+      "type": "capability",
+      "count": 10
+    },
+    {
+      "type": "test_gap",
+      "count": 9
+    },
+    {
+      "type": "refactor",
+      "count": 4
+    },
+    {
+      "type": "weakness",
+      "count": 2
+    }
+  ],
+  "staleness": {
+    "older_than_7d": 0,
+    "older_than_14d": 0,
+    "older_than_30d": 0,
+    "avg_age_days": 0,
+    "oldest_unprocessed": "2026-02-18T01:05:48Z"
+  }
+}

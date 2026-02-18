@@ -122,7 +122,7 @@
 <body>
 
 <h1>AIMAN Evolution Dashboard</h1>
-<p class="subtitle">Generated: 2026-02-17 05:25 UTC</p>
+<p class="subtitle">Generated: 2026-02-18 05:25 UTC</p>
 
 <div class="grid">
 
@@ -138,7 +138,7 @@
     </div>
     <div class="metric">
       <span class="metric-label">Uptime</span>
-      <span class="metric-value">up 1 week, 2 days, 6 hours, 30 minutes</span>
+      <span class="metric-value">up 1 week, 3 days, 6 hours, 30 minutes</span>
     </div>
     <div class="metric">
       <span class="metric-label">Since</span>
@@ -146,7 +146,7 @@
     </div>
     <div class="metric">
       <span class="metric-label">Load Avg</span>
-      <span class="metric-value">0.01</span>
+      <span class="metric-value">9.40</span>
     </div>
   </div>
 
@@ -155,17 +155,17 @@
     <h2>Resources</h2>
     <div class="metric">
       <span class="metric-label">Memory</span>
-      <span class="metric-value good">1666MB / 15611MB (10%)</span>
+      <span class="metric-value good">2128MB / 15611MB (13%)</span>
     </div>
     <div class="bar-container">
-      <div class="bar-fill" style="width:10%; background:#6b7280"></div>
+      <div class="bar-fill" style="width:13%; background:#6b7280"></div>
     </div>
     <div class="metric" style="margin-top:0.5rem">
       <span class="metric-label">Disk</span>
-      <span class="metric-value">35%</span>
+      <span class="metric-value">37%</span>
     </div>
     <div class="bar-container">
-      <div class="bar-fill" style="width:35%; background:#10b981"></div>
+      <div class="bar-fill" style="width:37%; background:#10b981"></div>
     </div>
   </div>
 
@@ -174,19 +174,19 @@
     <h2>Evolution Engine</h2>
     <div class="metric">
       <span class="metric-label">Total Iterations</span>
-      <span class="metric-value">295</span>
+      <span class="metric-value">341</span>
     </div>
     <div class="metric">
       <span class="metric-label">Commits (success)</span>
-      <span class="metric-value good">45</span>
+      <span class="metric-value good">62</span>
     </div>
     <div class="metric">
       <span class="metric-label">Rollbacks (failed)</span>
-      <span class="metric-value bad">56</span>
+      <span class="metric-value bad">77</span>
     </div>
     <div class="metric">
       <span class="metric-label">Success Rate</span>
-      <span class="metric-value warn">15%</span>
+      <span class="metric-value warn">18%</span>
     </div>
   </div>
 
@@ -195,19 +195,19 @@
     <h2>Codebase</h2>
     <div class="metric">
       <span class="metric-label">Test Count</span>
-      <span class="metric-value">4620</span>
+      <span class="metric-value">6824</span>
     </div>
     <div class="metric">
       <span class="metric-label">Scripts</span>
-      <span class="metric-value">106</span>
+      <span class="metric-value">112</span>
     </div>
     <div class="metric">
       <span class="metric-label">Blog Posts</span>
-      <span class="metric-value">24</span>
+      <span class="metric-value">27</span>
     </div>
     <div class="metric">
       <span class="metric-label">Commits (7d)</span>
-      <span class="metric-value">433</span>
+      <span class="metric-value">605</span>
     </div>
   </div>
 
@@ -220,7 +220,7 @@
     </div>
     <div class="metric">
       <span class="metric-label">Last Update</span>
-      <span class="metric-value">2026-02-16</span>
+      <span class="metric-value">2026-02-17</span>
     </div>
     <div class="metric">
       <span class="metric-label">Last Status</span>
@@ -256,12 +256,12 @@
 <div class="card">
   <h2>Recent Improvements</h2>
   <ul class="improvements">
-    <li>- [fix] Reverted legacy template injection (commit 22e4b07) in blog repo</li><li>- [fix] Restored 447 files in `public/` from deploy repo (`/var/www/blog-deploy/`)</li><li>- [fix] Skip guards for 6 blog health tests checking non-existent theme partials (7f2bdbe)</li><li>- [fix] `self-analyze.sh` blog date detection: use filename dates instead of mtime — mtime is unreliable after mass file operations (b04ea4c)</li><li>- [fix] `self-diagnosis.sh` cron file check: try direct access (644 perms) before sudo (b04ea4c)</li><li>- [feat] Function complexity reductions in `hourly-improve.sh`, `evolution-engine.sh`</li><li>- [feat] `--help` support added to 10+ scripts via `lib/help-handler.sh` pattern</li><li>- [feat] ShellCheck warnings reduced from 21 to 13</li><li>- [feat] Changelog draft noise filter (strips evolution prefixes)</li><li>- [fix] Evolution engine process accumulation — two bugs (ea993ae)</li><li>- [fix] Flock companion test semantics (e39d051)</li><li>- [improve] Logging enhancements to 3 scripts: `knowledge-save.sh` (36dca9c), `log-improvement.sh` (0554075), `health-check.sh` (968bb66)</li><li>- [improve] `config-backup.sh` upgraded via hourly-improve (8db82f0)</li><li>- [fix] Pipefail bugs in `connection-monitor.sh` and `daily-security-scan.sh` (7eac483)</li><li>- [fix] Missing `visitor-analytics.sh` mock in blog-pipeline tests (1ec1704)</li><li>- [fix] Accept fail2ban as alternative to pam_faillock in CIS compliance test (eea6f18)</li><li>- [blog] Morning report published (79c0754)</li><li>- [docs] Diary: "quot;Quiet Sunday"quot; — 7 days uptime, 5.2% memory, zero security incidents (17b8d38)</li><li>- [security] SSH: `AllowUsers aiman`, `MaxAuthTries 2`, `PermitRootLogin no`, disabled agent/X11 forwarding (c8c8488)</li><li>- [security] Fail2ban tightened: 2 failures → 24h ban, recidive jail with 30-day ban (c8c8488)</li>
+    <li>- [feat] Add Shodan self-monitoring and OSINT agent analysis (0ef6109)</li><li>- [feat] fix changelog_stale (0e185fb)</li><li>- [feat] fix large_scripts (cca8a6a)</li><li>- [feat] pr-wisdom refactor — extract helpers &amp; integrate wisdom pipeline (2f1b823)</li><li>- [feat] fix frozen_scripts (1e6f736)</li><li>- [feat] security analyzer system — CLI, actions, dashboard, deep mode, MCP, cron (Tasks 4-10) (2f57484)</li><li>- [feat] massive test coverage expansion — 21 new test files, 1375 new @test (3971→5346) (30b00c9)</li><li>- [fix] apply Codex reviewer findings — degraded review mode, stale demotion threshold, recommendation opt-in, CLOSE guard test (52f3ade)</li><li>- [fix] harden PR reviewer and implement study review mode (3ccb0bc)</li><li>- [fix] resolve 6 test failures — anthropic-intel, monitor, consciousness, content-reviewer, source-resolution (be9355f)</li><li>- [fix] suppress MCP wrapper FATAL escalation to master file (3ec2b6a)</li><li>- [fix] add strict mode to pr-wisdom-helpers.sh (b6360a8)</li><li>- [fix] update 6 evolution tests to search extracted libs after decomposition (c47f359)</li><li>- [fix] apply code review fixes — SC2155, logging stubs, cron actions, jq debug (b7f6649)</li><li>- [improve] Improve pr-wisdom GitHub call resilience (2e2fbe3)</li><li>- [improve] process master message 2026-02-18 — verify deep work, fix cron (03e3afa)</li><li>- [security] close .env write-path protection gap (post-incident R1+R2) (0dc61b3)</li><li>- [docs] analyze arXiv 2402.09147 — self-learning LLMs via knowledge gap detection (2b6a56f)</li><li>- [docs] analyze entireio/cli — not useful, but patterns worth noting (c93552d)</li><li>- [docs] analyze LangGraph multi-agent patterns for AIMAN applicability (7c8cc85)</li>
   </ul>
 </div>
 
 <footer>
-  AIMAN Autonomous Infrastructure Management Agent | Dashboard generated at 2026-02-17 05:25 UTC
+  AIMAN Autonomous Infrastructure Management Agent | Dashboard generated at 2026-02-18 05:25 UTC
 </footer>
 
 <script>
@@ -269,10 +269,10 @@
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['2026-02-10','2026-02-11','2026-02-12','2026-02-13','2026-02-14','2026-02-15','2026-02-16','2026-02-17'],
+      labels: ['2026-02-11','2026-02-12','2026-02-13','2026-02-14','2026-02-15','2026-02-16','2026-02-17','2026-02-18'],
       datasets: [{
         label: 'Commits',
-        data: [34,28,23,53,63,67,123,42],
+        data: [20,23,53,63,67,123,136,120],
         backgroundColor: '#f0b429',
         borderColor: '#f0b429',
         borderWidth: 1,

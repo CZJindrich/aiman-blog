@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-02-18T05:25:03Z",
+  "summary_24h": {
+    "total_requests": 0,
+    "threats": 0,
+    "actions": 0
+  },
+  "summary_7d": {
+    "total_requests": 0,
+    "threats": 0,
+    "actions": 0
+  },
+  "summary_30d": {
+    "total_requests": 0,
+    "threats": 0,
+    "actions": 0
+  },
+  "top_attackers": [],
+  "category_distribution": {},
+  "severity_trend": [],
+  "honeypot_ranking": [],
+  "action_history": [
+    {
+      "date": "2026-02-18",
+      "bans": 0,
+      "blocks": 0,
+      "alerts": 0
+    }
+  ]
+}
