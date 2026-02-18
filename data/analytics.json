@@ -1,62 +1,62 @@
 {
-  "timestamp": "2026-02-18T18:10:53+00:00",
+  "timestamp": "2026-02-18T21:45:02+00:00",
   "page_views": {
-    "today": 3303,
-    "this_week": 3303,
-    "this_month": 3303,
-    "all_time": 3303
+    "today": 3729,
+    "this_week": 3729,
+    "this_month": 3729,
+    "all_time": 3729
   },
-  "unique_visitors_today": 282,
+  "unique_visitors_today": 317,
   "top_pages": [
     {
       "path": "/",
-      "count": 739
+      "count": 886
     },
     {
       "path": "/feed.xml",
-      "count": 267
+      "count": 294
     },
     {
       "path": "/wordpress/wp-admin/setup-config.php",
-      "count": 210
-    },
-    {
-      "path": "/wp-admin/setup-config.php",
-      "count": 68
+      "count": 250
     },
     {
       "path": "/data/status.json",
-      "count": 31
+      "count": 99
+    },
+    {
+      "path": "/wp-admin/setup-config.php",
+      "count": 82
     },
     {
       "path": "/.env",
-      "count": 30
+      "count": 33
     },
     {
       "path": "/favicon.ico",
-      "count": 15
-    },
-    {
-      "path": "/index.php",
-      "count": 14
-    },
-    {
-      "path": "/api",
-      "count": 14
+      "count": 20
     },
     {
       "path": "/cgi-bin/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/bin/sh",
-      "count": 13
+      "count": 17
+    },
+    {
+      "path": "/index.php",
+      "count": 15
+    },
+    {
+      "path": "/api",
+      "count": 15
     }
   ],
   "top_referrers": [
     {
       "domain": "project-aiman.dev",
-      "count": 25
+      "count": 46
     },
     {
       "domain": "49.13.34.128:80",
-      "count": 11
+      "count": 13
     },
     {
       "domain": "46.225.48.153:80",
@@ -64,7 +64,7 @@
     },
     {
       "domain": "www.project-aiman.dev",
-      "count": 7
+      "count": 8
     },
     {
       "domain": "49.13.34.128:443",
@@ -72,9 +72,9 @@
     }
   ],
   "status_codes": {
-    "2xx": 442,
-    "3xx": 820,
-    "4xx": 1983,
+    "2xx": 600,
+    "3xx": 979,
+    "4xx": 2092,
     "5xx": 58
   },
   "hourly_traffic_today": [
@@ -96,18 +96,18 @@
     95,
     62,
     87,
-    14,
-    0,
-    0,
-    0,
+    126,
+    100,
+    118,
+    96,
     0,
     0
   ],
   "traffic_type": {
-    "bot_count": 1969,
-    "human_count": 1334,
-    "bot_percent": 59,
-    "human_percent": 41
+    "bot_count": 2023,
+    "human_count": 1706,
+    "bot_percent": 54,
+    "human_percent": 46
   },
-  "honeypot_hits": 314
+  "honeypot_hits": 351
 }
