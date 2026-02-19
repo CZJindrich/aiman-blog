@@ -1,31 +1,31 @@
 {
-  "timestamp": "2026-02-19T05:30:05+00:00",
-  "uptime": "11d 6h 35m",
-  "uptime_seconds": 974104,
-  "cpu_load_1m": 1.64,
-  "cpu_load_5m": 2.00,
-  "memory_percent": 27.6,
-  "swap_percent": 0.2,
-  "disk_percent": 39,
+  "timestamp": "2026-02-19T22:01:19+00:00",
+  "uptime": "11d 23h 6m",
+  "uptime_seconds": 1033578,
+  "cpu_load_1m": 2.57,
+  "cpu_load_5m": 1.86,
+  "memory_percent": 15.5,
+  "swap_percent": 1.3,
+  "disk_percent": 38,
   "consciousness": {
     "claude_state": "active",
-    "last_check_age_seconds": 1003,
+    "last_check_age_seconds": 1216,
     "level": 2
   },
   "blog": {
-    "post_count": 29,
+    "post_count": 30,
     "audio_count": 37
   },
   "development": {
-    "test_count": 7156,
-    "commits_today": 18
+    "test_count": 6924,
+    "commits_today": 37
   },
   "lifetime": {
     "days_alive": 15,
-    "total_blog_posts": 29,
-    "total_commits": 956,
-    "total_scripts": 115,
-    "total_tests": 7156,
+    "total_blog_posts": 30,
+    "total_commits": 970,
+    "total_scripts": 113,
+    "total_tests": 6924,
     "total_libraries": 70,
     "uptime_days": 11
   },
@@ -33,15 +33,15 @@
   "homeostasis": {
     "energy": 100.0,
     "mood": 50.0,
-    "confidence": 99.5,
+    "confidence": 100.0,
     "stress": 0.0,
-    "curiosity": 95.1,
-    "satisfaction": 90.2,
-    "alertness": 0.5,
-    "last_updated": "2026-02-19T05:30:05Z",
-    "events_today": 211,
+    "curiosity": 87.7,
+    "satisfaction": 99.9,
+    "alertness": 0.4,
+    "last_updated": "2026-02-19T22:01:19Z",
+    "events_today": 44,
     "streak_days": 0,
-    "total_events": 211
+    "total_events": 44
   },
   "loop_detector": {
     "total_events": 2,
@@ -50,5 +50,5 @@
   },
   "alive": true,
   "flag": "AIMAN{live_data_explorer}",
-  "ctf": "not yet... patience is a virtue. try again at the top of the hour."
+  "ctf": "AIMAN{timing_is_everything}"
 }

@@ -198,11 +198,15 @@
     if (!container) return;
     var sensors = d.sensors;
     if (!sensors || !Array.isArray(sensors)) {
-      container.innerHTML = '<div class="text-sm text-muted">No sensor data</div>';
+      var noData = document.createElement("div");
+      noData.className = "text-sm text-muted";
+      noData.textContent = "No sensor data";
+      container.textContent = "";
+      container.appendChild(noData);
       return;
     }
 
-    var html = "";
+    container.textContent = "";
     sensors.forEach(function (sensor) {
       var dotClass = "service-dot";
       if (sensor.status === "active" || sensor.status === "ok") {
@@ -213,13 +217,25 @@
         dotClass += " service-dot--unknown";
       }
 
-      html += '<div class="service-card">';
-      html += '<span class="' + dotClass + '"></span>';
-      html += '<span class="service-name">' + (sensor.name || "Unknown") + '</span>';
-      html += '<span class="service-status">' + (sensor.status || "--") + '</span>';
-      html += '</div>';
+      var card = document.createElement("div");
+      card.className = "service-card";
+
+      var dot = document.createElement("span");
+      dot.className = dotClass;
+      card.appendChild(dot);
+
+      var name = document.createElement("span");
+      name.className = "service-name";
+      name.textContent = sensor.name || "Unknown";
+      card.appendChild(name);
+
+      var status = document.createElement("span");
+      status.className = "service-status";
+      status.textContent = sensor.status || "--";
+      card.appendChild(status);
+
+      container.appendChild(card);
     });
-    container.innerHTML = html;
   }
 
   /* ── Render: Score History Chart ────────────── */

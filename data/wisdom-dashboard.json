@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-02-18T05:30:01Z",
-  "pool_size": 198,
+  "generated_at": "2026-02-19T06:40:02Z",
+  "pool_size": 201,
   "status_distribution": {
     "fresh": 198,
-    "active": 0,
+    "active": 2,
     "applied": 0,
     "done": 0,
-    "parked": 0,
+    "parked": 1,
     "stale": 0,
     "dismissed": 0
   },
   "conversion_funnel": {
-    "total": 198,
-    "understood": 0,
-    "planned": 0,
+    "total": 201,
+    "understood": 5,
+    "planned": 2,
     "applied": 0,
     "done": 0,
-    "understood_pct": 0,
-    "planned_pct": 0,
+    "understood_pct": 2.4,
+    "planned_pct": 0.9,
     "applied_pct": 0,
     "done_pct": 0
   },
@@ -25,7 +25,15 @@
   "source_breakdown": [
     {
       "source": "pr",
-      "count": 198
+      "count": 196
+    },
+    {
+      "source": "pr_wisdom",
+      "count": 3
+    },
+    {
+      "source": "pr_review",
+      "count": 2
     }
   ],
   "type_breakdown": [
@@ -54,12 +62,12 @@
       "count": 9
     },
     {
-      "type": "refactor",
-      "count": 4
+      "type": "weakness",
+      "count": 5
     },
     {
-      "type": "weakness",
-      "count": 2
+      "type": "refactor",
+      "count": 4
     }
   ],
   "staleness": {
