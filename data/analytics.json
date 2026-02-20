@@ -1,32 +1,32 @@
 {
-  "timestamp": "2026-02-20T21:45:03+00:00",
+  "timestamp": "2026-02-20T22:10:09+00:00",
   "page_views": {
-    "today": 4133,
-    "this_week": 4133,
-    "this_month": 4133,
-    "all_time": 4133
+    "today": 4170,
+    "this_week": 4170,
+    "this_month": 4170,
+    "all_time": 4170
   },
-  "unique_visitors_today": 342,
+  "unique_visitors_today": 346,
   "top_pages": [
     {
       "path": "/",
-      "count": 940
+      "count": 958
     },
     {
       "path": "/data/status.json",
-      "count": 576
+      "count": 578
     },
     {
       "path": "/wordpress/wp-admin/setup-config.php",
-      "count": 256
+      "count": 259
     },
     {
       "path": "/feed.xml",
-      "count": 181
+      "count": 189
     },
     {
       "path": "/wp-admin/setup-config.php",
-      "count": 85
+      "count": 86
     },
     {
       "path": "/.env",
@@ -72,9 +72,9 @@
     }
   ],
   "status_codes": {
-    "2xx": 672,
-    "3xx": 1390,
-    "4xx": 1407,
+    "2xx": 689,
+    "3xx": 1406,
+    "4xx": 1411,
     "5xx": 664
   },
   "hourly_traffic_today": [
@@ -99,15 +99,15 @@
     150,
     144,
     255,
-    152,
-    0,
+    171,
+    18,
     0
   ],
   "traffic_type": {
-    "bot_count": 1727,
-    "human_count": 2406,
+    "bot_count": 1742,
+    "human_count": 2428,
     "bot_percent": 41,
     "human_percent": 59
   },
-  "honeypot_hits": 390
+  "honeypot_hits": 392
 }
