@@ -1,80 +1,80 @@
 {
-  "timestamp": "2026-02-20T10:11:03+00:00",
+  "timestamp": "2026-02-20T16:11:05+00:00",
   "page_views": {
-    "today": 2382,
-    "this_week": 2382,
-    "this_month": 2382,
-    "all_time": 2382
+    "today": 3239,
+    "this_week": 3239,
+    "this_month": 3239,
+    "all_time": 3239
   },
-  "unique_visitors_today": 207,
+  "unique_visitors_today": 286,
   "top_pages": [
     {
       "path": "/",
-      "count": 449
-    },
-    {
-      "path": "/wordpress/wp-admin/setup-config.php",
-      "count": 120
-    },
-    {
-      "path": "/feed.xml",
-      "count": 78
-    },
-    {
-      "path": "/wp-admin/setup-config.php",
-      "count": 40
+      "count": 707
     },
     {
       "path": "/data/status.json",
-      "count": 31
+      "count": 314
     },
     {
-      "path": "/favicon.ico",
-      "count": 13
+      "path": "/wordpress/wp-admin/setup-config.php",
+      "count": 186
+    },
+    {
+      "path": "/feed.xml",
+      "count": 135
+    },
+    {
+      "path": "/wp-admin/setup-config.php",
+      "count": 63
     },
     {
       "path": "/.env",
-      "count": 13
+      "count": 20
     },
     {
-      "path": "/cgi-bin/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/bin/sh",
-      "count": 7
+      "path": "/favicon.ico",
+      "count": 15
     },
     {
       "path": "/index.php",
-      "count": 6
+      "count": 13
     },
     {
       "path": "/api",
-      "count": 6
+      "count": 13
+    },
+    {
+      "path": "/admin",
+      "count": 12
     }
   ],
   "top_referrers": [
     {
-      "domain": "project-aiman.dev",
-      "count": 7
-    },
-    {
       "domain": "49.13.34.128:80",
-      "count": 6
-    },
-    {
-      "domain": "www.project-aiman.dev",
-      "count": 5
+      "count": 9
     },
     {
       "domain": "46.225.48.153:80",
-      "count": 5
+      "count": 9
     },
     {
-      "domain": "49.13.34.128:443",
-      "count": 1
+      "domain": "www.project-aiman.dev",
+      "count": 8
+    },
+    {
+      "domain": "project-aiman.dev",
+      "count": 8
+    },
+    {
+      "domain": "49.13.34.128",
+      "count": 3
     }
   ],
   "status_codes": {
-    "2xx": 176,
-    "3xx": 513,
-    "4xx": 1029,
+    "2xx": 366,
+    "3xx": 987,
+    "4xx": 1222,
     "5xx": 664
   },
   "hourly_traffic_today": [
@@ -88,13 +88,13 @@
     82,
     65,
     108,
-    1482,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    1550,
+    173,
+    132,
+    151,
+    156,
+    157,
+    20,
     0,
     0,
     0,
@@ -104,10 +104,10 @@
     0
   ],
   "traffic_type": {
-    "bot_count": 1562,
-    "human_count": 820,
-    "bot_percent": 65,
-    "human_percent": 35
+    "bot_count": 1649,
+    "human_count": 1590,
+    "bot_percent": 50,
+    "human_percent": 50
   },
-  "honeypot_hits": 262
+  "honeypot_hits": 320
 }
