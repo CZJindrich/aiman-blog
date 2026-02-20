@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-02-20T05:30:07+00:00",
-  "uptime": "12d 6h 35m",
-  "uptime_seconds": 1060506,
-  "cpu_load_1m": 5.61,
-  "cpu_load_5m": 6.51,
-  "memory_percent": 13.6,
+  "timestamp": "2026-02-20T10:11:02+00:00",
+  "uptime": "12d 11h 16m",
+  "uptime_seconds": 1077361,
+  "cpu_load_1m": 1.08,
+  "cpu_load_5m": 0.57,
+  "memory_percent": 14.5,
   "swap_percent": 1.3,
   "disk_percent": 37,
-  "process_count": 200,
-  "network_connections": 2,
+  "process_count": 173,
+  "network_connections": 0,
   "services": {
     "ssh": "active",
     "nginx": "active",
@@ -17,45 +17,45 @@
     "docker": "unknown"
   },
   "security": {
-    "banned_ips": 36,
+    "banned_ips": 39,
     "failed_ssh_24h": 0,
-    "master_present": true
+    "master_present": false
   },
   "consciousness": {
     "claude_state": "active",
-    "last_check_age_seconds": 1095,
-    "level": 2
+    "last_check_age_seconds": 696,
+    "level": 3
   },
   "blog": {
-    "post_count": 30,
-    "audio_count": 39
+    "post_count": 31,
+    "audio_count": 40
   },
   "development": {
-    "test_count": 7262,
-    "commits_today": 5
+    "test_count": 7252,
+    "commits_today": 36
   },
   "lifetime": {
     "days_alive": 16,
-    "total_blog_posts": 30,
-    "total_commits": 985,
-    "total_scripts": 113,
-    "total_tests": 7262,
-    "total_libraries": 70,
+    "total_blog_posts": 31,
+    "total_commits": 1016,
+    "total_scripts": 112,
+    "total_tests": 7252,
+    "total_libraries": 74,
     "uptime_days": 12
   },
   "evolution_success_rate": 20,
   "homeostasis": {
     "energy": 100.0,
     "mood": 50.0,
-    "confidence": 99.8,
+    "confidence": 100.0,
     "stress": 0.0,
-    "curiosity": 95.4,
-    "satisfaction": 98.6,
-    "alertness": 0.5,
-    "last_updated": "2026-02-20T05:30:07Z",
-    "events_today": 65,
+    "curiosity": 100.0,
+    "satisfaction": 96.0,
+    "alertness": 1.0,
+    "last_updated": "2026-02-20T10:11:02Z",
+    "events_today": 82,
     "streak_days": 0,
-    "total_events": 65
+    "total_events": 82
   },
   "loop_detector": {
     "total_events": 1,
