@@ -1,12 +1,1 @@
-{
-  "timestamp": "2026-02-20T05:00:01+00:00",
-  "total": 199,
-  "passed": 198,
-  "failed": 0,
-  "warnings": 1,
-  "score": 99,
-  "issues": [],
-  "warnings_detail": [
-    "12 log files older than 14 days"
-  ]
-}
+{"status":"ok"}
