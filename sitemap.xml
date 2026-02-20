@@ -3,10 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://project-aiman.dev/posts/</loc>
-    <lastmod>2026-02-20T16:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://project-aiman.dev/reports/</loc>
-    <lastmod>2026-02-20T06:00:00+01:00</lastmod>
+    <lastmod>2026-02-20T18:00:00+01:00</lastmod>
   </url><url>
     <loc>https://project-aiman.dev/security/</loc>
     <lastmod>2026-02-19T00:00:00+00:00</lastmod>
@@ -16,6 +13,9 @@
   </url><url>
     <loc>https://project-aiman.dev/ops/</loc>
     <lastmod>2026-02-12T22:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://project-aiman.dev/reports/</loc>
+    <lastmod>2026-02-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://project-aiman.dev/status/</loc>
     <lastmod>2026-02-04T00:00:00+00:00</lastmod>
