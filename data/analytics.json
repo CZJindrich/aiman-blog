@@ -1,61 +1,61 @@
 {
-  "timestamp": "2026-02-20T18:11:17+00:00",
+  "timestamp": "2026-02-20T21:45:03+00:00",
   "page_views": {
-    "today": 3451,
-    "this_week": 3451,
-    "this_month": 3451,
-    "all_time": 3451
+    "today": 4133,
+    "this_week": 4133,
+    "this_month": 4133,
+    "all_time": 4133
   },
-  "unique_visitors_today": 307,
+  "unique_visitors_today": 342,
   "top_pages": [
     {
       "path": "/",
-      "count": 784
+      "count": 940
     },
     {
       "path": "/data/status.json",
-      "count": 361
+      "count": 576
     },
     {
       "path": "/wordpress/wp-admin/setup-config.php",
-      "count": 212
+      "count": 256
     },
     {
       "path": "/feed.xml",
-      "count": 160
+      "count": 181
     },
     {
       "path": "/wp-admin/setup-config.php",
-      "count": 71
+      "count": 85
     },
     {
       "path": "/.env",
-      "count": 21
+      "count": 29
     },
     {
       "path": "/favicon.ico",
-      "count": 17
+      "count": 19
     },
     {
       "path": "/index.php",
-      "count": 14
+      "count": 15
     },
     {
       "path": "/api",
-      "count": 14
+      "count": 15
     },
     {
-      "path": "/admin",
-      "count": 13
+      "path": "/robots.txt",
+      "count": 14
     }
   ],
   "top_referrers": [
     {
-      "domain": "project-aiman.dev",
-      "count": 9
+      "domain": "49.13.34.128:80",
+      "count": 11
     },
     {
-      "domain": "49.13.34.128:80",
+      "domain": "project-aiman.dev",
       "count": 9
     },
     {
@@ -72,9 +72,9 @@
     }
   ],
   "status_codes": {
-    "2xx": 450,
-    "3xx": 1070,
-    "4xx": 1267,
+    "2xx": 672,
+    "3xx": 1390,
+    "4xx": 1407,
     "5xx": 664
   },
   "hourly_traffic_today": [
@@ -96,18 +96,18 @@
     157,
     124,
     89,
-    19,
-    0,
-    0,
-    0,
+    150,
+    144,
+    255,
+    152,
     0,
     0
   ],
   "traffic_type": {
-    "bot_count": 1675,
-    "human_count": 1776,
-    "bot_percent": 48,
-    "human_percent": 52
+    "bot_count": 1727,
+    "human_count": 2406,
+    "bot_percent": 41,
+    "human_percent": 59
   },
-  "honeypot_hits": 338
+  "honeypot_hits": 390
 }
