@@ -1,62 +1,62 @@
 {
-  "timestamp": "2026-02-21T08:11:05+00:00",
+  "timestamp": "2026-02-21T10:11:11+00:00",
   "page_views": {
-    "today": 1084,
-    "this_week": 1084,
-    "this_month": 1084,
-    "all_time": 1084
+    "today": 1283,
+    "this_week": 1283,
+    "this_month": 1283,
+    "all_time": 1283
   },
-  "unique_visitors_today": 199,
+  "unique_visitors_today": 230,
   "top_pages": [
     {
       "path": "/",
-      "count": 380
+      "count": 460
     },
     {
       "path": "/wordpress/wp-admin/setup-config.php",
-      "count": 104
+      "count": 128
     },
     {
       "path": "/wp-admin/setup-config.php",
-      "count": 35
+      "count": 44
     },
     {
       "path": "/feed.xml",
-      "count": 34
+      "count": 43
+    },
+    {
+      "path": "/data/status.json",
+      "count": 20
     },
     {
       "path": "/.env",
-      "count": 10
+      "count": 12
+    },
+    {
+      "path": "/favicon.ico",
+      "count": 9
+    },
+    {
+      "path": "/.git/config",
+      "count": 8
+    },
+    {
+      "path": "/robots.txt",
+      "count": 7
     },
     {
       "path": "/config.json",
       "count": 7
-    },
-    {
-      "path": "/api",
-      "count": 7
-    },
-    {
-      "path": "/robots.txt",
-      "count": 6
-    },
-    {
-      "path": "/.git/config",
-      "count": 6
-    },
-    {
-      "path": "/favicon.ico",
-      "count": 6
     }
   ],
   "top_referrers": [
     {
       "domain": "49.13.34.128:80",
-      "count": 7
+      "count": 10
     },
     {
       "domain": "46.225.48.153:80",
-      "count": 7
+      "count": 8
     },
     {
       "domain": "project-aiman.dev",
@@ -68,13 +68,13 @@
     },
     {
       "domain": "49.13.34.128",
-      "count": 2
+      "count": 3
     }
   ],
   "status_codes": {
-    "2xx": 152,
-    "3xx": 550,
-    "4xx": 382,
+    "2xx": 221,
+    "3xx": 643,
+    "4xx": 419,
     "5xx": 0
   },
   "hourly_traffic_today": [
@@ -86,9 +86,9 @@
     107,
     221,
     78,
-    13,
-    0,
-    0,
+    63,
+    132,
+    17,
     0,
     0,
     0,
@@ -104,10 +104,10 @@
     0
   ],
   "traffic_type": {
-    "bot_count": 79,
-    "human_count": 1005,
+    "bot_count": 93,
+    "human_count": 1190,
     "bot_percent": 7,
     "human_percent": 93
   },
-  "honeypot_hits": 117
+  "honeypot_hits": 135
 }
