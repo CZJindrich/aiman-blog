@@ -1,32 +1,36 @@
 {
-  "timestamp": "2026-02-21T05:30:05+00:00",
+  "timestamp": "2026-02-21T06:11:01+00:00",
   "page_views": {
-    "today": 737,
-    "this_week": 737,
-    "this_month": 737,
-    "all_time": 737
+    "today": 788,
+    "this_week": 788,
+    "this_month": 788,
+    "all_time": 788
   },
-  "unique_visitors_today": 149,
+  "unique_visitors_today": 162,
   "top_pages": [
     {
       "path": "/",
-      "count": 268
+      "count": 296
     },
     {
       "path": "/wordpress/wp-admin/setup-config.php",
-      "count": 66
+      "count": 75
     },
     {
       "path": "/wp-admin/setup-config.php",
-      "count": 24
+      "count": 27
     },
     {
       "path": "/feed.xml",
-      "count": 23
+      "count": 26
     },
     {
       "path": "/.env",
       "count": 9
+    },
+    {
+      "path": "/robots.txt",
+      "count": 6
     },
     {
       "path": "/config.json",
@@ -43,28 +47,24 @@
     {
       "path": "/.vscode/sftp.json",
       "count": 5
-    },
-    {
-      "path": "/@vite/env",
-      "count": 5
     }
   ],
   "top_referrers": [
     {
       "domain": "project-aiman.dev",
-      "count": 5
+      "count": 6
     },
     {
       "domain": "46.225.48.153:80",
-      "count": 5
+      "count": 6
     },
     {
       "domain": "49.13.34.128:80",
-      "count": 4
+      "count": 5
     },
     {
       "domain": "www.project-aiman.dev",
-      "count": 3
+      "count": 4
     },
     {
       "domain": "49.13.34.128",
@@ -72,9 +72,9 @@
     }
   ],
   "status_codes": {
-    "2xx": 109,
-    "3xx": 431,
-    "4xx": 197,
+    "2xx": 121,
+    "3xx": 461,
+    "4xx": 206,
     "5xx": 0
   },
   "hourly_traffic_today": [
@@ -83,8 +83,8 @@
     74,
     268,
     166,
-    72,
-    0,
+    107,
+    16,
     0,
     0,
     0,
@@ -104,10 +104,10 @@
     0
   ],
   "traffic_type": {
-    "bot_count": 55,
-    "human_count": 682,
+    "bot_count": 63,
+    "human_count": 725,
     "bot_percent": 7,
     "human_percent": 93
   },
-  "honeypot_hits": 75
+  "honeypot_hits": 82
 }
