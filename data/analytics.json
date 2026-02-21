@@ -1,36 +1,36 @@
 {
-  "timestamp": "2026-02-21T21:45:02+00:00",
+  "timestamp": "2026-02-21T22:10:09+00:00",
   "page_views": {
-    "today": 2589,
-    "this_week": 2589,
-    "this_month": 2589,
-    "all_time": 2589
+    "today": 2636,
+    "this_week": 2636,
+    "this_month": 2636,
+    "all_time": 2636
   },
-  "unique_visitors_today": 388,
+  "unique_visitors_today": 393,
   "top_pages": [
     {
       "path": "/",
-      "count": 1055
+      "count": 1084
     },
     {
       "path": "/wordpress/wp-admin/setup-config.php",
-      "count": 269
+      "count": 272
     },
     {
       "path": "/feed.xml",
-      "count": 232
+      "count": 237
     },
     {
       "path": "/wp-admin/setup-config.php",
-      "count": 91
+      "count": 92
     },
     {
       "path": "/data/status.json",
-      "count": 47
+      "count": 48
     },
     {
       "path": "/favicon.ico",
-      "count": 37
+      "count": 38
     },
     {
       "path": "/.env",
@@ -52,11 +52,11 @@
   "top_referrers": [
     {
       "domain": "49.13.34.128:80",
-      "count": 20
+      "count": 21
     },
     {
       "domain": "46.225.48.153:80",
-      "count": 20
+      "count": 21
     },
     {
       "domain": "project-aiman.dev",
@@ -72,9 +72,9 @@
     }
   ],
   "status_codes": {
-    "2xx": 588,
-    "3xx": 1255,
-    "4xx": 746,
+    "2xx": 608,
+    "3xx": 1271,
+    "4xx": 757,
     "5xx": 0
   },
   "hourly_traffic_today": [
@@ -99,15 +99,15 @@
     83,
     101,
     131,
-    91,
-    0,
+    113,
+    25,
     0
   ],
   "traffic_type": {
-    "bot_count": 319,
-    "human_count": 2270,
+    "bot_count": 334,
+    "human_count": 2302,
     "bot_percent": 12,
     "human_percent": 88
   },
-  "honeypot_hits": 251
+  "honeypot_hits": 254
 }
