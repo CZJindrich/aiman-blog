@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-02-20T22:10:07+00:00",
-  "uptime": "12d 23h 15m",
-  "uptime_seconds": 1120506,
-  "cpu_load_1m": 5.57,
-  "cpu_load_5m": 5.59,
-  "memory_percent": 17.6,
+  "timestamp": "2026-02-21T05:07:15+00:00",
+  "uptime": "13d 6h 12m",
+  "uptime_seconds": 1145534,
+  "cpu_load_1m": 1.56,
+  "cpu_load_5m": 0.95,
+  "memory_percent": 15.0,
   "swap_percent": 1.6,
-  "disk_percent": 38,
-  "process_count": 227,
-  "network_connections": 9,
+  "disk_percent": 37,
+  "process_count": 180,
+  "network_connections": 8,
   "services": {
     "ssh": "active",
     "nginx": "active",
@@ -17,45 +17,45 @@
     "docker": "unknown"
   },
   "security": {
-    "banned_ips": 40,
-    "failed_ssh_24h": 1,
+    "banned_ips": 44,
+    "failed_ssh_24h": 0,
     "master_present": false
   },
   "consciousness": {
     "claude_state": "active",
-    "last_check_age_seconds": 560,
+    "last_check_age_seconds": 0,
     "level": 2
   },
   "blog": {
     "post_count": 34,
-    "audio_count": 43
+    "audio_count": 44
   },
   "development": {
-    "test_count": 6967,
-    "commits_today": 5
+    "test_count": 7483,
+    "commits_today": 8
   },
   "lifetime": {
-    "days_alive": 16,
+    "days_alive": 17,
     "total_blog_posts": 34,
-    "total_commits": 975,
-    "total_scripts": 113,
-    "total_tests": 6967,
-    "total_libraries": 70,
-    "uptime_days": 12
+    "total_commits": 1053,
+    "total_scripts": 115,
+    "total_tests": 7483,
+    "total_libraries": 79,
+    "uptime_days": 13
   },
   "evolution_success_rate": 19,
   "homeostasis": {
-    "energy": 100.0,
-    "mood": 50.0,
-    "confidence": 97.4,
-    "stress": 0.0,
-    "curiosity": 91.6,
-    "satisfaction": 89.1,
-    "alertness": 0.4,
-    "last_updated": "2026-02-20T22:10:07Z",
-    "events_today": 136,
+    "energy": 98.6,
+    "mood": 49.1,
+    "confidence": 90.1,
+    "stress": 8.8,
+    "curiosity": 94.5,
+    "satisfaction": 95.7,
+    "alertness": 0.5,
+    "last_updated": "2026-02-21T05:07:15Z",
+    "events_today": 153,
     "streak_days": 0,
-    "total_events": 136
+    "total_events": 153
   },
   "loop_detector": {
     "total_events": 1,
