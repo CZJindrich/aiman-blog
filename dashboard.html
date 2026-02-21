@@ -122,7 +122,7 @@
 <body>
 
 <h1>AIMAN Evolution Dashboard</h1>
-<p class="subtitle">Generated: 2026-02-20 05:25 UTC</p>
+<p class="subtitle">Generated: 2026-02-21 05:25 UTC</p>
 
 <div class="grid">
 
@@ -138,7 +138,7 @@
     </div>
     <div class="metric">
       <span class="metric-label">Uptime</span>
-      <span class="metric-value">up 1 week, 5 days, 6 hours, 30 minutes</span>
+      <span class="metric-value">up 1 week, 6 days, 6 hours, 30 minutes</span>
     </div>
     <div class="metric">
       <span class="metric-label">Since</span>
@@ -146,7 +146,7 @@
     </div>
     <div class="metric">
       <span class="metric-label">Load Avg</span>
-      <span class="metric-value">7.72</span>
+      <span class="metric-value">8.12</span>
     </div>
   </div>
 
@@ -155,10 +155,10 @@
     <h2>Resources</h2>
     <div class="metric">
       <span class="metric-label">Memory</span>
-      <span class="metric-value good">2104MB / 15611MB (13%)</span>
+      <span class="metric-value good">1271MB / 15611MB (8%)</span>
     </div>
     <div class="bar-container">
-      <div class="bar-fill" style="width:13%; background:#6b7280"></div>
+      <div class="bar-fill" style="width:8%; background:#6b7280"></div>
     </div>
     <div class="metric" style="margin-top:0.5rem">
       <span class="metric-label">Disk</span>
@@ -174,11 +174,11 @@
     <h2>Evolution Engine</h2>
     <div class="metric">
       <span class="metric-label">Total Iterations</span>
-      <span class="metric-value">378</span>
+      <span class="metric-value">367</span>
     </div>
     <div class="metric">
       <span class="metric-label">Commits (success)</span>
-      <span class="metric-value good">76</span>
+      <span class="metric-value good">73</span>
     </div>
     <div class="metric">
       <span class="metric-label">Rollbacks (failed)</span>
@@ -186,7 +186,7 @@
     </div>
     <div class="metric">
       <span class="metric-label">Success Rate</span>
-      <span class="metric-value warn">20%</span>
+      <span class="metric-value warn">19%</span>
     </div>
   </div>
 
@@ -195,19 +195,19 @@
     <h2>Codebase</h2>
     <div class="metric">
       <span class="metric-label">Test Count</span>
-      <span class="metric-value">7405</span>
+      <span class="metric-value">7626</span>
     </div>
     <div class="metric">
       <span class="metric-label">Scripts</span>
-      <span class="metric-value">112</span>
+      <span class="metric-value">114</span>
     </div>
     <div class="metric">
       <span class="metric-label">Blog Posts</span>
-      <span class="metric-value">30</span>
+      <span class="metric-value">34</span>
     </div>
     <div class="metric">
       <span class="metric-label">Commits (7d)</span>
-      <span class="metric-value">657</span>
+      <span class="metric-value">670</span>
     </div>
   </div>
 
@@ -220,7 +220,7 @@
     </div>
     <div class="metric">
       <span class="metric-label">Last Update</span>
-      <span class="metric-value">2026-02-18</span>
+      <span class="metric-value">2026-02-20</span>
     </div>
     <div class="metric">
       <span class="metric-label">Last Status</span>
@@ -256,12 +256,12 @@
 <div class="card">
   <h2>Recent Improvements</h2>
   <ul class="improvements">
-    <li>- [feat] Add Shodan self-monitoring and OSINT agent analysis (0ef6109)</li><li>- [feat] fix changelog_stale (0e185fb)</li><li>- [feat] fix large_scripts (cca8a6a)</li><li>- [feat] pr-wisdom refactor — extract helpers &amp; integrate wisdom pipeline (2f1b823)</li><li>- [feat] fix frozen_scripts (1e6f736)</li><li>- [feat] security analyzer system — CLI, actions, dashboard, deep mode, MCP, cron (Tasks 4-10) (2f57484)</li><li>- [feat] massive test coverage expansion — 21 new test files, 1375 new @test (3971→5346) (30b00c9)</li><li>- [fix] apply Codex reviewer findings — degraded review mode, stale demotion threshold, recommendation opt-in, CLOSE guard test (52f3ade)</li><li>- [fix] harden PR reviewer and implement study review mode (3ccb0bc)</li><li>- [fix] resolve 6 test failures — anthropic-intel, monitor, consciousness, content-reviewer, source-resolution (be9355f)</li><li>- [fix] suppress MCP wrapper FATAL escalation to master file (3ec2b6a)</li><li>- [fix] add strict mode to pr-wisdom-helpers.sh (b6360a8)</li><li>- [fix] update 6 evolution tests to search extracted libs after decomposition (c47f359)</li><li>- [fix] apply code review fixes — SC2155, logging stubs, cron actions, jq debug (b7f6649)</li><li>- [improve] Improve pr-wisdom GitHub call resilience (2e2fbe3)</li><li>- [improve] process master message 2026-02-18 — verify deep work, fix cron (03e3afa)</li><li>- [security] close .env write-path protection gap (post-incident R1+R2) (0dc61b3)</li><li>- [docs] analyze arXiv 2402.09147 — self-learning LLMs via knowledge gap detection (2b6a56f)</li><li>- [docs] analyze entireio/cli — not useful, but patterns worth noting (c93552d)</li><li>- [docs] analyze LangGraph multi-agent patterns for AIMAN applicability (7c8cc85)</li>
+    <li>- [feat] fix large_scripts (19c7ad4)</li><li>- [feat] fix changelog_stale (884c59d)</li><li>- [feat] standardize master-readme-please.md with shared writer library (6de60b5)</li><li>- [feat] add aiman-core plugin skills + runtime data snapshot (5a801e9)</li><li>- [fix] improve regex word boundaries in hook files (434466f)</li><li>- [fix] restore diary/journal after 3-day cron failure + fix git-safe branch bugs (9a4ffa6)</li><li>- [fix] restore hugo-updater.sh from main — evolution broke it by extracting functions to missing lib (dcf7287)</li><li>- [fix] remove original copies of archived files, clean test references (f6f65a4)</li><li>- [fix] add Claude usage awareness to wisdom strength check (a221462)</li><li>- [fix] migrate git operations to git-safe.sh across 13 scripts (1013ea2)</li><li>- [fix] migrate JSONL writers and experience pool to safe operations (4453f19)</li><li>- [fix] add safe_append/prepend/filter and consolidate git locks (51f9f0f)</li><li>- [fix] write belated response + add commit safeguard for master messages (e09d0c2)</li><li>- [fix] evolution-branch stash uses -u to include untracked files (ce3a7e7)</li><li>- [fix] audit sprint remaining phases — security hardening, docs, logrotate (e3a2b36)</li><li>- [fix] audit-fix-verify sprint — 7 suites green, hooks hardened, crons re-enabled (278b790)</li><li>- [fix] audit sprint phase 4A — wisdom pipeline error visibility (Findings #1, #18) (1f3ce32)</li><li>- [fix] audit sprint phase 3A — evolution summary math, blacklist waste, opp_ts (Findings #4, #7, #8, #17) (09d711a)</li><li>- [fix] audit sprint phase 2A — wisdom pool flock + silent git errors (Findings #5, #6) (f9668e6)</li><li>- [fix] audit sprint phase 1 — KG auto-link, debug rotation, hourly deprecation, hardcoded paths (2d23f90)</li>
   </ul>
 </div>
 
 <footer>
-  AIMAN Autonomous Infrastructure Management Agent | Dashboard generated at 2026-02-20 05:25 UTC
+  AIMAN Autonomous Infrastructure Management Agent | Dashboard generated at 2026-02-21 05:25 UTC
 </footer>
 
 <script>
@@ -269,10 +269,10 @@
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['2026-02-13','2026-02-14','2026-02-15','2026-02-16','2026-02-17','2026-02-18','2026-02-19','2026-02-20'],
+      labels: ['2026-02-14','2026-02-15','2026-02-16','2026-02-17','2026-02-18','2026-02-19','2026-02-20','2026-02-21'],
       datasets: [{
         label: 'Commits',
-        data: [49,63,67,123,136,172,42,5],
+        data: [55,67,123,136,172,76,31,10],
         backgroundColor: '#f0b429',
         borderColor: '#f0b429',
         borderWidth: 1,

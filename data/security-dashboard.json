@@ -1,1 +1,106 @@
-{"status":"active","trend":"stable","last_updated":"2026-02-20T05:25:01Z"}
+{
+  "generated_at": "2026-02-21T05:25:02Z",
+  "summary_24h": {
+    "total_requests": 0,
+    "threats": 0,
+    "actions": 0
+  },
+  "summary_7d": {
+    "total_requests": 0,
+    "threats": 0,
+    "actions": 0
+  },
+  "summary_30d": {
+    "total_requests": 0,
+    "threats": 0,
+    "actions": 0
+  },
+  "top_attackers": [],
+  "category_distribution": {},
+  "severity_trend": [],
+  "honeypot_ranking": [],
+  "action_history": [
+    {
+      "date": "2026-02-18",
+      "bans": 0,
+      "blocks": 0,
+      "alerts": 0
+    },
+    {
+      "date": "2026-02-21",
+      "bans": 0,
+      "blocks": 0,
+      "alerts": 0
+    }
+  ],
+  "governance": {
+    "total_active": 13,
+    "controls": [
+      {
+        "category": "ssh",
+        "name": "sacred_key_present",
+        "status": "active"
+      },
+      {
+        "category": "ssh",
+        "name": "password_auth_disabled",
+        "status": "active"
+      },
+      {
+        "category": "ssh",
+        "name": "root_login_disabled",
+        "status": "active"
+      },
+      {
+        "category": "firewall",
+        "name": "fail2ban_active",
+        "status": "active"
+      },
+      {
+        "category": "firewall",
+        "name": "ufw_active",
+        "status": "active"
+      },
+      {
+        "category": "opsec",
+        "name": "git_opsec_hook",
+        "status": "active"
+      },
+      {
+        "category": "opsec",
+        "name": "credential_scan_hook",
+        "status": "active"
+      },
+      {
+        "category": "opsec",
+        "name": "ip_exposure_hook",
+        "status": "active"
+      },
+      {
+        "category": "code_quality",
+        "name": "pre_commit_hook",
+        "status": "active"
+      },
+      {
+        "category": "secrets",
+        "name": "env_gitignored",
+        "status": "active"
+      },
+      {
+        "category": "secrets",
+        "name": "env_permissions",
+        "status": "active"
+      },
+      {
+        "category": "ssh",
+        "name": "sacred_key_hook",
+        "status": "active"
+      },
+      {
+        "category": "web",
+        "name": "honeypots_deployed",
+        "status": "active"
+      }
+    ]
+  }
+}
