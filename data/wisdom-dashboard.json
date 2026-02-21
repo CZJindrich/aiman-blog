@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-02-19T06:40:02Z",
-  "pool_size": 201,
+  "generated_at": "2026-02-21T06:40:01Z",
+  "pool_size": 204,
   "status_distribution": {
-    "fresh": 198,
-    "active": 2,
+    "fresh": 190,
+    "active": 3,
     "applied": 0,
     "done": 0,
-    "parked": 1,
+    "parked": 11,
     "stale": 0,
     "dismissed": 0
   },
   "conversion_funnel": {
-    "total": 201,
-    "understood": 5,
-    "planned": 2,
+    "total": 204,
+    "understood": 15,
+    "planned": 3,
     "applied": 0,
     "done": 0,
-    "understood_pct": 2.4,
-    "planned_pct": 0.9,
+    "understood_pct": 7.3,
+    "planned_pct": 1.4,
     "applied_pct": 0,
     "done_pct": 0
   },
@@ -26,6 +26,10 @@
     {
       "source": "pr",
       "count": 196
+    },
+    {
+      "source": "integrate",
+      "count": 3
     },
     {
       "source": "pr_wisdom",
@@ -47,7 +51,7 @@
     },
     {
       "type": "improvement",
-      "count": 34
+      "count": 37
     },
     {
       "type": "doc_gap",
@@ -74,7 +78,7 @@
     "older_than_7d": 0,
     "older_than_14d": 0,
     "older_than_30d": 0,
-    "avg_age_days": 0,
+    "avg_age_days": 2,
     "oldest_unprocessed": "2026-02-18T01:05:48Z"
   }
 }
