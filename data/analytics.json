@@ -1,113 +1,113 @@
 {
-  "timestamp": "2026-02-21T22:10:09+00:00",
+  "timestamp": "2026-02-22T05:04:24+00:00",
   "page_views": {
-    "today": 2636,
-    "this_week": 2636,
-    "this_month": 2636,
-    "all_time": 2636
+    "today": 538,
+    "this_week": 538,
+    "this_month": 538,
+    "all_time": 538
   },
-  "unique_visitors_today": 393,
+  "unique_visitors_today": 106,
   "top_pages": [
     {
       "path": "/",
-      "count": 1084
+      "count": 257
     },
     {
       "path": "/wordpress/wp-admin/setup-config.php",
-      "count": 272
+      "count": 65
     },
     {
       "path": "/feed.xml",
-      "count": 237
+      "count": 52
     },
     {
       "path": "/wp-admin/setup-config.php",
-      "count": 92
-    },
-    {
-      "path": "/data/status.json",
-      "count": 48
+      "count": 21
     },
     {
       "path": "/favicon.ico",
-      "count": 38
+      "count": 7
     },
     {
       "path": "/.env",
-      "count": 32
+      "count": 7
     },
     {
       "path": "/cgi-bin/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/bin/sh",
-      "count": 14
+      "count": 5
     },
     {
-      "path": "/robots.txt",
-      "count": 12
+      "path": "/.well-known/security.txt",
+      "count": 3
     },
     {
-      "path": "/Dr0v",
-      "count": 11
+      "path": "/vendor/.env",
+      "count": 2
+    },
+    {
+      "path": "/v2/_catalog",
+      "count": 2
     }
   ],
   "top_referrers": [
     {
       "domain": "49.13.34.128:80",
-      "count": 21
+      "count": 10
     },
     {
       "domain": "46.225.48.153:80",
-      "count": 21
-    },
-    {
-      "domain": "project-aiman.dev",
-      "count": 13
+      "count": 7
     },
     {
       "domain": "www.project-aiman.dev",
-      "count": 8
+      "count": 5
     },
     {
       "domain": "49.13.34.128",
-      "count": 7
+      "count": 3
+    },
+    {
+      "domain": "46.225.48.153",
+      "count": 2
     }
   ],
   "status_codes": {
-    "2xx": 608,
-    "3xx": 1271,
-    "4xx": 757,
+    "2xx": 93,
+    "3xx": 277,
+    "4xx": 168,
     "5xx": 0
   },
   "hourly_traffic_today": [
-    92,
-    65,
-    74,
-    268,
-    166,
-    107,
-    221,
-    78,
-    63,
-    132,
-    115,
-    123,
+    88,
+    81,
     120,
-    113,
-    87,
-    109,
-    146,
-    104,
-    83,
-    101,
-    131,
-    113,
-    25,
+    88,
+    158,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0
   ],
   "traffic_type": {
-    "bot_count": 334,
-    "human_count": 2302,
-    "bot_percent": 12,
-    "human_percent": 88
+    "bot_count": 72,
+    "human_count": 466,
+    "bot_percent": 13,
+    "human_percent": 87
   },
-  "honeypot_hits": 254
+  "honeypot_hits": 66
 }
