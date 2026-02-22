@@ -122,7 +122,7 @@
 <body>
 
 <h1>AIMAN Evolution Dashboard</h1>
-<p class="subtitle">Generated: 2026-02-21 05:25 UTC</p>
+<p class="subtitle">Generated: 2026-02-22 05:25 UTC</p>
 
 <div class="grid">
 
@@ -138,7 +138,7 @@
     </div>
     <div class="metric">
       <span class="metric-label">Uptime</span>
-      <span class="metric-value">up 1 week, 6 days, 6 hours, 30 minutes</span>
+      <span class="metric-value">up 2 weeks, 6 hours, 30 minutes</span>
     </div>
     <div class="metric">
       <span class="metric-label">Since</span>
@@ -146,7 +146,7 @@
     </div>
     <div class="metric">
       <span class="metric-label">Load Avg</span>
-      <span class="metric-value">8.12</span>
+      <span class="metric-value">4.04</span>
     </div>
   </div>
 
@@ -155,17 +155,17 @@
     <h2>Resources</h2>
     <div class="metric">
       <span class="metric-label">Memory</span>
-      <span class="metric-value good">1271MB / 15611MB (8%)</span>
+      <span class="metric-value good">2589MB / 15611MB (16%)</span>
     </div>
     <div class="bar-container">
-      <div class="bar-fill" style="width:8%; background:#6b7280"></div>
+      <div class="bar-fill" style="width:16%; background:#6b7280"></div>
     </div>
     <div class="metric" style="margin-top:0.5rem">
       <span class="metric-label">Disk</span>
-      <span class="metric-value">36%</span>
+      <span class="metric-value">27%</span>
     </div>
     <div class="bar-container">
-      <div class="bar-fill" style="width:36%; background:#10b981"></div>
+      <div class="bar-fill" style="width:27%; background:#10b981"></div>
     </div>
   </div>
 
@@ -174,19 +174,19 @@
     <h2>Evolution Engine</h2>
     <div class="metric">
       <span class="metric-label">Total Iterations</span>
-      <span class="metric-value">367</span>
+      <span class="metric-value">378</span>
     </div>
     <div class="metric">
       <span class="metric-label">Commits (success)</span>
-      <span class="metric-value good">73</span>
+      <span class="metric-value good">77</span>
     </div>
     <div class="metric">
       <span class="metric-label">Rollbacks (failed)</span>
-      <span class="metric-value bad">89</span>
+      <span class="metric-value bad">92</span>
     </div>
     <div class="metric">
       <span class="metric-label">Success Rate</span>
-      <span class="metric-value warn">19%</span>
+      <span class="metric-value warn">20%</span>
     </div>
   </div>
 
@@ -195,19 +195,19 @@
     <h2>Codebase</h2>
     <div class="metric">
       <span class="metric-label">Test Count</span>
-      <span class="metric-value">7626</span>
+      <span class="metric-value">7856</span>
     </div>
     <div class="metric">
       <span class="metric-label">Scripts</span>
-      <span class="metric-value">114</span>
+      <span class="metric-value">108</span>
     </div>
     <div class="metric">
       <span class="metric-label">Blog Posts</span>
-      <span class="metric-value">34</span>
+      <span class="metric-value">39</span>
     </div>
     <div class="metric">
       <span class="metric-label">Commits (7d)</span>
-      <span class="metric-value">670</span>
+      <span class="metric-value">677</span>
     </div>
   </div>
 
@@ -256,12 +256,12 @@
 <div class="card">
   <h2>Recent Improvements</h2>
   <ul class="improvements">
-    <li>- [feat] fix large_scripts (19c7ad4)</li><li>- [feat] fix changelog_stale (884c59d)</li><li>- [feat] standardize master-readme-please.md with shared writer library (6de60b5)</li><li>- [feat] add aiman-core plugin skills + runtime data snapshot (5a801e9)</li><li>- [fix] improve regex word boundaries in hook files (434466f)</li><li>- [fix] restore diary/journal after 3-day cron failure + fix git-safe branch bugs (9a4ffa6)</li><li>- [fix] restore hugo-updater.sh from main — evolution broke it by extracting functions to missing lib (dcf7287)</li><li>- [fix] remove original copies of archived files, clean test references (f6f65a4)</li><li>- [fix] add Claude usage awareness to wisdom strength check (a221462)</li><li>- [fix] migrate git operations to git-safe.sh across 13 scripts (1013ea2)</li><li>- [fix] migrate JSONL writers and experience pool to safe operations (4453f19)</li><li>- [fix] add safe_append/prepend/filter and consolidate git locks (51f9f0f)</li><li>- [fix] write belated response + add commit safeguard for master messages (e09d0c2)</li><li>- [fix] evolution-branch stash uses -u to include untracked files (ce3a7e7)</li><li>- [fix] audit sprint remaining phases — security hardening, docs, logrotate (e3a2b36)</li><li>- [fix] audit-fix-verify sprint — 7 suites green, hooks hardened, crons re-enabled (278b790)</li><li>- [fix] audit sprint phase 4A — wisdom pipeline error visibility (Findings #1, #18) (1f3ce32)</li><li>- [fix] audit sprint phase 3A — evolution summary math, blacklist waste, opp_ts (Findings #4, #7, #8, #17) (09d711a)</li><li>- [fix] audit sprint phase 2A — wisdom pool flock + silent git errors (Findings #5, #6) (f9668e6)</li><li>- [fix] audit sprint phase 1 — KG auto-link, debug rotation, hourly deprecation, hardcoded paths (2d23f90)</li>
+    <li>- [feat] fix function_complexity (60c2437)</li><li>- [fix] restore wisdom pool processing visibility + unblock evolution (33a7eb7)</li><li>- [fix] suppress SC2064 in study-publish.sh (intentional early expansion) (9a36027)</li><li>- [fix] restore 16 cron entries from /opt/project-aiman-dev/ to /opt/project-aiman/ (14b06d4)</li><li>- [fix] expand harden-hooks.sh to cover scripts/hooks/ + isolate research-stop-gate (a22671b)</li><li>- [fix] complete test isolation — configurable /tmp/aiman-* paths across 34 files (882d2c0)</li><li>- [fix] sync evolution-pipeline test with refactored _map_weakness_to_files (581a483)</li><li>- [improve] daily data updates + changelog fix from evolution (1c022b1)</li><li>- [improve] add audit test notes + security actions log (4a4017c)</li><li>- [improve] evolution refactoring + daily data updates (704125d)</li><li>- [improve] doc updates, log-rotate subdirectory cleanup, memory dedup (634b75c)</li><li>- [improve] dead code cleanup — archive 2 scripts, remove unused git lock fns (8c50850)</li><li>- [docs] 2026-02-22 (2e81a0e)</li><li>- [feat] fix large_scripts (19c7ad4)</li><li>- [feat] fix changelog_stale (884c59d)</li><li>- [feat] standardize master-readme-please.md with shared writer library (6de60b5)</li><li>- [feat] add aiman-core plugin skills + runtime data snapshot (5a801e9)</li><li>- [fix] improve regex word boundaries in hook files (434466f)</li><li>- [fix] restore diary/journal after 3-day cron failure + fix git-safe branch bugs (9a4ffa6)</li><li>- [fix] restore hugo-updater.sh from main — evolution broke it by extracting functions to missing lib (dcf7287)</li>
   </ul>
 </div>
 
 <footer>
-  AIMAN Autonomous Infrastructure Management Agent | Dashboard generated at 2026-02-21 05:25 UTC
+  AIMAN Autonomous Infrastructure Management Agent | Dashboard generated at 2026-02-22 05:25 UTC
 </footer>
 
 <script>
@@ -269,10 +269,10 @@
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['2026-02-14','2026-02-15','2026-02-16','2026-02-17','2026-02-18','2026-02-19','2026-02-20','2026-02-21'],
+      labels: ['2026-02-15','2026-02-16','2026-02-17','2026-02-18','2026-02-19','2026-02-20','2026-02-21','2026-02-22'],
       datasets: [{
         label: 'Commits',
-        data: [55,67,123,136,172,76,31,10],
+        data: [62,123,136,172,76,31,49,28],
         backgroundColor: '#f0b429',
         borderColor: '#f0b429',
         borderWidth: 1,
